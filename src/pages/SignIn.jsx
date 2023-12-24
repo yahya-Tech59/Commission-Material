@@ -96,7 +96,6 @@ export const SignIn = () => {
             alt=""
             style={{
               display: "flex",
-              alignItems: "left",
               width: "10rem",
               height: "",
               marginTop: 10,

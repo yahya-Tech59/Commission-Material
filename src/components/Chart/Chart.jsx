@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { LineChart } from "./LineChart";
 import { UserData } from "./Data";
+import { Box, Select, Typography } from "@mui/material";
 
 export const Chart = () => {
   const [userData, setUserData] = useState({
@@ -14,21 +15,43 @@ export const Chart = () => {
   });
   return (
     <>
-      <div className="w-[96rem] h-[35rem] bg-white ml-1 p-5 rounded-lg mb-6 mt-[1.5rem]">
-        <h2 className="text-2xl">User</h2>
-        <div className="flex justify-end gap-2 -mt-8">
+      <Box
+        sx={{
+          width: "96rem",
+          height: "35rem",
+          borderRadius: 10,
+          mb: 6,
+          mt: "1.5rem",
+          bgcolor: "white",
+        }}
+      >
+        <Typography variant="h2" sx={{ fontSize: 20 }}>
+          User
+        </Typography>
+        <Box
+          sx={{ display: "flex", justifyContent: "flex-end", gap: 2, mt: -4 }}
+          className="flex justify-end gap-2 -mt-8"
+        >
           <h2>Sort By :</h2>
-          <select className="bg-blue-600 text-white rounded-md">
+          <Select
+            sx={{
+              bgcolor: "blue.600",
+              color: "white",
+              height: 25,
+              borderRadius: 2,
+              gap: 2,
+            }}
+          >
             <option value="year">Year</option>
             <option value="month">Month</option>
             <option value="day">Day</option>
-          </select>
-        </div>
+          </Select>
+        </Box>
 
-        <div className="ml-16">
+        <Box sx={{ ml: 16 }}>
           <LineChart chartData={userData} />
-        </div>
-      </div>
+        </Box>
+      </Box>
     </>
   );
 };

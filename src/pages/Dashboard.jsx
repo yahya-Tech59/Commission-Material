@@ -2,70 +2,210 @@ import React from "react";
 import { Footer } from "../components/Footer";
 import { Chart } from "../components/Chart/Chart";
 import { Header } from "../components/Header";
-import { Box } from "@mui/material";
+import { Box, Select, Typography } from "@mui/material";
 
 export const Dashboard = () => {
   return (
-    <Box
-      sx={{ gray: [400], pr: 10, display: "flex" }}
-      // className="bg-slate-100 pr-10 flex"
-    >
-      <div className="flex-col">
-        <div className="ml-11 ">
-          <Header className="ml-20" />
-          <div className="mt-[-4rem] ml-2">
-            <div className="flex justify-between">
-              <h2 className="mt-20 text-2xl font-medium mb-6">Dashboard</h2>
-              <select className="h-7 mt-20 text-blue-500">
+    <Box sx={{ color: "gray.400", display: "flex" }}>
+      <Box sx={{ flexDirection: "column" }}>
+        <Box sx={{ ml: 11 }}>
+          <Header sx={{ ml: 20 }} />
+          <Box sx={{ mt: "-4rem", ml: 2 }} className="mt-[-4rem] ml-2">
+            <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+              <Typography
+                variant="h5"
+                sx={{ mt: 20, fontSize: 30, fontWeight: 500, mb: 6 }}
+              >
+                Dashboard
+              </Typography>
+              <Select
+                defaultValue=""
+                sx={{
+                  height: 25,
+                  mt: 16,
+                  mr: 20,
+                  color: "blue.500",
+                }}
+                label="Last 30 Days"
+              >
                 <option value="">Last 30 Days</option>
-              </select>
-            </div>
+              </Select>
+            </Box>
 
-            <div className="">
-              <div className="h-36 w-[23rem] bg-white shadow-md shadow-slate-300 rounded-lg">
-                <span className="flex">
-                  <h2 className="text-xl ml-5 mt-5">Hide</h2>
+            <Box className="">
+              <Box
+                sx={{
+                  height: 144,
+                  width: 352,
+                  backgroundColor: "white",
+                  boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
+                  borderRadius: "16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  padding: "20px",
+                }}
+              >
+                <Typography variant="h6" sx={{ ml: 5, mt: 4 }}>
+                  Hide
+                </Typography>
 
-                  <h3 className="bg-slate-200 w-12 h-6 ml-[14rem] text-blue-500 rounded-md relative top-4 ">
-                    Yearly
-                  </h3>
-                </span>
-                <p className="text-3xl font-medium ml-5 mt-2">2,590</p>
-                <h2 className=" mt-1 ml-5 text-slate-400">Agency</h2>
-              </div>
-
-              <div className="h-36 w-[23rem] bg-white shadow-md shadow-slate-300 rounded-lg ml-[24.2rem] mt-[-9rem]">
-                <h3 className="bg-slate-200 w-12 h-6 ml-[19rem] text-blue-500 rounded-md relative top-3 ">
+                <Typography
+                  variant="h5"
+                  color="primary"
+                  sx={{
+                    position: "relative",
+                    top: 8, // Adjusted for MUI's positioning
+                    right: 12,
+                    backgroundColor: "gray.200",
+                    borderRadius: "16px",
+                  }}
+                >
                   Yearly
-                </h3>
-                <p className="text-3xl font-medium ml-5 mt-3">10,000</p>
-                <h2 className="mt-5 ml-5 text-slate-400">Customers</h2>
-              </div>
+                </Typography>
 
-              <div className="h-36 w-[23rem] bg-white shadow-md shadow-slate-300 rounded-lg ml-[48.5rem] mt-[-9rem]">
-                <h3 className="bg-slate-200 w-12 h-6 ml-[19rem] text-blue-500 rounded-md relative top-3 ">
-                  Yearly
-                </h3>
-                <p className="text-3xl font-medium ml-5 mt-3">100</p>
-                <h2 className="mt-5 ml-5 text-slate-400">Products</h2>
-              </div>
+                <Typography variant="h5" sx={{ fontWeight: 500, ml: 5, mt: 5 }}>
+                  2,590
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ mt: 1, ml: 5, color: "slate.400" }}
+                >
+                  Agency
+                </Typography>
+              </Box>
 
-              <div className="h-36 w-[23rem] bg-white shadow-md shadow-slate-300 rounded-lg ml-[72.7rem] mt-[-9rem]">
-                <h3 className="bg-slate-200 w-12 h-6 ml-[19rem] text-blue-500 rounded-md relative top-3 ">
+              <Box
+                sx={{
+                  height: 144,
+                  width: 352,
+                  backgroundColor: "white",
+                  boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
+                  borderRadius: "16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  padding: "20px",
+                  ml: "26rem",
+                  mt: "-11.5rem",
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{
+                    bgcolor: "gray.400",
+                    width: 12,
+                    h: 6,
+                    color: "blue.500",
+                    borderRadius: 50,
+                    position: "relative",
+                    top: 3,
+                  }}
+                >
                   Yearly
-                </h3>
-                <p className="text-3xl font-medium ml-5 mt-3">150</p>
-                <h2 className="mt-5 ml-5 text-slate-400">Orders</h2>
-              </div>
-            </div>
-          </div>
+                </Typography>
+                <Typography variant="h5" sx={{ fontWeight: 500, ml: 5, mt: 3 }}>
+                  10,000
+                </Typography>
+
+                <Typography
+                  variant="h5"
+                  sx={{ mt: 5, ml: 5, color: "gray.400" }}
+                >
+                  Customers
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  height: 144,
+                  width: 352,
+                  backgroundColor: "white",
+                  boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
+                  borderRadius: "16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  padding: "20px",
+                  ml: "48rem",
+                  mt: "-11.5rem",
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{
+                    bgcolor: "gray.400",
+                    width: 12,
+                    h: 6,
+                    color: "blue.500",
+                    borderRadius: 50,
+                    position: "relative",
+                    top: 3,
+                  }}
+                >
+                  Yearly
+                </Typography>
+                <Typography variant="h5" sx={{ fontWeight: 500, ml: 5, mt: 3 }}>
+                  12,00
+                </Typography>
+
+                <Typography
+                  variant="h5"
+                  sx={{ mt: 5, ml: 5, color: "gray.400" }}
+                >
+                  Products
+                </Typography>
+              </Box>
+
+              <Box
+                sx={{
+                  height: 144,
+                  width: 352,
+                  bgcolor: "white",
+                  boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
+                  borderRadius: "16px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  padding: "20px",
+                  ml: "72.7rem",
+                  mt: "-11.5rem",
+                }}
+              >
+                <Typography
+                  variant="h5"
+                  sx={{
+                    bgcolor: "gray.400",
+                    width: 12,
+                    h: 6,
+                    color: "blue.500",
+                    borderRadius: 50,
+                    position: "relative",
+                    top: 3,
+                  }}
+                >
+                  Yearly
+                </Typography>
+                <Typography variant="h5" sx={{ fontWeight: 500, ml: 5, mt: 3 }}>
+                  1,500
+                </Typography>
+
+                <Typography
+                  variant="h5"
+                  sx={{ mt: 5, ml: 5, color: "gray.400" }}
+                >
+                  Orders
+                </Typography>
+              </Box>
+            </Box>
+          </Box>
 
           <div className="flex flex-col ">
             <Chart />
             <Footer className="" />
           </div>
-        </div>
-      </div>
+        </Box>
+      </Box>
     </Box>
   );
 };

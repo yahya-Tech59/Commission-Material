@@ -1,12 +1,25 @@
+import { Box, Typography } from "@mui/material";
 import React from "react";
 
 export const Footer = () => {
   return (
-    <div className="bg-white ml-1 w-[96rem] flex gap-5 p-3 mb-2 ">
-      <h1>Privacy Policy</h1>
-      <h1>Terms of use</h1>
+    <Box
+      sx={{
+        bgcolor: "white",
+        ml: 1,
+        width: "96rem",
+        display: "flex",
+        gap: 5,
+        p: 3,
+        mb: 2,
+      }}
+    >
+      <Typography variant="h5">Privacy Policy</Typography>
+      <Typography variant="h5">Terms of use</Typography>
 
-      <p className="ml-[70rem]">@ 2023 CawaaleICT</p>
-    </div>
+      <Typography variant="h5" sx={{ ml: "55rem" }}>
+        @ 2023 CawaaleICT
+      </Typography>
+    </Box>
   );
 };

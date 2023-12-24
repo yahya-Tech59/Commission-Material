@@ -23,7 +23,6 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
-  IconButton,
 } from "@mui/material";
 
 export const Sidebar = () => {
@@ -33,15 +32,16 @@ export const Sidebar = () => {
     <Box>
       {!sidebarOpen ? (
         <Box onClick={handleOpen}>
-          <FaBars
-            sx={{ text: "3xl", ml: 10, mt: 5, cursor: "pointer" }}
-            className="text-3xl ml-10 mt-5 cursor-pointer "
-          />
+          <FaBars sx={{ fontSize: 18, ml: 10, mt: 5, cursor: "pointer" }} />
         </Box>
       ) : (
         <Box
-          sx={{ width: 260, height: "100vh", boxShadow: 4, bgcolor: "white" }}
-          className="w-72 h-screen shadow-slate-400 shadow-md bg-white "
+          sx={{
+            width: "16.368rem",
+            height: "100vh",
+            boxShadow: 2,
+            bgcolor: "white",
+          }}
         >
           <Box onClick={handleClose}>
             <BsFillArrowLeftCircleFill className="text-blue-700 text-2xl ml-[275px] relative top-10 cursor-pointer " />
@@ -62,8 +62,7 @@ export const Sidebar = () => {
 
           <Box
             sx={{
-              position: "relative",
-              top: 10,
+              mt: 4,
               display: "flex",
               flexDirection: "column",
             }}
@@ -71,144 +70,151 @@ export const Sidebar = () => {
             <img
               src={user}
               alt="user"
-              sx={{ ml: 20, mt: 10, height: "3.6rem", width: "3.6rem" }}
+              sx={{
+                width: "3.6rem",
+                height: "3.6rem",
+              }}
             />
-            <Button variant="h2" sx={{ text: "xl", ml: 10 }}>
+            <Button variant="h2" sx={{ fontSize: 18 }}>
               Jama Abdi
             </Button>
             <Typography
               variant="h5"
-              sx={{ text: "gray[400]", ml: 16 }}
+              sx={{ color: ["gray.500"], ml: 11 }}
               className="text-slate-400 ml-28"
             >
               @Abdi
             </Typography>
-            <Box
-              sx={{
-                display: "flex",
-                ml: 8,
-                mt: 8,
-                gap: 2,
-              }}
-            >
-              <img src={cart} alt="cart" />
-              <img src={heart} alt="cart" />
-              <img src={notif} alt="cart" />
-            </Box>
-            {/* sx={{ mt: 10, text: "xl", listStyle: "none", ml: 2, my: 4 }} */}
-            <List sx={{ mt: 10, fontSize: 24, pl: 2, py: 4 }}>
-              <Divider sx={{ my: 5 }} />
-              <>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/dashboard"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <ListItemIcon>
-                    <AiOutlineHome />
-                  </ListItemIcon>
-                  <ListItemText primary="Admin Dashboard" />
-                </ListItemButton>
-              </>
-              <>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/agents"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <ListItemIcon>
-                    <MdRealEstateAgent />
-                  </ListItemIcon>
-                  <ListItemText primary="Agents" />
-                </ListItemButton>
-              </>
-              <>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/customers"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <ListItemIcon>
-                    <MdOutlineDashboardCustomize className="ml-12 mr-5 mt-1 " />
-                  </ListItemIcon>
-                  <ListItemText primary="Customers" />
-                </ListItemButton>
-              </>
-              <>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/products"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <ListItemIcon>
-                    <MdProductionQuantityLimits className="ml-12 mr-5 mt-1" />
-                  </ListItemIcon>
-                  <ListItemText primary="Products" />
-                </ListItemButton>
-              </>
-              <>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/orders"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <ListItemIcon>
-                    <AiOutlineOrderedList className="ml-12 mr-5 mt-1" />
-                  </ListItemIcon>
-                  <ListItemText primary="Orders" />
-                </ListItemButton>
-              </>
-              <>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/users"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <HiUserGroup className="ml-12 mr-5 mt-1" />
-                  Users
-                </ListItemButton>
-              </>
-              <>
-                <Divider sx={{ my: 5 }} />
-                <Typography
-                  variant="h6"
-                  sx={{ ml: 10, mt: 10, mb: 6, color: "slate.600" }}
-                >
-                  OTHERS
-                </Typography>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/signout"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <ListItemIcon>
-                    <IconButton>{/* Add your signout icon here */}</IconButton>
-                  </ListItemIcon>
-                  <ListItemText primary="SignOut" />
-                </ListItemButton>
-              </>
-              <>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/help"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <ListItemIcon>
-                    <IconButton>{/* Add your help icon here */}</IconButton>
-                  </ListItemIcon>
-                  <ListItemText primary="Help" />
-                </ListItemButton>
-              </>
-            </List>
           </Box>
+          <Box
+            sx={{
+              display: "flex",
+              ml: 8,
+              mt: 2,
+              gap: 2,
+            }}
+          >
+            <img src={cart} alt="cart" />
+            <img src={heart} alt="cart" />
+            <img src={notif} alt="cart" />
+          </Box>
+
+          {/* NavBar */}
+
+          <List sx={{ fontSize: 24, pl: 2 }}>
+            <Divider sx={{ my: 2, mr: 2 }} />
+            <>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/dashboard"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <AiOutlineHome />
+                </ListItemIcon>
+                <ListItemText primary="Admin Dashboard" />
+              </ListItemButton>
+            </>
+            <>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/agents"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <MdRealEstateAgent />
+                </ListItemIcon>
+                <ListItemText primary="Agents" />
+              </ListItemButton>
+            </>
+            <>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/customers"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <MdOutlineDashboardCustomize className="ml-12 mr-5 mt-1 " />
+                </ListItemIcon>
+                <ListItemText primary="Customers" />
+              </ListItemButton>
+            </>
+            <>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/products"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <MdProductionQuantityLimits className="ml-12 mr-5 mt-1" />
+                </ListItemIcon>
+                <ListItemText primary="Products" />
+              </ListItemButton>
+            </>
+            <>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/orders"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <AiOutlineOrderedList className="ml-12 mr-5 mt-1" />
+                </ListItemIcon>
+                <ListItemText primary="Orders" />
+              </ListItemButton>
+            </>
+            <>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/users"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <HiUserGroup className="ml-12 mr-5 mt-1" />
+                </ListItemIcon>
+                <ListItemText primary="Users" />
+              </ListItemButton>
+            </>
+            <>
+              <Divider sx={{ my: 2, mr: 2 }} />
+              <Typography
+                variant="h6"
+                sx={{ ml: 3, mt: 2, mb: 2, color: "slate.600" }}
+              >
+                OTHER
+              </Typography>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/signout"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <GoSignOut />
+                </ListItemIcon>
+                <ListItemText primary="SignOut" />
+              </ListItemButton>
+            </>
+            <>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/help"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <BsFillExclamationCircleFill />
+                </ListItemIcon>
+                <ListItemText primary="Help" />
+              </ListItemButton>
+            </>
+          </List>
         </Box>
       )}
     </Box>
