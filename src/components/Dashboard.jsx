@@ -1,7 +1,7 @@
 import React from "react";
-import { Footer } from "../components/Footer";
-import { Chart } from "../components/Chart/Chart";
-import { Header } from "../components/Header";
+import { Footer } from "./Footer";
+import { Chart } from "./Chart/Chart";
+import { Header } from "./Header";
 import { Box, Select, Typography } from "@mui/material";
 
 export const Dashboard = () => {
@@ -33,13 +33,13 @@ export const Dashboard = () => {
               </select>
             </Box>
 
-            <Box className="">
+            <Box sx={{ ml: 3 }}>
               <Box
                 sx={{
                   height: 116,
                   width: 320,
                   backgroundColor: "white",
-                  boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
+                  boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
                   borderRadius: "16px",
                   display: "flex",
                   flexDirection: "column",
@@ -63,7 +63,7 @@ export const Dashboard = () => {
                     borderRadius: "1rem",
                     fontFamily: "inter",
                     fontSize: "1rem",
-                    p: 0.,
+                    p: 0,
                   }}
                 >
                   Yearly

@@ -14,6 +14,7 @@ export const Header = () => {
         mr: 2,
         width: "100rem",
         height: "4.75rem",
+        boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
       }}
     >
       <Button

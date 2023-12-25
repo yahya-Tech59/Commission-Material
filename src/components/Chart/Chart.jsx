@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { LineChart } from "./LineChart";
 import { UserData } from "./Data";
-import { Box, Select, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 export const Chart = () => {
   const [userData, setUserData] = useState({
@@ -14,44 +14,49 @@ export const Chart = () => {
     ],
   });
   return (
-    <>
+    <Box
+      sx={{
+        width: "97rem",
+        height: "39rem",
+        borderRadius: "0.5rem",
+        mb: 6,
+        mt: "1.5rem",
+        ml: 5,
+        bgcolor: "white",
+      }}
+    >
+      <Typography variant="h5" sx={{ pt: 3, pl: 5 }}>
+        Users
+      </Typography>
       <Box
         sx={{
-          width: "96rem",
-          height: "35rem",
-          borderRadius: 10,
-          mb: 6,
-          mt: "1.5rem",
-          bgcolor: "white",
+          display: "flex",
+          justifyContent: "flex-end",
+          gap: 2,
+          mt: -4,
+          pr: 5,
         }}
       >
-        <Typography variant="h2" sx={{ fontSize: 20 }}>
-          User
-        </Typography>
-        <Box
-          sx={{ display: "flex", justifyContent: "flex-end", gap: 2, mt: -4 }}
-          className="flex justify-end gap-2 -mt-8"
+        <Typography variant="h6">Sort By :</Typography>
+        <select
+          style={{
+            backgroundColor: "#3A57E8",
+            color: "white",
+            height: 25,
+            borderRadius: 2,
+            gap: 2,
+            padding: 3,
+          }}
         >
-          <h2>Sort By :</h2>
-          <Select
-            sx={{
-              bgcolor: "blue.600",
-              color: "white",
-              height: 25,
-              borderRadius: 2,
-              gap: 2,
-            }}
-          >
-            <option value="year">Year</option>
-            <option value="month">Month</option>
-            <option value="day">Day</option>
-          </Select>
-        </Box>
-
-        <Box sx={{ ml: 16 }}>
-          <LineChart chartData={userData} />
-        </Box>
+          <option value="year">Year</option>
+          <option value="month">Month</option>
+          <option value="day">Day</option>
+        </select>
       </Box>
-    </>
+
+      <Box sx={{ ml: 6, pb: 6 }}>
+        <LineChart chartData={userData} />
+      </Box>
+    </Box>
   );
 };

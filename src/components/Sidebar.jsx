@@ -41,7 +41,7 @@ export const Sidebar = () => {
         <Box
           sx={{
             width: "16.368rem",
-            height: "100vh",
+            height: "100%",
             boxShadow: 2,
             bgcolor: "white",
           }}

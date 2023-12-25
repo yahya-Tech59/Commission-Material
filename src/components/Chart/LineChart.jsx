@@ -3,5 +3,5 @@ import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 
 export const LineChart = ({ chartData }) => {
-  return <Line data={chartData} width={280} height={90} />;
+  return <Line data={chartData} width={250} height={90} />;
 };
