@@ -9,6 +9,7 @@ import { Context } from "../../Context/Context";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAgent } from "../../Services/AgentSlice";
 import { Search } from "../../components/Search";
+import { Box, Button, Icon, Typography } from "@mui/material";
 
 export const Agents = () => {
   const [showAddAgent, setShowAddAgent] = useState(false);
@@ -29,67 +30,133 @@ export const Agents = () => {
   }
 
   return (
-    <div className="ml-10">
+    <Box sx={{ ml: 3 }}>
       <Header />
-      <div className="bg-white w-[96rem] mt-3 mb-6 ml-2 shadow-lg shadow-slate-300 rounded-lg pb-3 ">
-        <h2 className="text-3xl pt-6 ml-7">Agents</h2>
+      <Box
+        sx={{
+          bgcolor: "white",
+          width: "96rem",
+          mt: 3,
+          mb: 6,
+          ml: 2,
+          boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
+          pb: 3,
+        }}
+      >
+        <Typography variant="h5" sx={{ fontWeight: 600, pt: 3, ml: 4 }}>
+          Agents
+        </Typography>
 
-        <div className="ml-[72rem] mb-[3.3rem] ">
-          <button
+        <Box sx={{ ml: "72rem", mb: "3.3rem" }}>
+          <Button
             onClick={() => setShowAddAgent(true)}
-            className="absolute flex gap-4 text-md p-3 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer "
+            sx={{
+              position: "absolute",
+              display: "flex",
+              gap: 1,
+              bgcolor: "#3A57E8",
+              color: "white",
+              borderRadius: 2,
+              ":hover": {
+                bgcolor: "#4762e9",
+              },
+              cursor: "pointer",
+            }}
           >
             Add Agent
-            <IoMdAdd className=" text-2xl" />
-          </button>
+            <Icon sx={{ mb: 1 }}>
+              <IoMdAdd className=" text-2xl" />
+            </Icon>
+          </Button>
           {showAddAgent && (
-            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-10">
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "full",
+                height: "full",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                zIndex: 10,
+              }}
+            >
               <AddAgent onClose={() => setShowAddAgent(false)} />
-            </div>
+            </Box>
           )}
-        </div>
+        </Box>
 
-        <div className="mb-6">
+        <Box sx={{ mb: 6 }} className="mb-6">
           <Search />
-        </div>
+        </Box>
 
-        <div style={{ height: 630, width: "95%" }} className="ml-10 mb-4  ">
+        <Box sx={{ height: 630, width: "95%", ml: 5, mb: 4 }}>
           <DataGrid
             rows={agents}
             columns={columns}
             getRowId={(row) => row.id}
           />
-        </div>
+        </Box>
 
-        <div className="ml-[76rem] mt-3 pb-3">
-          <button
+        <Box sx={{ ml: "67rem", mt: 3, pb: 1 }}>
+          <Button
             onClick={() => handlePageChange(currentPage === 20)}
-            className="bg-slate-200 p-1 m-1 rounded-md pl-2 pr-2"
+            sx={{
+              bgcolor: "#d6d6d6",
+              p: 1,
+              m: 1,
+              pl: 2,
+              pr: 2,
+              borderRadius: 3,
+            }}
           >
             {"<<"}
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="bg-slate-200 p-1 m-1 rounded-md pl-2 pr-2"
+            sx={{
+              bgcolor: "#d6d6d6",
+              p: 1,
+              m: 1,
+              pl: 2,
+              pr: 2,
+              borderRadius: 3,
+            }}
           >
             Previous Page
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === 20}
-            className="bg-slate-200 p-1 m-1 rounded-md pl-2 pr-2"
+            sx={{
+              bgcolor: "#d6d6d6",
+              p: 1,
+              m: 1,
+              pl: 2,
+              pr: 2,
+              borderRadius: 3,
+            }}
           >
             Next Page
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => handlePageChange()}
-            className="bg-slate-200 p-1 m-1 rounded-md pl-2 pr-2"
+            sx={{
+              bgcolor: "#d6d6d6",
+              p: 1,
+              m: 1,
+              pl: 2,
+              pr: 2,
+              borderRadius: 3,
+            }}
           >
             {">>"}
-          </button>
-        </div>
-      </div>
-    </div>
+          </Button>
+        </Box>
+      </Box>
+    </Box>
   );
 };

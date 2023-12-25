@@ -93,8 +93,8 @@ export const Sidebar = () => {
               Jama Abdi
             </Button>
             <Typography
-              variant="h5"
-              sx={{ color: ["gray.500"], ml: 11 }}
+              variant="h6"
+              sx={{ color: "#8A92A6", ml: 11 }}
               className="text-slate-400 ml-28"
             >
               @Abdi

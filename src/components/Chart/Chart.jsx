@@ -16,7 +16,7 @@ export const Chart = () => {
   return (
     <Box
       sx={{
-        width: "97rem",
+        width: "95rem",
         height: "39rem",
         borderRadius: "0.5rem",
         mb: 6,
@@ -37,15 +37,19 @@ export const Chart = () => {
           pr: 5,
         }}
       >
-        <Typography variant="h6">Sort By :</Typography>
+        <Typography variant="h6" sx={{ color: "#ADB5BD", fontSize: 18 }}>
+          Sort By :
+        </Typography>
         <select
           style={{
             backgroundColor: "#3A57E8",
             color: "white",
-            height: 25,
+            height: 28,
+            width: 65,
             borderRadius: 2,
             gap: 2,
-            padding: 3,
+            marginTop: 2,
+            padding: 5,
           }}
         >
           <option value="year">Year</option>
