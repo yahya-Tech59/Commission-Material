@@ -8,8 +8,8 @@ export const Dashboard = () => {
   return (
     <Box sx={{ color: "gray.400", display: "flex" }}>
       <Box sx={{ flexDirection: "column" }}>
-        <Box sx={{ ml: 11 }}>
-          <Header sx={{ ml: 20 }} />
+        <Box sx={{ ml: 2 }}>
+          <Header />
           <Box sx={{ mt: "-4rem", ml: 2 }} className="mt-[-4rem] ml-2">
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               <Typography
@@ -80,7 +80,7 @@ export const Dashboard = () => {
                   height: 144,
                   width: 352,
                   backgroundColor: "white",
-                  boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
+                  boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
                   borderRadius: "16px",
                   display: "flex",
                   flexDirection: "column",
