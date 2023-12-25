@@ -63,7 +63,7 @@ export const Dashboard = () => {
                     borderRadius: "1rem",
                     fontFamily: "inter",
                     fontSize: "1rem",
-                    p: 0.5,
+                    p: 0.,
                   }}
                 >
                   Yearly

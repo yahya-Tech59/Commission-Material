@@ -16,6 +16,7 @@ import { NavLink } from "react-router-dom";
 import { Context } from "../Context/Context";
 import {
   Box,
+  Icon,
   Button,
   Typography,
   List,
@@ -32,7 +33,9 @@ export const Sidebar = () => {
     <Box>
       {!sidebarOpen ? (
         <Box onClick={handleOpen}>
-          <FaBars sx={{ fontSize: 18, ml: 10, mt: 5, cursor: "point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er" }} />
+          <Icon sx={{ fontSize: 18, ml: 2, mt: 2, cursor: "pointer" }}>
+            <FaBars />
+          </Icon>
         </Box>
       ) : (
         <Box
@@ -44,25 +47,35 @@ export const Sidebar = () => {
           }}
         >
           <Box onClick={handleClose}>
-            <BsFillArrowLeftCircleFill className="text-blue-700 text-2xl ml-[275px] relative top-10 cursor-pointer " />
+            <Icon
+              sx={{
+                color: "#0048B2",
+                ml: "15.6rem",
+                position: "relative",
+                top: 35,
+              }}
+            >
+              <BsFillArrowLeftCircleFill className="text-blue-700 text-2xl ml-[75rem] relative top-10 cursor-pointer " />
+            </Icon>
+
+            <Typography
+              variant="h5"
+              sx={{
+                text: "3xl",
+                position: "relative",
+                top: 4,
+                ml: 3,
+                fontFamily: "Inter",
+                fontWeight: 600,
+              }}
+            >
+              Commission System
+            </Typography>
           </Box>
-          <Button
-            variant="h1"
-            sx={{
-              text: "3xl",
-              position: "relative",
-              top: 4,
-              ml: 4,
-              fontFamily: "inter",
-              fontSize: 18,
-            }}
-          >
-            Billing System
-          </Button>
 
           <Box
             sx={{
-              mt: 4,
+              mt: 10,
               display: "flex",
               flexDirection: "column",
             }}
@@ -70,9 +83,10 @@ export const Sidebar = () => {
             <img
               src={user}
               alt="user"
-              sx={{
-                width: "3.6rem",
-                height: "3.6rem",
+              style={{
+                width: "7rem",
+                height: "7rem",
+                marginLeft: 80,
               }}
             />
             <Button variant="h2" sx={{ fontSize: 18 }}>
