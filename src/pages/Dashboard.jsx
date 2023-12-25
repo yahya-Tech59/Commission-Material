@@ -14,29 +14,30 @@ export const Dashboard = () => {
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               <Typography
                 variant="h5"
-                sx={{ mt: 20, fontSize: 30, fontWeight: 500, mb: 6 }}
+                sx={{ mt: 12, fontSize: 30, fontWeight: 500, mb: 4 }}
               >
                 Dashboard
               </Typography>
-              <Select
+              <select
                 defaultValue=""
-                sx={{
-                  height: 25,
-                  mt: 16,
-                  mr: 20,
-                  color: "blue.500",
+                style={{
+                  height: 20,
+                  position: "relative",
+                  top: 100,
+                  right: 40,
+                  border: "none",
+                  color: "#3A57E8",
                 }}
-                label="Last 30 Days"
               >
                 <option value="">Last 30 Days</option>
-              </Select>
+              </select>
             </Box>
 
             <Box className="">
               <Box
                 sx={{
-                  height: 144,
-                  width: 352,
+                  height: 116,
+                  width: 320,
                   backgroundColor: "white",
                   boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
                   borderRadius: "16px",
@@ -46,7 +47,7 @@ export const Dashboard = () => {
                   padding: "20px",
                 }}
               >
-                <Typography variant="h6" sx={{ ml: 5, mt: 4 }}>
+                <Typography variant="h6" sx={{}}>
                   Hide
                 </Typography>
 
@@ -55,30 +56,39 @@ export const Dashboard = () => {
                   color="primary"
                   sx={{
                     position: "relative",
-                    top: 8, // Adjusted for MUI's positioning
-                    right: 12,
-                    backgroundColor: "gray.200",
-                    borderRadius: "16px",
+                    bottom: 28,
+                    left: 260,
+                    bgcolor: "#EBEEFD",
+                    color: "#3A57E8",
+                    borderRadius: "1rem",
+                    fontFamily: "inter",
+                    fontSize: "1rem",
+                    p: 0.5,
                   }}
                 >
                   Yearly
                 </Typography>
 
-                <Typography variant="h5" sx={{ fontWeight: 500, ml: 5, mt: 5 }}>
-                  2,590
-                </Typography>
-                <Typography
-                  variant="body2"
-                  sx={{ mt: 1, ml: 5, color: "slate.400" }}
-                >
-                  Agency
-                </Typography>
+                <Box sx={{ position: "relative", bottom: 52, right: 30 }}>
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 500, ml: 5, mt: 5 }}
+                  >
+                    2,590
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ mt: 1, ml: 5, color: "#8A92A6" }}
+                  >
+                    Agency
+                  </Typography>
+                </Box>
               </Box>
 
               <Box
                 sx={{
-                  height: 144,
-                  width: 352,
+                  height: 116,
+                  width: 320,
                   backgroundColor: "white",
                   boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
                   borderRadius: "16px",
@@ -86,40 +96,52 @@ export const Dashboard = () => {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   padding: "20px",
-                  ml: "26rem",
-                  mt: "-11.5rem",
+                  ml: "24rem",
+                  mt: "-9.8rem",
                 }}
               >
+                <Typography variant="h6" sx={{}}>
+                  Hide
+                </Typography>
+
                 <Typography
                   variant="h5"
+                  color="primary"
                   sx={{
-                    bgcolor: "gray.400",
-                    width: 12,
-                    h: 6,
-                    color: "blue.500",
-                    borderRadius: 50,
                     position: "relative",
-                    top: 3,
+                    bottom: 28,
+                    left: 260,
+                    bgcolor: "#EBEEFD",
+                    color: "#3A57E8",
+                    borderRadius: "1rem",
+                    fontFamily: "inter",
+                    fontSize: "1rem",
+                    p: 0.5,
                   }}
                 >
                   Yearly
                 </Typography>
-                <Typography variant="h5" sx={{ fontWeight: 500, ml: 5, mt: 3 }}>
-                  10,000
-                </Typography>
 
-                <Typography
-                  variant="h5"
-                  sx={{ mt: 5, ml: 5, color: "gray.400" }}
-                >
-                  Customers
-                </Typography>
+                <Box sx={{ position: "relative", bottom: 52, right: 30 }}>
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 500, ml: 5, mt: 5 }}
+                  >
+                    10,000
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ mt: 1, ml: 5, color: "#8A92A6" }}
+                  >
+                    Customers
+                  </Typography>
+                </Box>
               </Box>
 
               <Box
                 sx={{
-                  height: 144,
-                  width: 352,
+                  height: 116,
+                  width: 320,
                   backgroundColor: "white",
                   boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
                   borderRadius: "16px",
@@ -128,39 +150,51 @@ export const Dashboard = () => {
                   alignItems: "flex-start",
                   padding: "20px",
                   ml: "48rem",
-                  mt: "-11.5rem",
+                  mt: "-9.8rem",
                 }}
               >
+                <Typography variant="h6" sx={{}}>
+                  Hide
+                </Typography>
+
                 <Typography
                   variant="h5"
+                  color="primary"
                   sx={{
-                    bgcolor: "gray.400",
-                    width: 12,
-                    h: 6,
-                    color: "blue.500",
-                    borderRadius: 50,
                     position: "relative",
-                    top: 3,
+                    bottom: 28,
+                    left: 260,
+                    bgcolor: "#EBEEFD",
+                    color: "#3A57E8",
+                    borderRadius: "1rem",
+                    fontFamily: "inter",
+                    fontSize: "1rem",
+                    p: 0.5,
                   }}
                 >
                   Yearly
                 </Typography>
-                <Typography variant="h5" sx={{ fontWeight: 500, ml: 5, mt: 3 }}>
-                  12,00
-                </Typography>
 
-                <Typography
-                  variant="h5"
-                  sx={{ mt: 5, ml: 5, color: "gray.400" }}
-                >
-                  Products
-                </Typography>
+                <Box sx={{ position: "relative", bottom: 52, right: 30 }}>
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 500, ml: 5, mt: 5 }}
+                  >
+                    100
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ mt: 1, ml: 5, color: "#8A92A6" }}
+                  >
+                    Products
+                  </Typography>
+                </Box>
               </Box>
 
               <Box
                 sx={{
-                  height: 144,
-                  width: 352,
+                  height: 116,
+                  width: 320,
                   bgcolor: "white",
                   boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)", // Adjusted for MUI's shadow prop
                   borderRadius: "16px",
@@ -168,34 +202,46 @@ export const Dashboard = () => {
                   flexDirection: "column",
                   alignItems: "flex-start",
                   padding: "20px",
-                  ml: "72.7rem",
-                  mt: "-11.5rem",
+                  ml: "72rem",
+                  mt: "-9.8rem",
                 }}
               >
-                <Typography
-                  variant="h5"
-                  sx={{
-                    bgcolor: "gray.400",
-                    width: 12,
-                    h: 6,
-                    color: "blue.500",
-                    borderRadius: 50,
-                    position: "relative",
-                    top: 3,
-                  }}
-                >
-                  Yearly
-                </Typography>
-                <Typography variant="h5" sx={{ fontWeight: 500, ml: 5, mt: 3 }}>
-                  1,500
+                <Typography variant="h6" sx={{}}>
+                  Hide
                 </Typography>
 
                 <Typography
                   variant="h5"
-                  sx={{ mt: 5, ml: 5, color: "gray.400" }}
+                  color="primary"
+                  sx={{
+                    position: "relative",
+                    bottom: 28,
+                    left: 260,
+                    bgcolor: "#EBEEFD",
+                    color: "#3A57E8",
+                    borderRadius: "1rem",
+                    fontFamily: "inter",
+                    fontSize: "1rem",
+                    p: 0.5,
+                  }}
                 >
-                  Orders
+                  Yearly
                 </Typography>
+
+                <Box sx={{ position: "relative", bottom: 52, right: 30 }}>
+                  <Typography
+                    variant="h4"
+                    sx={{ fontWeight: 500, ml: 5, mt: 5 }}
+                  >
+                    150
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    sx={{ mt: 1, ml: 5, color: "#8A92A6" }}
+                  >
+                    Orders
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Box>

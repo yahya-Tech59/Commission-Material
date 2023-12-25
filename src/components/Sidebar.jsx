@@ -32,7 +32,7 @@ export const Sidebar = () => {
     <Box>
       {!sidebarOpen ? (
         <Box onClick={handleOpen}>
-          <FaBars sx={{ fontSize: 18, ml: 10, mt: 5, cursor: "pointer" }} />
+          <FaBars sx={{ fontSize: 18, ml: 10, mt: 5, cursor: "point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er" }} />
         </Box>
       ) : (
         <Box
