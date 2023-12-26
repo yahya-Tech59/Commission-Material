@@ -1,13 +1,25 @@
+import { Button } from "@mui/material";
 import React from "react";
 
 const ClearButton = ({ label, onClick }) => (
-  <button
+  <Button
     type="button"
     onClick={onClick}
-    className="p-1 mr-1 rounded-lg w-28 h-12 mt-10 bg-red-600 text-white text-xl"
+    sx={{
+      p: 3,
+      px: 7,
+      borderRadius: 4,
+      width: 28,
+      height: 12,
+      bgcolor: "#C03221",
+      "&:hover": {
+        bgcolor: "#df5646",
+      },
+      color: "white",
+    }}
   >
     {label}
-  </button>
+  </Button>
 );
 
 export default ClearButton;

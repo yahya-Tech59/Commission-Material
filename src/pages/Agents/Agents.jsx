@@ -2,31 +2,31 @@ import { useState, useEffect, useContext, useMemo } from "react";
 
 import { columns } from "./AgentColumns";
 import { Header } from "../../components/Header";
-import { AddAgent } from "../../Models/AgentForms/AddAgent";
+import { AddAgent } from "../../Models/Agent/AddAgent";
 import { IoMdAdd } from "react-icons/io";
 import { DataGrid } from "@mui/x-data-grid";
 import { Context } from "../../Context/Context";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAgent } from "../../Services/AgentSlice";
+import useAgentsStore from "../../Services/AgentApi";
 import { Search } from "../../components/Search";
 import { Box, Button, Icon, Typography } from "@mui/material";
 
 export const Agents = () => {
   const [showAddAgent, setShowAddAgent] = useState(false);
-  // const { agents, loading, fetchAgent } = useContext(AgentsContext);
+
+  const { agents, loading, fetchAgent } = useAgentsStore();
 
   const { currentPage, handlePageChange } = useContext(Context);
 
-  const dispatch = useDispatch();
-  const agents = useSelector((state) => state.agents.agents);
-  const loading = useSelector((state) => state.agents.loading);
-
   useEffect(() => {
-    dispatch(fetchAgent(currentPage));
+    fetchAgent(currentPage);
   }, [currentPage]);
 
   if (loading === true) {
-    return <h1 className="text-3xl font-semibold ml-[53rem]">Loading...</h1>;
+    return (
+      <Typography variant="h2" sx={{ ml: "53rem" }}>
+        Loading...
+      </Typography>
+    );
   }
 
   return (
@@ -38,7 +38,7 @@ export const Agents = () => {
           width: "96rem",
           mt: 3,
           mb: 6,
-          ml: 2,
+
           boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
           pb: 3,
         }}
@@ -47,7 +47,7 @@ export const Agents = () => {
           Agents
         </Typography>
 
-        <Box sx={{ ml: "72rem", mb: "3.3rem" }}>
+        <Box sx={{ ml: "72rem", mb: 4.3 }}>
           <Button
             onClick={() => setShowAddAgent(true)}
             sx={{
@@ -74,12 +74,14 @@ export const Agents = () => {
                 position: "absolute",
                 top: 0,
                 left: 0,
+                right: 0,
+                bottom: 0,
                 width: "full",
                 height: "full",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                backgroundColor: "rgba(0, 0, 0, 0.2)",
                 zIndex: 10,
               }}
             >
@@ -88,7 +90,7 @@ export const Agents = () => {
           )}
         </Box>
 
-        <Box sx={{ mb: 6 }} className="mb-6">
+        <Box sx={{ mb: 2 }} className="mb-2">
           <Search />
         </Box>
 

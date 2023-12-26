@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { RiEditLine } from "react-icons/ri";
 import { RiDeleteBin2Line } from "react-icons/ri";
-import { EditProduct } from "../../Models/ProductForms/EditProduct";
-import { DeleteProduct } from "../../Models/ProductForms/DeleteProduct";
+import { EditProduct } from "../../Models/Product/EditProduct";
+import { DeleteProduct } from "../../Models/Product/DeleteProduct";
 
 export const columns = [
   { field: "id", headerName: "No", flex: 1 },

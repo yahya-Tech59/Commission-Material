@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { RiEditLine } from "react-icons/ri";
 import { RiDeleteBin2Line } from "react-icons/ri";
-import { EditAgent } from "../../Models/AgentForms/EditAgent";
-import { DeleteAgent } from "../../Models/AgentForms/DeleteAgent";
+import { EditAgent } from "../../Models/Agent/EditAgent";
+import { DeleteAgent } from "../../Models/Agent/DeleteAgent";
+import { Box, Button } from "@mui/material";
 
 export const columns = [
   { field: "id", headerName: "No", flex: 1 },
@@ -20,49 +21,77 @@ export const columns = [
       const [showDeleteAgent, setShowDeleteAgent] = useState(false);
       const [id, setId] = useState(null);
 
-      // const handleDeleteAgent = (agentId) => {
-      //   setAgents((prevAgents) =>
-      //     prevAgents.filter((agent) => agent.id !== agentId)
-      //   );
-      //   setShowDeleteAgent(false);7u
-      // };
-
       return (
-        <div className="flex space-x-4 hover:text-black justify-center">
-          <button
+        <Box
+          sx={{
+            display: "flex",
+            gap: 2,
+            justifyContent: "center",
+            ":hover": {
+              color: "black",
+            },
+          }}
+        >
+          <Button
             onClick={() => {
               setId(row.id);
               setShowEditAgent(true);
             }}
-            className="text-md p-1 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            sx={{
+              bgcolor: "#3A57E8",
+              color: "white",
+              borderRadius: "3.125rem",
+              ":hover": {
+                bgcolor: "#4562f7",
+              },
+              fontSize: 18,
+            }}
           >
             <RiEditLine />
-          </button>
-          <button
+          </Button>
+          <Button
             onClick={() => {
               setId(row.id);
               setShowDeleteAgent(true);
               alert("deleted successfuly");
             }}
-            className="text-md p-1 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            sx={{
+              bgcolor: "#3A57E8",
+              color: "white",
+              borderRadius: "3.125rem",
+              ":hover": {
+                bgcolor: "#4562f7",
+              },
+              fontSize: 18,
+            }}
           >
             <RiDeleteBin2Line />
-          </button>
+          </Button>
 
           {showEditAgent && (
-            <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-20">
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(0, 0, 0, 0.2)",
+              }}
+            >
               <EditAgent onClose={() => setShowEditAgent(false)} id={id} />
-            </div>
+            </Box>
           )}
           {showDeleteAgent && (
-            <div>
+            <Box>
               <DeleteAgent onClose={() => setShowDeleteAgent(false)} id={id} />
-            </div>
+            </Box>
           )}
-        </div>
+        </Box>
       );
     },
   },
 ];
-
-// please help to pop EditAgent modal over the whole table

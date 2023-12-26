@@ -6,6 +6,14 @@ import axios from "../../api/axiosConfig";
 import { IoCloseOutline } from "react-icons/io5";
 import SubmitButton from "../../components/SubmitButton";
 import ClearButton from "../../components/ClearButton";
+import {
+  Box,
+  Button,
+  Typography,
+  Icon,
+  InputLabel,
+  Input,
+} from "@mui/material";
 
 export const AddCustomer = ({ onClose }) => {
   const [name, setName] = useState("");
@@ -59,64 +67,133 @@ export const AddCustomer = ({ onClose }) => {
   };
 
   return (
-    <div className="flex bg-slate-100">
-      <form
+    <Box sx={{ display: "flex" }}>
+      <Box
+        component="form"
         onSubmit={handleSubmit(AddCustomer)}
-        className="flex flex-col gap-1 bg-white shadow-slate-300 shadow-sm w-[38rem] h-[38rem] rounded-lg p-3"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 1,
+          bgcolor: "white",
+          boxShadow: 2,
+          width: "35rem",
+          height: "36rem",
+          borderRadius: 2,
+          p: 3,
+        }}
       >
-        <div className="pb-16 ml-5 mt-8">
-          <div className="flex">
-            <h2 className="text-3xl ml-40">Add New Customer</h2>
-            <button
+        <Box sx={{ mt: 4 }}>
+          <Box sx={{ display: "flex", gap: 5 }}>
+            <Typography variant="h4" sx={{ ml: 7 }}>
+              Add New Customer
+            </Typography>
+            <Button
               onClick={onClose}
-              className="h-8 w-8 p-1 bg-blue-500 text-white text-2xl font-medium rounded-md hover:bg-blue-600 ml-28"
+              sx={{
+                bgcolor: "#3A57E8",
+                height: 40,
+                width: 30,
+                ml: 8,
+                "&:hover": {
+                  bgcolor: "#647ae6",
+                },
+              }}
             >
-              <IoCloseOutline />
-            </button>
-          </div>
+              <Icon sx={{ color: "white", pb: 1 }}>
+                <IoCloseOutline />
+              </Icon>
+            </Button>
+          </Box>
 
-          <div className="space-y-6">
-            <div className="flex flex-col gap-1">
-              <label>Name</label>
-              <input
+          <Box sx={{ my: 6, ml: 3 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+            >
+              <InputLabel>Name</InputLabel>
+              <Input
                 type="text"
                 {...register("fullname")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+
+                  mr: 1,
+                  borderRadius: "0.5rem",
+                  width: "32rem",
+                  "::placeholder": {
+                    pl: 2,
+                    color: "#8A92A6",
+                  },
+                }}
                 placeholder="john"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-            </div>
-            <div className="flex flex-col gap-1">
-              <label>Contact</label>
-              <input
+            </Box>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+            >
+              <InputLabel>Contact</InputLabel>
+              <Input
                 type="string"
                 {...register("phone")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+
+                  mr: 1,
+                  borderRadius: "0.5rem",
+                  width: "32rem",
+                  "::placeholder": {
+                    pl: 2,
+                    color: "#8A92A6",
+                  },
+                }}
                 placeholder="123456"
                 value={contact}
                 onChange={(e) => setContact(e.target.value)}
               />
-            </div>
-            <div>
-              <label>Address </label>
-              <input
+            </Box>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+            >
+              <InputLabel>Address </InputLabel>
+              <Input
                 type="text"
                 {...register("address")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+
+                  mr: 1,
+                  borderRadius: "0.5rem",
+                  width: "32rem",
+                  "::placeholder": {
+                    pl: 2,
+                    color: "#8A92A6",
+                  },
+                }}
                 placeholder="mogadishu..."
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />
-            </div>
+            </Box>
 
-            <div>
-              <label>Agency</label>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+            >
+              <InputLabel>Agency</InputLabel>
               <select
                 {...register("agency_id")}
                 defaultValue={agency_id}
                 onChange={(e) => setAgency_id(e.target.value)}
-                className="placeholder:text-slate-700 p-3 mr-1 rounded-lg w-[34rem]"
+                style={{
+                  "&::placeholder": {
+                    color: "text.secondary",
+                  },
+                  padding: 8,
+                  marginRight: 1,
+                  borderRadius: 8,
+                  width: "33rem",
+                }}
               >
                 <option value="" disabled>
                   Select an agent
@@ -125,25 +202,32 @@ export const AddCustomer = ({ onClose }) => {
                   <option
                     key={agent.id}
                     value={agent.id}
+                    style={{ paddingBottom: 2 }}
                     className="text-slate-700"
                   >
                     {agent.fullname}
                   </option>
                 ))}
               </select>
-            </div>
-          </div>
+            </Box>
+          </Box>
 
           {/* <div className="flex mt-6 gap-4 justify-center ">
             <input type="checkbox" />
             <p>I agree With The Terms Of Use</p>
           </div> */}
-          <div className="flex gap-72 ml-5 ">
+          <Box
+            sx={{
+              display: "flex",
+              gap: 38,
+              ml: 2,
+            }}
+          >
             <SubmitButton label="Submit" />
             <ClearButton label="Clear" onClick={handleClear} />
-          </div>
-        </div>
-      </form>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
