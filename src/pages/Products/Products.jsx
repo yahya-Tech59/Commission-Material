@@ -1,7 +1,7 @@
 import React, { useMemo, useState, useEffect, useContext } from "react";
 
 import { columns } from "./ProductColumn";
-import { Header } from "../../components/Header";
+import { Header } from "../../layouts/Header";
 // import { Table } from "../../components/Table";
 import { DataGrid } from "@mui/x-data-grid";
 import { AddProduct } from "../../Models/Product/AddProducts";
@@ -47,7 +47,7 @@ export const Products = () => {
           Products
         </Typography>
 
-        <Box sx={{ ml: "72rem", mb: 4.3 }}>
+        <Box sx={{ ml: "71rem", mb: 4.3 }}>
           <Button
             onClick={() => setShowAddProduct(true)}
             sx={{

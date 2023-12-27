@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 
 import { columns } from "./CustomerColumns";
-import { Header } from "../../components/Header";
+import { Header } from "../../layouts/Header";
 // import { Table } from "../../components/Table";
 import { DataGrid } from "@mui/x-data-grid";
 import { AddCustomer } from "../../Models/Customer/AddCustomer";
@@ -48,7 +48,7 @@ export const Customers = () => {
           Customers
         </Typography>
 
-        <Box sx={{ ml: "72rem", mb: 4.3 }}>
+        <Box sx={{ ml: "70.5rem", mb: 4.3 }}>
           <Button
             onClick={() => setShowAddCustomer(true)}
             sx={{

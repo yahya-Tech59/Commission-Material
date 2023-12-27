@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 
 import { columns } from "./OrderColumns";
-import { Header } from "../../components/Header";
+import { Header } from "../../layouts/Header";
 import { DataGrid } from "@mui/x-data-grid";
 import { AddOrder } from "../../Models/Order/AddOrder";
 import { IoMdAdd } from "react-icons/io";
@@ -46,7 +46,7 @@ export const Orders = () => {
           Orders
         </Typography>
 
-        <Box sx={{ ml: "72rem", mb: 4.3 }}>
+        <Box sx={{ ml: "72.5rem", mb: 4.3 }}>
           <Button
             onClick={() => setShowAddOrder(true)}
             sx={{

@@ -8,3 +8,5 @@ export { default as Google } from "./Gmail.png";
 export { default as facebook } from "./Facebook.png";
 export { default as instagram } from "./Instagram.png";
 export { default as linkedin } from "./Linkedin.png";
+export { default as del } from "./deleteButton.png";
+export { default as edit } from "./editButton.png";

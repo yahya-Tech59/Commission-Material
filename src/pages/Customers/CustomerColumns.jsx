@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { RiEditLine } from "react-icons/ri";
 import { RiDeleteBin2Line } from "react-icons/ri";
+// import {del, edit} from '../../assets/img'
 import { EditCustomer } from "../../Models/Customer/EditCustomer";
 import { DeleteCustomer } from "../../Models/Customer/DeleteCustomer";
+import { Box, IconButton, Icon } from "@mui/material";
 
 export const columns = [
   { field: "id", headerName: "No", flex: 1 },
@@ -28,44 +30,83 @@ export const columns = [
       const [id, setId] = useState(null);
 
       return (
-        <div className="flex space-x-4 hover:text-black ">
-          <button
+        <Box
+          sx={{
+            display: "flex",
+            gap: 1,
+            justifyContent: "center",
+            ":hover": {
+              color: "black",
+            },
+          }}
+        >
+          <IconButton
             onClick={() => {
               setId(row.id);
               setShowEditCustomer(true);
             }}
-            className="text-md p-1 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            sx={{
+              bgcolor: "#3A57E8",
+              color: "white",
+              borderRadius: "100%",
+              ":hover": {
+                bgcolor: "#4562f7",
+              },
+            }}
           >
-            <RiEditLine />
-          </button>
-          <button
+            <Icon sx={{ fontSize: 21 }}>
+              <RiEditLine />
+            </Icon>
+          </IconButton>
+          <IconButton
             onClick={() => {
               setId(row.id);
               setShowDeleteCustomer(true);
               alert("Customer Deleted Succesfully");
             }}
-            className="text-md p-1 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            sx={{
+              bgcolor: "#3A57E8",
+              color: "white",
+              borderRadius: "100%",
+              ":hover": {
+                bgcolor: "#4562f7",
+              },
+            }}
           >
-            <RiDeleteBin2Line />
-          </button>
+            <Icon sx={{ fontSize: 21 }}>
+              <RiDeleteBin2Line />
+            </Icon>
+          </IconButton>
 
           {showEditCustomer && (
-            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(0, 0, 0, 0.2)",
+              }}
+            >
               <EditCustomer
                 onClose={() => setShowEditCustomer(false)}
                 id={id}
               />
-            </div>
+            </Box>
           )}
           {showDeleteCustomer && (
-            <div>
+            <Box>
               <DeleteCustomer
                 onClose={() => setShowDeleteCustomer(false)}
                 id={id}
               />
-            </div>
+            </Box>
           )}
-        </div>
+        </Box>
       );
     },
   },

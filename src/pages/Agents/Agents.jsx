@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext, useMemo } from "react";
 
 import { columns } from "./AgentColumns";
-import { Header } from "../../components/Header";
+import { Header } from "../../layouts/Header";
 import { AddAgent } from "../../Models/Agent/AddAgent";
 import { IoMdAdd } from "react-icons/io";
 import { DataGrid } from "@mui/x-data-grid";
