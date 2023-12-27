@@ -3,6 +3,7 @@ import { Footer } from "./Footer";
 import { Chart } from "./Chart/Chart";
 import { Header } from "./Header";
 import { Box, Select, Typography } from "@mui/material";
+import { AlertCom } from "../components/Alert";
 
 export const Dashboard = () => {
   return (

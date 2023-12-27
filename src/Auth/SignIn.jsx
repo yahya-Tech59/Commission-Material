@@ -10,6 +10,7 @@ import {
   instagram,
   linkedin,
 } from "../assets/img";
+import { MdError } from "react-icons/md";
 import axios from "../api/axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -28,14 +29,17 @@ import {
   Stack,
   CssBaseline,
   Input,
+  Alert,
+  Icon,
+  AlertTitle,
 } from "@mui/material";
 import styled from "@emotion/styled";
-import { FitScreen } from "@mui/icons-material";
 
 export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   const navigate = useNavigate();
 
@@ -62,25 +66,33 @@ export const SignIn = () => {
         navigate("/dashboard");
         // alert("logged in Successfuly");
         setLoading(false);
-      } else {
-        console.error("Authentication failed");
       }
     } catch (error) {
-      console.log("Login failed");
+      console.log(error.message);
+      if (error.response) {
+        // The request was made and the server responded with a status code
+        setShowError(error.response.data.message || "An error occurred");
+      } else if (error.request) {
+        // The request was made but no response was received
+        setShowError("No response received from the server");
+      } else {
+        // Something happened in setting up the request that triggered an Error
+        setShowError("An error occurred");
+      }
     }
   };
 
-  if (loading === true) {
-    return (
-      <Typography
-        variant="h1"
-        sx={{ fontSize: "3xl", fontWeight: 600, marginLeft: "53rem" }}
-        className="text-3xl font-semibold ml-[53rem]"
-      >
-        Loading...
-      </Typography>
-    );
-  }
+  // if (loading === true) {
+  //   return (
+  //     <Typography
+  //       variant="h1"
+  //       sx={{ fontSize: "3xl", fontWeight: 600, marginLeft: "53rem" }}
+  //       className="text-3xl font-semibold ml-[53rem]"
+  //     >
+  //       Loading...
+  //     </Typography>
+  //   );
+  // }
 
   // const FullScreen = styled.div({
   //   display: "flex",
@@ -88,7 +100,7 @@ export const SignIn = () => {
   // });
 
   return (
-    <Grid sx={{ display: "flex", bgcolor: "#f8fafc" }}>
+    <Grid sx={{ display: "flex", bgcolor: "#f8fafc", overflow: "hidden" }}>
       <Box>
         <Box>
           <img
@@ -113,6 +125,28 @@ export const SignIn = () => {
             marginLeft: -8,
           }}
         />
+      </Box>
+
+      <Box sx={{ position: "absolute", right: 325 }}>
+        <Box sx={{ display: "flex", justifyContent: "center", mb: 3 }}>
+          {showError && (
+            <Alert
+              severity="error"
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                padding: "1rem",
+                borderRadius: "0.5rem",
+                backgroundColor: "#f8d7da", // Softer error background
+                color: "#721c24",
+                fontWeight: 600,
+                width: 420,
+              }}
+            >
+              {showError}
+            </Alert>
+          )}
+        </Box>
       </Box>
 
       <Box
@@ -260,60 +294,3 @@ export const SignIn = () => {
     </Grid>
   );
 };
-
-// import React from "react";
-// import {
-//   Box,
-//   Typography,
-//   TextField,
-//   Button,
-//   Grid,
-//   Container,
-//   CssBaseline,
-// } from "@mui/material";
-
-// export function SignIn() {
-//   return (
-//     <Container component="main" maxWidth="xs">
-//       <CssBaseline /> // Establish default Material UI styling
-//       <Box sx={{ mt: 8, mb: 4 }}>
-//         <Typography variant="h4" align="center">
-//           Sign In
-//         </Typography>
-//       </Box>
-//       <Box
-//         sx={{
-//           display: "flex",
-//           flexDirection: "column",
-//           alignItems: "center",
-//         }}
-//       >
-//         <TextField
-//           margin="normal"
-//           fullWidth
-//           label="Email Address"
-//           type="email"
-//           required
-//           autoFocus
-//           sx={{ mt: 2 }}
-//         />
-//         <TextField
-//           margin="normal"
-//           fullWidth
-//           label="Password"
-//           type="password"
-//           required
-//           sx={{ mt: 2 }}
-//         />
-//         <Button
-//           type="submit"
-//           fullWidth
-//           variant="contained"
-//           sx={{ mt: 4, bg: "primary.main", color: "white" }}
-//         >
-//           Sign In
-//         </Button>
-//       </Box>
-//     </Container>
-//   );
-// }

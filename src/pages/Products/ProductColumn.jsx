@@ -3,6 +3,7 @@ import { RiEditLine } from "react-icons/ri";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { EditProduct } from "../../Models/Product/EditProduct";
 import { DeleteProduct } from "../../Models/Product/DeleteProduct";
+import { Box, IconButton, Icon } from "@mui/material";
 
 export const columns = [
   { field: "id", headerName: "No", flex: 1 },
@@ -19,41 +20,80 @@ export const columns = [
       const [id, setId] = useState(null);
 
       return (
-        <div className="flex space-x-4 hover:text-black ">
-          <button
+        <Box
+          sx={{
+            display: "flex",
+            gap: 2,
+            justifyContent: "center",
+            ":hover": {
+              color: "black",
+            },
+          }}
+        >
+          <IconButton
             onClick={() => {
               setShowEditProduct(true);
               setId(row.id);
             }}
-            className="text-md p-1 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            sx={{
+              bgcolor: "#3A57E8",
+              color: "white",
+              borderRadius: "100%",
+              ":hover": {
+                bgcolor: "#4562f7",
+              },
+            }}
           >
-            <RiEditLine />
-          </button>
-          <button
+            <Icon sx={{ fontSize: 21 }}>
+              <RiEditLine />
+            </Icon>
+          </IconButton>
+          <IconButton
             onClick={() => {
               setShowDeleteProduct(true);
               setId(row.id);
               alert("Product Deleted Successfully");
             }}
-            className="text-md p-1 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            sx={{
+              bgcolor: "#3A57E8",
+              color: "white",
+              borderRadius: "100%",
+              ":hover": {
+                bgcolor: "#4562f7",
+              },
+            }}
           >
-            <RiDeleteBin2Line />
-          </button>
+            <Icon sx={{ fontSize: 21 }}>
+              <RiDeleteBin2Line />
+            </Icon>
+          </IconButton>
 
           {showEditProduct && (
-            <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50">
+            <Box
+              sx={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "rgba(0, 0, 0, 0.2)",
+              }}
+            >
               <EditProduct onClose={() => setShowEditProduct(false)} id={id} />
-            </div>
+            </Box>
           )}
           {showDeleteProduct && (
-            <div>
+            <Box>
               <DeleteProduct
                 onClose={() => setShowDeleteProduct(false)}
                 id={id}
               />
-            </div>
+            </Box>
           )}
-        </div>
+        </Box>
       );
     },
   },

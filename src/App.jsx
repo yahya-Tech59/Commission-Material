@@ -10,9 +10,9 @@ import {
   SignUp,
   SignOut,
 } from "./pages/index";
-import { NoMatch } from "./utils/NoMatch";
+import { NoMatch } from "./Auth/NoMatch";
 import { Sidebar } from "./layouts/Sidebar";
-import { ProtectedRoutes } from "./utils/ProtectedRoutes";
+import { ProtectedRoutes } from "./Auth/ProtectedRoutes";
 import { Box, Paper } from "@mui/material";
 
 const App = () => {
