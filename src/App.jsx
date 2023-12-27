@@ -11,7 +11,7 @@ import {
   SignOut,
 } from "./pages/index";
 import { NoMatch } from "./utils/NoMatch";
-import { Sidebar } from "./components/Sidebar";
+import { Sidebar } from "./layouts/Sidebar";
 import { ProtectedRoutes } from "./utils/ProtectedRoutes";
 import { Box, Paper } from "@mui/material";
 

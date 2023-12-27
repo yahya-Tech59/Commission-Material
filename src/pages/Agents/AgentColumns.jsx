@@ -3,7 +3,7 @@ import { RiEditLine } from "react-icons/ri";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { EditAgent } from "../../Models/Agent/EditAgent";
 import { DeleteAgent } from "../../Models/Agent/DeleteAgent";
-import { Box, Button } from "@mui/material";
+import { Box, IconButton, Icon } from "@mui/material";
 
 export const columns = [
   { field: "id", headerName: "No", flex: 1 },
@@ -32,7 +32,7 @@ export const columns = [
             },
           }}
         >
-          <Button
+          <IconButton
             onClick={() => {
               setId(row.id);
               setShowEditAgent(true);
@@ -40,16 +40,18 @@ export const columns = [
             sx={{
               bgcolor: "#3A57E8",
               color: "white",
-              borderRadius: "3.125rem",
+              borderRadius: "100%",
               ":hover": {
                 bgcolor: "#4562f7",
               },
               fontSize: 18,
             }}
           >
-            <RiEditLine />
-          </Button>
-          <Button
+            <Icon sx={{ fontSize: 21 }}>
+              <RiEditLine />
+            </Icon>
+          </IconButton>
+          <IconButton
             onClick={() => {
               setId(row.id);
               setShowDeleteAgent(true);
@@ -58,15 +60,17 @@ export const columns = [
             sx={{
               bgcolor: "#3A57E8",
               color: "white",
-              borderRadius: "3.125rem",
+              borderRadius: "100%",
               ":hover": {
                 bgcolor: "#4562f7",
               },
               fontSize: 18,
             }}
           >
-            <RiDeleteBin2Line />
-          </Button>
+            <Icon sx={{ fontSize: 21 }}>
+              <RiDeleteBin2Line />
+            </Icon>
+          </IconButton>
 
           {showEditAgent && (
             <Box
