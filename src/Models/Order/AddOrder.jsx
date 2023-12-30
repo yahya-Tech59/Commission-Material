@@ -165,17 +165,18 @@ export const AddOrder = ({ onClose }) => {
             <Button
               onClick={onClose}
               sx={{
-                height: 18,
-                width: 8,
+                height: 60,
+                width: 1.5,
                 bgcolor: "#3A57E8",
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
-                ml: 22,
-                p: 3,
+                ml: 20,
+                p: 1,
+                borderRadius: "100%",
               }}
             >
-              <Icon sx={{ color: "white", pb: 1 }}>
+              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
                 <IoCloseOutline />
               </Icon>
             </Button>

@@ -6,7 +6,16 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import ClearButton from "../../components/ClearButton";
 import SubmitButton from "../../components/SubmitButton";
-import { Box, Typography, Button, InputLabel, Icon } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Button,
+  InputLabel,
+  Icon,
+  Select,
+  MenuItem,
+  ListItem,
+} from "@mui/material";
 
 export const EditOrder = ({ onClose, id }) => {
   const [product_id, setProduct_id] = useState("");
@@ -147,7 +156,7 @@ export const EditOrder = ({ onClose, id }) => {
   };
 
   return (
-    <Box sx={{ display: "flex", bgcolor: "#F9F9F9" }}>
+    <Box sx={{ display: "flex", bgcolor: "#F9F9F9", position: "absolute" }}>
       <Box
         Box
         component="form"
@@ -159,7 +168,7 @@ export const EditOrder = ({ onClose, id }) => {
           bgcolor: "white",
           boxShadow: 2,
           width: "39rem",
-          height: "40rem",
+          height: "42rem",
           p: 3,
         }}
       >
@@ -171,17 +180,18 @@ export const EditOrder = ({ onClose, id }) => {
             <Button
               onClick={onClose}
               sx={{
-                height: 18,
-                width: 8,
+                height: 60,
+                width: 1.5,
                 bgcolor: "#3A57E8",
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
-                ml: 30,
-                p: 3,
+                ml: 29,
+                p: 1,
+                borderRadius: "100%",
               }}
             >
-              <Icon sx={{ color: "white", pb: 1 }}>
+              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
                 <IoCloseOutline />
               </Icon>
             </Button>
@@ -192,185 +202,170 @@ export const EditOrder = ({ onClose, id }) => {
               sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
             >
               <InputLabel>ProductID</InputLabel>
-              <select
+              <Select
                 {...register("product_id")}
                 defaultValue={product_id}
                 onChange={(e) => setProduct_id(e.target.value)}
                 placeholder="select product ID"
-                style={{
+                sx={{
                   placeholder: "#707070",
-                  padding: 3,
+                  p: 2,
                   marginRight: 1,
-                  borderRadius: 6,
+                  borderRadius: 3,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 2,
+                  color: "black",
                 }}
+                // placeholder="Select product ID"
               >
-                <option value="" disabled>
-                  Select Product
-                </option>
+                <MenuItem value="" disabled>
+                  <ListItem>Select ProductID</ListItem>
+                </MenuItem>
                 {products.map((product) => (
-                  <option
-                    key={product.id}
-                    value={product.id}
-                    className="text-slate-700"
-                  >
-                    {product.name}
-                  </option>
+                  <MenuItem key={product.id} value={product.id}>
+                    <ListItem>{product.name}</ListItem>
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </Box>
 
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
             >
               <InputLabel>Customer</InputLabel>
-              <select
+              <Select
                 {...register("customer")}
                 defaultValue={customer}
                 onChange={(e) => setCustomer(e.target.value)}
-                style={{
+                sx={{
                   placeholder: "#707070",
-                  padding: 3,
+                  p: 2,
                   marginRight: 1,
-                  borderRadius: 6,
+                  borderRadius: 3,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 2,
+                  color: "black",
                 }}
               >
-                <option value="" disabled>
-                  Select Customer
-                </option>
+                <MenuItem value="" disabled>
+                  <ListItem>Select Customer</ListItem>
+                </MenuItem>
                 {customers.map((cust) => (
-                  <option
-                    key={cust.id}
-                    value={cust.id}
-                    className="text-slate-700"
-                  >
-                    {cust.fullname}
-                  </option>
+                  <MenuItem key={cust.id} value={cust.id}>
+                    <ListItem>{cust.fullname}</ListItem>
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </Box>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
             >
               <InputLabel>Agent</InputLabel>
-              <select
+              <Select
                 {...register("agent")}
                 defaultValue={agent}
                 onChange={(e) => setAgent(e.target.value)}
-                style={{
+                sx={{
                   placeholder: "#707070",
-                  padding: 3,
+                  p: 2,
                   marginRight: 1,
-                  borderRadius: 6,
+                  borderRadius: 3,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 2,
+                  color: "black",
                 }}
               >
-                <option value="" disabled>
-                  Select an agent
-                </option>
+                <MenuItem value="" disabled>
+                  <ListItem>Select an agent</ListItem>
+                </MenuItem>
                 {agents.map((agent) => (
-                  <option
-                    key={agent.id}
-                    value={agent.id}
-                    className="text-slate-700"
-                  >
-                    {agent.fullname}
-                  </option>
+                  <MenuItem key={agent.id} value={agent.id}>
+                    <ListItem>{agent.fullname}</ListItem>
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </Box>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
             >
               <InputLabel>Product Price</InputLabel>
-              <select
+              <Select
                 {...register("product_price_id")}
                 defaultValue={product_price_id}
                 onChange={(e) => setProduct_price_id(e.target.value)}
-                style={{
+                sx={{
                   placeholder: "#707070",
-                  padding: 3,
+                  p: 2,
                   marginRight: 1,
-                  borderRadius: 6,
+                  borderRadius: 3,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 2,
+                  color: "black",
                 }}
               >
-                <option value="" disabled>
-                  Select Product Price
-                </option>
+                <MenuItem value="" disabled>
+                  <ListItem>Select Product Price</ListItem>
+                </MenuItem>
                 {products.map((product) => (
-                  <option key={product.id} value={product.id}>
-                    {product.price}
-                  </option>
+                  <MenuItem key={product.id} value={product.id}>
+                    <ListItem>{product.price}</ListItem>
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </Box>
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
-            >
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <InputLabel>Product Commission</InputLabel>
-              <select
+              <Select
                 {...register("product_commission_id")}
                 defaultValue={product_commission_id}
                 onChange={(e) => setProduct_commission_id(e.target.value)}
-                style={{
+                sx={{
                   placeholder: "#707070",
-                  padding: 3,
+                  p: 2,
                   marginRight: 1,
-                  borderRadius: 6,
+                  borderRadius: 3,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 2,
+                  color: "black",
                 }}
               >
-                <option value="" disabled>
-                  Select Product Commission
-                </option>
+                <MenuItem value="" disabled>
+                  <ListItem>Select Product Commission</ListItem>
+                </MenuItem>
                 {products.map((product) => (
-                  <option
-                    key={product.id}
-                    value={product.id}
-                    className="text-slate-700"
-                  >
-                    {product.commission}
-                  </option>
+                  <MenuItem key={product.id} value={product.id}>
+                    <ListItem>{product.commission}</ListItem>
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </Box>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
             >
               <InputLabel>status</InputLabel>
-              <select
+              <Select
                 {...register("status")}
                 defaultValue={status}
                 onChange={(e) => setStatus(e.target.value)}
-                style={{
+                sx={{
                   placeholder: "#707070",
-                  padding: 3,
+                  p: 2,
                   marginRight: 1,
-                  borderRadius: 6,
+                  borderRadius: 3,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 2,
+                  color: "black",
                 }}
               >
-                <option value="" disabled>
-                  Select Order Status
-                </option>
+                <MenuItem value="" disabled>
+                  <ListItem>Select Order Status</ListItem>
+                </MenuItem>
                 {orders.map((order) => (
-                  <option
-                    key={order.id}
-                    value={order.status}
-                    className="text-slate-700"
-                  >
-                    {order.status_label}
-                  </option>
+                  <MenuItem key={order.id} value={order.status}>
+                    <ListItem>{order.status_label}</ListItem>
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </Box>
           </Box>
 

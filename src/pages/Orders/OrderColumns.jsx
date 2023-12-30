@@ -117,6 +117,7 @@ export const columns = [
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: "rgba(0, 0, 0, 0.2)",
+                zIndex: 1000,
               }}
             >
               <EditOrder onClose={() => setShowEditOrder(false)} id={id} />
