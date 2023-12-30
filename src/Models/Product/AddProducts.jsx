@@ -64,7 +64,7 @@ export const AddProduct = ({ onClose }) => {
           gap: 1,
           bgcolor: "white",
           boxShadow: 2,
-          width: "32rem",
+          width: "34rem",
           height: "34rem",
           borderRadius: 2,
           p: 3,
@@ -81,7 +81,7 @@ export const AddProduct = ({ onClose }) => {
                 bgcolor: "#3A57E8",
                 height: 40,
                 width: 30,
-                ml: 8,
+                ml: 12,
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
@@ -93,7 +93,7 @@ export const AddProduct = ({ onClose }) => {
             </Button>
           </Box>
 
-          <Box sx={{ my: 10 }}>
+          <Box sx={{ my: 10, ml: 2 }}>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
             >
@@ -173,7 +173,7 @@ export const AddProduct = ({ onClose }) => {
           <Box
             sx={{
               display: "flex",
-              gap: 33,
+              gap: 35,
               ml: 2,
             }}
           >

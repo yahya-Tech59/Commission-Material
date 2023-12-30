@@ -103,8 +103,8 @@ export const Agents = () => {
             rows={agents}
             columns={columns}
             getRowId={(row) => row.id}
-            disableSelectionOnClick
-            checkboxSelection
+            // disableSelectionOnClick
+            // checkboxSelection
           />
         </Box>
         {/* <Box>

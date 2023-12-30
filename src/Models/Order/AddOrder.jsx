@@ -131,7 +131,7 @@ export const AddOrder = ({ onClose }) => {
   };
 
   return (
-    <Box sx={{ display: "flex", bgcolor: "#F9F9F9" }}>
+    <Box sx={{ display: "flex", bgcolor: "white" }}>
       <Box
         Box
         component="form"
@@ -143,12 +143,11 @@ export const AddOrder = ({ onClose }) => {
           bgcolor: "white",
           boxShadow: 2,
           width: "39rem",
-          height: "42rem",
-
+          height: "46rem",
           p: 3,
         }}
       >
-        <Box sx={{ pb: 16, ml: 5, mt: 8 }}>
+        <Box sx={{ pb: 16, ml: 5, mt: 4 }}>
           <Box sx={{ display: "flex" }}>
             <Typography variant="h4" sx={{ ml: 8 }}>
               Add New Order
@@ -172,7 +171,7 @@ export const AddOrder = ({ onClose }) => {
             </Button>
           </Box>
 
-          <Box sx={{ py: 6 }}>
+          <Box sx={{ py: 10 }}>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
             >
@@ -188,7 +187,7 @@ export const AddOrder = ({ onClose }) => {
                   marginRight: 1,
                   borderRadius: 6,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 32,
                 }}
               >
                 <option value="" disabled>
@@ -220,18 +219,14 @@ export const AddOrder = ({ onClose }) => {
                   marginRight: 1,
                   borderRadius: 6,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 32,
                 }}
               >
                 <option value="" disabled>
                   Select Customer
                 </option>
                 {customers.map((cust) => (
-                  <option
-                    key={cust.id}
-                    value={cust.id}
-                    className="text-slate-700"
-                  >
+                  <option key={cust.id} value={cust.id}>
                     {cust.fullname}
                   </option>
                 ))}
@@ -251,18 +246,14 @@ export const AddOrder = ({ onClose }) => {
                   marginRight: 1,
                   borderRadius: 6,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 32,
                 }}
               >
                 <option value="" disabled>
                   Select an agent
                 </option>
                 {agents.map((agent) => (
-                  <option
-                    key={agent.id}
-                    value={agent.id}
-                    className="text-slate-700"
-                  >
+                  <option key={agent.id} value={agent.id}>
                     {agent.fullname}
                   </option>
                 ))}
@@ -278,11 +269,10 @@ export const AddOrder = ({ onClose }) => {
                 onChange={(e) => setProduct_price_id(e.target.value)}
                 style={{
                   placeholder: "#707070",
-                  padding: 3,
                   marginRight: 1,
                   borderRadius: 6,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 32,
                 }}
               >
                 <option value="" disabled>
@@ -295,9 +285,7 @@ export const AddOrder = ({ onClose }) => {
                 ))}
               </select>
             </Box>
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
-            >
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <InputLabel>Product Commission</InputLabel>
               <select
                 {...register("product_commission_id")}
@@ -309,18 +297,14 @@ export const AddOrder = ({ onClose }) => {
                   marginRight: 1,
                   borderRadius: 6,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 32,
                 }}
               >
                 <option value="" disabled>
                   Select Product Commission
                 </option>
                 {products.map((product) => (
-                  <option
-                    key={product.id}
-                    value={product.id}
-                    className="text-slate-700"
-                  >
+                  <option key={product.id} value={product.id}>
                     {product.commission}
                   </option>
                 ))}
@@ -340,18 +324,14 @@ export const AddOrder = ({ onClose }) => {
                   marginRight: 1,
                   borderRadius: 6,
                   width: "34rem",
-                  fontFamily: 500,
+                  height: 32,
                 }}
               >
                 <option value="" disabled>
                   Select Order Status
                 </option>
                 {orders.map((order) => (
-                  <option
-                    key={order.id}
-                    value={order.status}
-                    className="text-slate-700"
-                  >
+                  <option key={order.id} value={order.status}>
                     {order.status_label}
                   </option>
                 ))}
@@ -359,10 +339,6 @@ export const AddOrder = ({ onClose }) => {
             </Box>
           </Box>
 
-          {/* <div className="flex mt-6 gap-4 justify-center ">
-            <input type="checkbox" />
-            <p>I agree With The Terms Of Use</p>
-          </div> */}
           <Box sx={{ display: "flex", gap: 33, ml: 5 }}>
             <SubmitButton label="Submit" />
             <ClearButton label="Clear" onClick={handleClear} />
