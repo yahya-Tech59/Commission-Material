@@ -13,6 +13,9 @@ import {
   Icon,
   InputLabel,
   Input,
+  Select,
+  MenuItem,
+  ListItem,
 } from "@mui/material";
 
 export const EditCustomer = ({ onClose, id }) => {
@@ -199,34 +202,35 @@ export const EditCustomer = ({ onClose, id }) => {
               sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
             >
               <InputLabel>Agency</InputLabel>
-              <select
+              <Select
                 {...register("agency_id")}
                 defaultValue={agency_id}
                 onChange={(e) => setAgency_id(e.target.value)}
-                style={{
+                sx={{
                   "&::placeholder": {
                     color: "text.secondary",
                   },
-                  padding: 8,
+                  p: 2.7,
                   marginRight: 1,
-                  borderRadius: 8,
-                  width: "33rem",
+                  borderRadius: 3,
+                  width: "32rem",
+                  height: 2,
                 }}
               >
-                <option value="" disabled>
-                  Select an agent
-                </option>
+                <MenuItem value="" disabled>
+                  <ListItem>Select an agent</ListItem>
+                </MenuItem>
                 {agents.map((agent) => (
-                  <option
+                  <MenuItem
                     key={agent.id}
                     value={agent.id}
                     style={{ paddingBottom: 2 }}
                     className="text-slate-700"
                   >
-                    {agent.fullname}
-                  </option>
+                    <ListItem>{agent.fullname}</ListItem>
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </Box>
           </Box>
 
