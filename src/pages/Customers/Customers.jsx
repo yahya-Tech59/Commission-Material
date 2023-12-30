@@ -92,7 +92,7 @@ export const Customers = () => {
         </Box>
 
         <Box sx={{ mb: 2 }} className="mb-2">
-          <Search />
+          <Search label="Search" size="small" />
         </Box>
 
         <Box sx={{ height: 630, width: "95%", ml: 5, mb: 4 }}>
