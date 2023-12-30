@@ -17,6 +17,7 @@ import {
   Select,
   Typography,
 } from "@mui/material";
+import CloseButton from "../../components/CloseButton";
 
 export const AddUser = ({ onClose }) => {
   const [name, setName] = useState("");
@@ -89,27 +90,12 @@ export const AddUser = ({ onClose }) => {
       >
         <Box sx={{ pb: 16, ml: 5, mt: 4 }}>
           <Box sx={{ display: "flex" }}>
-            <Typography variant="h4" sx={{ ml: 10 }}>
+            <Typography variant="h4" sx={{ ml: 2 }}>
               Add New User
             </Typography>
-            <Button
-              onClick={onClose}
-              sx={{
-                height: 60,
-                width: 1.5,
-                bgcolor: "#3A57E8",
-                "&:hover": {
-                  bgcolor: "#647ae6",
-                },
-                ml: 26,
-                p: 1,
-                borderRadius: "100%",
-              }}
-            >
-              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
-                <IoCloseOutline />
-              </Icon>
-            </Button>
+            <Box sx={{ ml: 21 }}>
+              <CloseButton onClick={onClose} />
+            </Box>
           </Box>
 
           <Box sx={{ py: 4 }}>

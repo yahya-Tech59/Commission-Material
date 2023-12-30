@@ -14,6 +14,7 @@ import {
   InputLabel,
   Input,
 } from "@mui/material";
+import CloseButton from "../../components/CloseButton";
 
 export const AddProduct = ({ onClose }) => {
   const [name, setName] = useState("");
@@ -75,24 +76,9 @@ export const AddProduct = ({ onClose }) => {
             <Typography variant="h4" sx={{ ml: 7 }}>
               Add New Product
             </Typography>
-            <Button
-              onClick={onClose}
-              sx={{
-                height: 60,
-                width: 1.5,
-                bgcolor: "#3A57E8",
-                "&:hover": {
-                  bgcolor: "#647ae6",
-                },
-                ml: 12,
-                p: 1,
-                borderRadius: "100%",
-              }}
-            >
-              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
-                <IoCloseOutline />
-              </Icon>
-            </Button>
+            <Box sx={{ ml: 7 }}>
+              <CloseButton onClick={onClose} />
+            </Box>
           </Box>
 
           <Box sx={{ py: 6, ml: 2 }}>

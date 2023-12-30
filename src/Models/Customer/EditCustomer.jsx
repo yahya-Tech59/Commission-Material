@@ -17,6 +17,7 @@ import {
   MenuItem,
   ListItem,
 } from "@mui/material";
+import CloseButton from "../../components/CloseButton";
 
 export const EditCustomer = ({ onClose, id }) => {
   const [name, setName] = useState("");
@@ -109,24 +110,9 @@ export const EditCustomer = ({ onClose, id }) => {
             <Typography variant="h4" sx={{ ml: 7 }}>
               Edit Customer
             </Typography>
-            <Button
-              onClick={onClose}
-              sx={{
-                height: 60,
-                width: 1.5,
-                bgcolor: "#3A57E8",
-                "&:hover": {
-                  bgcolor: "#647ae6",
-                },
-                ml: 19,
-                p: 1,
-                borderRadius: "100%",
-              }}
-            >
-              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
-                <IoCloseOutline />
-              </Icon>
-            </Button>
+            <Box sx={{ ml: 14 }}>
+              <CloseButton onClick={onClose} />
+            </Box>
           </Box>
 
           <Box sx={{ my: 6, ml: 3 }}>

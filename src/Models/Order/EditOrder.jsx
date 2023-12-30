@@ -16,6 +16,7 @@ import {
   MenuItem,
   ListItem,
 } from "@mui/material";
+import CloseButton from "../../components/CloseButton";
 
 export const EditOrder = ({ onClose, id }) => {
   const [product_id, setProduct_id] = useState("");
@@ -177,24 +178,9 @@ export const EditOrder = ({ onClose, id }) => {
             <Typography variant="h4" sx={{ ml: 8 }}>
               Edit Order
             </Typography>
-            <Button
-              onClick={onClose}
-              sx={{
-                height: 60,
-                width: 1.5,
-                bgcolor: "#3A57E8",
-                "&:hover": {
-                  bgcolor: "#647ae6",
-                },
-                ml: 29,
-                p: 1,
-                borderRadius: "100%",
-              }}
-            >
-              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
-                <IoCloseOutline />
-              </Icon>
-            </Button>
+            <Box sx={{ ml: 25 }}>
+              <CloseButton onClick={onClose} />
+            </Box>
           </Box>
 
           <Box sx={{ py: 3 }}>

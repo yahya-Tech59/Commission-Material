@@ -17,6 +17,7 @@ import {
   MenuItem,
   ListItem,
 } from "@mui/material";
+import CloseButton from "../../components/CloseButton";
 
 export const EditUser = ({ onClose }) => {
   const [name, setName] = useState("");
@@ -88,27 +89,12 @@ export const EditUser = ({ onClose }) => {
       >
         <Box sx={{ pb: 16, ml: 5, mt: 4 }}>
           <Box sx={{ display: "flex" }}>
-            <Typography variant="h4" sx={{ ml: 10 }}>
+            <Typography variant="h4" sx={{ ml: 3 }}>
               Edit User
             </Typography>
-            <Button
-              onClick={onClose}
-              sx={{
-                height: 60,
-                width: 1.5,
-                bgcolor: "#3A57E8",
-                "&:hover": {
-                  bgcolor: "#647ae6",
-                },
-                ml: 24,
-                p: 1,
-                borderRadius: "100%",
-              }}
-            >
-              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
-                <IoCloseOutline />
-              </Icon>
-            </Button>
+            <Box sx={{ ml: 28 }}>
+              <CloseButton onClick={onClose} />
+            </Box>
           </Box>
 
           <Box sx={{ py: 4 }}>
