@@ -65,7 +65,7 @@ export const AddProduct = ({ onClose }) => {
           bgcolor: "white",
           boxShadow: 2,
           width: "34rem",
-          height: "34rem",
+          height: "35rem",
           borderRadius: 2,
           p: 3,
         }}
@@ -78,22 +78,24 @@ export const AddProduct = ({ onClose }) => {
             <Button
               onClick={onClose}
               sx={{
+                height: 60,
+                width: 1.5,
                 bgcolor: "#3A57E8",
-                height: 40,
-                width: 30,
-                ml: 12,
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
+                ml: 12,
+                p: 1,
+                borderRadius: "100%",
               }}
             >
-              <Icon sx={{ color: "white", pb: 1 }}>
+              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
                 <IoCloseOutline />
               </Icon>
             </Button>
           </Box>
 
-          <Box sx={{ my: 10, ml: 2 }}>
+          <Box sx={{ py: 6, ml: 2 }}>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
             >

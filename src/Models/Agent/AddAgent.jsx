@@ -57,8 +57,8 @@ export const AddAgent = ({ onClose }) => {
           gap: 1,
           bgcolor: "white",
           boxShadow: 2,
-          width: "35rem",
-          height: "35rem",
+          width: "38rem",
+          height: "36rem",
           borderRadius: 2,
           p: 3,
         }}
@@ -71,22 +71,24 @@ export const AddAgent = ({ onClose }) => {
             <Button
               onClick={onClose}
               sx={{
+                height: 60,
+                width: 1.5,
                 bgcolor: "#3A57E8",
-                height: 40,
-                width: 30,
-                ml: 16,
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
+                ml: 18,
+                p: 1,
+                borderRadius: "100%",
               }}
             >
-              <Icon sx={{ color: "white", pb: 1 }}>
+              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
                 <IoCloseOutline />
               </Icon>
             </Button>
           </Box>
 
-          <Box sx={{ my: 6 }}>
+          <Box sx={{ my: 6, ml: 4 }}>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
             >
@@ -184,7 +186,7 @@ export const AddAgent = ({ onClose }) => {
           <Box
             sx={{
               display: "flex",
-              gap: 40,
+              gap: 44,
               ml: 2,
             }}
           >

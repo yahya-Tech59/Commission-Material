@@ -82,7 +82,7 @@ export const EditProduct = ({ onClose, id }) => {
           bgcolor: "white",
           boxShadow: 2,
           width: "32rem",
-          height: "34rem",
+          height: "32rem",
           borderRadius: 2,
           p: 3,
         }}
@@ -95,22 +95,24 @@ export const EditProduct = ({ onClose, id }) => {
             <Button
               onClick={onClose}
               sx={{
+                height: 60,
+                width: 1.5,
                 bgcolor: "#3A57E8",
-                height: 40,
-                width: 30,
-                ml: 18,
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
+                ml: 18,
+                p: 1,
+                borderRadius: "100%",
               }}
             >
-              <Icon sx={{ color: "white", pb: 1 }}>
+              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
                 <IoCloseOutline />
               </Icon>
             </Button>
           </Box>
 
-          <Box sx={{ my: 10 }}>
+          <Box sx={{ py: 5 }}>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
             >

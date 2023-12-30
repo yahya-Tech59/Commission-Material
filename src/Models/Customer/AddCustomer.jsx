@@ -81,7 +81,7 @@ export const AddCustomer = ({ onClose }) => {
           bgcolor: "white",
           boxShadow: 2,
           width: "35rem",
-          height: "36rem",
+          height: "37rem",
           borderRadius: 2,
           p: 3,
         }}
@@ -94,16 +94,18 @@ export const AddCustomer = ({ onClose }) => {
             <Button
               onClick={onClose}
               sx={{
+                height: 60,
+                width: 1.5,
                 bgcolor: "#3A57E8",
-                height: 40,
-                width: 30,
-                ml: 8,
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
+                ml: 8,
+                p: 1,
+                borderRadius: "100%",
               }}
             >
-              <Icon sx={{ color: "white", pb: 1 }}>
+              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
                 <IoCloseOutline />
               </Icon>
             </Button>

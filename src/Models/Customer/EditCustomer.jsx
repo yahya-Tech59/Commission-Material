@@ -112,16 +112,18 @@ export const EditCustomer = ({ onClose, id }) => {
             <Button
               onClick={onClose}
               sx={{
+                height: 60,
+                width: 1.5,
                 bgcolor: "#3A57E8",
-                height: 40,
-                width: 30,
-                ml: 22,
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
+                ml: 19,
+                p: 1,
+                borderRadius: "100%",
               }}
             >
-              <Icon sx={{ color: "white", pb: 1 }}>
+              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
                 <IoCloseOutline />
               </Icon>
             </Button>

@@ -62,9 +62,9 @@ export const columns = [
               },
             }}
           >
-            <icon sx={{ fontSize: 20 }}>
+            <Icon sx={{ fontSize: 20 }}>
               <RiDeleteBin2Line />
-            </icon>
+            </Icon>
           </IconButton>
 
           {showEditUser && (

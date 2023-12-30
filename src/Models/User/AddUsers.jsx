@@ -12,6 +12,9 @@ import {
   Icon,
   Input,
   InputLabel,
+  ListItem,
+  MenuItem,
+  Select,
   Typography,
 } from "@mui/material";
 
@@ -80,7 +83,7 @@ export const AddUser = ({ onClose }) => {
           bgcolor: "white",
           boxShadow: 2,
           width: "35rem",
-          height: "32rem",
+          height: "34rem",
           p: 3,
         }}
       >
@@ -92,22 +95,24 @@ export const AddUser = ({ onClose }) => {
             <Button
               onClick={onClose}
               sx={{
+                height: 60,
+                width: 1.5,
                 bgcolor: "#3A57E8",
-                height: 40,
-                width: 30,
-                ml: 14,
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
+                ml: 16,
+                p: 1,
+                borderRadius: "100%",
               }}
             >
-              <Icon sx={{ color: "white", pb: 1 }}>
+              <Icon sx={{ color: "white", pb: 2, fontSize: 36 }}>
                 <IoCloseOutline />
               </Icon>
             </Button>
           </Box>
 
-          <Box sx={{ py: 6 }}>
+          <Box sx={{ py: 4 }}>
             <Box
               sx={{ display: "flex", flexDirection: "column", gap: 1, py: 1 }}
             >
@@ -129,7 +134,9 @@ export const AddUser = ({ onClose }) => {
               />
             </Box>
 
-            <Box className="flex flex-col gap-1">
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 1 }}
+            >
               <InputLabel>Email</InputLabel>
               <Input
                 type="text"
@@ -177,28 +184,32 @@ export const AddUser = ({ onClose }) => {
                 py: 0.5,
               }}
             >
-              <select
+              <InputLabel>Role</InputLabel>
+
+              <Select
                 {...register("roles")}
                 defaultValue={roles}
                 onChange={(e) => setRoles(e.target.value)}
-                style={{
+                sx={{
                   placeholder: "#707070",
-                  mr: 1,
+                  p: 2.5,
+                  marginRight: 1,
+                  borderRadius: 3,
                   width: "32rem",
-                  height: 32,
-                  marginTop: 16,
-                  boxShadow: "0, 4px, 6px, rgba(0, 0, 0, 1.5)",
+                  height: 2,
+                  color: "black",
+                  mt: 1,
                 }}
               >
                 <option value="" disabled>
                   Select Role
                 </option>
                 {role.map((rol) => (
-                  <option key={rol.id} value={rol.id}>
-                    {rol.title}
-                  </option>
+                  <MenuItem key={rol.id} value={rol.id}>
+                    <ListItem>{rol.title}</ListItem>
+                  </MenuItem>
                 ))}
-              </select>
+              </Select>
             </Box>
           </Box>
 
