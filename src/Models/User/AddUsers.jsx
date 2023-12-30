@@ -101,7 +101,7 @@ export const AddUser = ({ onClose }) => {
                 "&:hover": {
                   bgcolor: "#647ae6",
                 },
-                ml: 16,
+                ml: 26,
                 p: 1,
                 borderRadius: "100%",
               }}
@@ -113,9 +113,7 @@ export const AddUser = ({ onClose }) => {
           </Box>
 
           <Box sx={{ py: 4 }}>
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 1 }}
-            >
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <InputLabel>Name</InputLabel>
               <Input
                 type="text"
@@ -134,9 +132,7 @@ export const AddUser = ({ onClose }) => {
               />
             </Box>
 
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 1 }}
-            >
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <InputLabel>Email</InputLabel>
               <Input
                 type="text"
@@ -155,9 +151,7 @@ export const AddUser = ({ onClose }) => {
               />
             </Box>
 
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 1 }}
-            >
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <InputLabel>Password</InputLabel>
               <Input
                 type="password"
@@ -201,9 +195,9 @@ export const AddUser = ({ onClose }) => {
                   mt: 1,
                 }}
               >
-                <option value="" disabled>
+                <MenuItem value="" disabled>
                   Select Role
-                </option>
+                </MenuItem>
                 {role.map((rol) => (
                   <MenuItem key={rol.id} value={rol.id}>
                     <ListItem>{rol.title}</ListItem>

@@ -12,6 +12,7 @@ export const Footer = () => {
         gap: 3,
         p: 3,
         mb: 2,
+        boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
       }}
     >
       <Typography variant="h6">Privacy Policy</Typography>

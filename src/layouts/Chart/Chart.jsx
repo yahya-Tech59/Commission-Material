@@ -23,6 +23,7 @@ export const Chart = () => {
         mt: "1.5rem",
         ml: 5,
         bgcolor: "white",
+        boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
       }}
     >
       <Typography variant="h5" sx={{ pt: 3, pl: 5 }}>
