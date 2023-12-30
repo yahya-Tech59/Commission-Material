@@ -65,7 +65,7 @@ export const AddProduct = ({ onClose }) => {
           bgcolor: "white",
           boxShadow: 2,
           width: "32rem",
-          height: "38rem",
+          height: "34rem",
           borderRadius: 2,
           p: 3,
         }}

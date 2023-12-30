@@ -6,6 +6,14 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import ClearButton from "../../components/ClearButton";
 import SubmitButton from "../../components/SubmitButton";
+import {
+  Box,
+  Button,
+  Typography,
+  Icon,
+  InputLabel,
+  Input,
+} from "@mui/material";
 
 export const EditProduct = ({ onClose, id }) => {
   const [name, setName] = useState("");
@@ -63,65 +71,134 @@ export const EditProduct = ({ onClose, id }) => {
   }, []);
 
   return (
-    <div className="flex bg-slate-100">
-      <form
+    <Box sx={{ display: "flex" }}>
+      <Box
+        component="form"
         onSubmit={handleSubmit(EditProduct)}
-        className="flex flex-col gap-1 bg-white shadow-slate-300 shadow-sm w-[38rem] h-[32rem] rounded-xl p-3"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 1,
+          bgcolor: "white",
+          boxShadow: 2,
+          width: "32rem",
+          height: "34rem",
+          borderRadius: 2,
+          p: 3,
+        }}
       >
-        <div className="pb-16 ml-5 mt-8">
-          <div className="flex">
-            <h2 className="text-3xl ml-40">Edit Product</h2>
-            <button
+        <Box sx={{ mt: 4 }}>
+          <Box sx={{ display: "flex", gap: 5 }}>
+            <Typography variant="h4" sx={{ ml: 7 }}>
+              Edit Product
+            </Typography>
+            <Button
               onClick={onClose}
-              className=" h-8 w-8 p-1 bg-blue-500 text-white text-2xl font-medium rounded-md hover:bg-blue-600 ml-36"
+              sx={{
+                bgcolor: "#3A57E8",
+                height: 40,
+                width: 30,
+                ml: 18,
+                "&:hover": {
+                  bgcolor: "#647ae6",
+                },
+              }}
             >
-              <IoCloseOutline />
-            </button>
-          </div>
+              <Icon sx={{ color: "white", pb: 1 }}>
+                <IoCloseOutline />
+              </Icon>
+            </Button>
+          </Box>
 
-          <div className="space-y-6">
-            <div className="flex flex-col gap-1">
-              <label>ProductName</label>
-              <input
+          <Box sx={{ my: 10 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+            >
+              <InputLabel>ProductName</InputLabel>
+              <Input
                 type="text"
                 {...register("name")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+
+                  mr: 1,
+                  borderRadius: "0.5rem",
+                  width: "32rem",
+                  "::placeholder": {
+                    pl: 2,
+                    color: "#8A92A6",
+                  },
+                }}
                 placeholder="Doe"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-            </div>
+            </Box>
 
-            <div className="flex flex-col gap-1">
-              <label>Price</label>
-              <input
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+            >
+              <InputLabel>Price</InputLabel>
+              <Input
                 type="number"
                 {...register("price")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+
+                  mr: 1,
+                  borderRadius: "0.5rem",
+                  width: "32rem",
+                  "::placeholder": {
+                    pl: 2,
+                    color: "#8A92A6",
+                  },
+                }}
                 placeholder="$599"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
               />
-            </div>
-            <div className="flex flex-col gap-1">
-              <label>commission </label>
-              <input
+            </Box>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+            >
+              <InputLabel>commission </InputLabel>
+              <Input
                 type="number"
                 {...register("commission")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+
+                  mr: 1,
+                  borderRadius: "0.5rem",
+                  width: "32rem",
+                  "::placeholder": {
+                    pl: 2,
+                    color: "#8A92A6",
+                  },
+                }}
                 placeholder="123456"
                 value={commission}
                 onChange={(e) => setCommission(e.target.value)}
               />
-            </div>
-          </div>
+            </Box>
+          </Box>
 
-          <div className="flex gap-72 ml-5 ">
+          {/* <div className="flex mt-6 gap-4 justify-center ">
+            <input type="checkbox" />
+            <p>I agree With The Terms Of Use</p>
+          </div> */}
+          <Box
+            sx={{
+              display: "flex",
+              gap: 33,
+              ml: 2,
+            }}
+          >
             <SubmitButton label="Submit" />
             <ClearButton label="Clear" onClick={handleClear} />
-          </div>
-        </div>
-      </form>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };

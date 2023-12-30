@@ -6,6 +6,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import ClearButton from "../../components/ClearButton";
 import SubmitButton from "../../components/SubmitButton";
+import { Box, Typography, Button, InputLabel, Icon } from "@mui/material";
 
 export const AddOrder = ({ onClose }) => {
   const [product_id, setProduct_id] = useState("");
@@ -130,31 +131,65 @@ export const AddOrder = ({ onClose }) => {
   };
 
   return (
-    <div className="flex bg-slate-100">
-      <form
+    <Box sx={{ display: "flex", bgcolor: "#F9F9F9" }}>
+      <Box
+        Box
+        component="form"
         onSubmit={handleSubmit(AddOrder)}
-        className="flex flex-col gap-1 bg-white shadow-slate-300 shadow-sm w-[38rem] h-[48rem] rounded-xl p-3"
-      >
-        <div className="pb-16 ml-5 mt-8">
-          <div className="flex">
-            <h2 className="text-3xl ml-40">Add New Order</h2>
-            <button
-              onClick={onClose}
-              className=" h-8 w-8 p-1 bg-blue-500 text-white text-2xl font-medium rounded-md hover:bg-blue-600 ml-36"
-            >
-              <IoCloseOutline />
-            </button>
-          </div>
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 1,
+          bgcolor: "white",
+          boxShadow: 2,
+          width: "39rem",
+          height: "42rem",
 
-          <div className="space-y-6">
-            <div className="flex flex-col gap-1">
-              <label>ProductID</label>
+          p: 3,
+        }}
+      >
+        <Box sx={{ pb: 16, ml: 5, mt: 8 }}>
+          <Box sx={{ display: "flex" }}>
+            <Typography variant="h4" sx={{ ml: 8 }}>
+              Add New Order
+            </Typography>
+            <Button
+              onClick={onClose}
+              sx={{
+                height: 18,
+                width: 8,
+                bgcolor: "#3A57E8",
+                "&:hover": {
+                  bgcolor: "#647ae6",
+                },
+                ml: 22,
+                p: 3,
+              }}
+            >
+              <Icon sx={{ color: "white", pb: 1 }}>
+                <IoCloseOutline />
+              </Icon>
+            </Button>
+          </Box>
+
+          <Box sx={{ py: 6 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
+            >
+              <InputLabel>ProductID</InputLabel>
               <select
                 {...register("product_id")}
                 defaultValue={product_id}
                 onChange={(e) => setProduct_id(e.target.value)}
                 placeholder="select product ID"
-                className="placeholder:text-slate-700 p-3 mr-1 rounded-lg w-[34rem]"
+                style={{
+                  placeholder: "#707070",
+                  padding: 3,
+                  marginRight: 1,
+                  borderRadius: 6,
+                  width: "34rem",
+                  fontFamily: 500,
+                }}
               >
                 <option value="" disabled>
                   Select Product
@@ -169,15 +204,24 @@ export const AddOrder = ({ onClose }) => {
                   </option>
                 ))}
               </select>
-            </div>
+            </Box>
 
-            <div className="flex flex-col gap-1">
-              <label>Customer</label>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
+            >
+              <InputLabel>Customer</InputLabel>
               <select
                 {...register("customer")}
                 defaultValue={customer}
                 onChange={(e) => setCustomer(e.target.value)}
-                className="placeholder:text-slate-700 p-3 mr-1 rounded-lg w-[34rem]"
+                style={{
+                  placeholder: "#707070",
+                  padding: 3,
+                  marginRight: 1,
+                  borderRadius: 6,
+                  width: "34rem",
+                  fontFamily: 500,
+                }}
               >
                 <option value="" disabled>
                   Select Customer
@@ -192,14 +236,23 @@ export const AddOrder = ({ onClose }) => {
                   </option>
                 ))}
               </select>
-            </div>
-            <div className="flex flex-col gap-1">
-              <label>Agent</label>
+            </Box>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
+            >
+              <InputLabel>Agent</InputLabel>
               <select
                 {...register("agent")}
                 defaultValue={agent}
                 onChange={(e) => setAgent(e.target.value)}
-                className="placeholder:text-slate-700 p-3 mr-1 rounded-lg w-[34rem]"
+                style={{
+                  placeholder: "#707070",
+                  padding: 3,
+                  marginRight: 1,
+                  borderRadius: 6,
+                  width: "34rem",
+                  fontFamily: 500,
+                }}
               >
                 <option value="" disabled>
                   Select an agent
@@ -214,14 +267,23 @@ export const AddOrder = ({ onClose }) => {
                   </option>
                 ))}
               </select>
-            </div>
-            <div>
-              <label>Product Price</label>
+            </Box>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
+            >
+              <InputLabel>Product Price</InputLabel>
               <select
                 {...register("product_price_id")}
                 defaultValue={product_price_id}
                 onChange={(e) => setProduct_price_id(e.target.value)}
-                className="placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                style={{
+                  placeholder: "#707070",
+                  padding: 3,
+                  marginRight: 1,
+                  borderRadius: 6,
+                  width: "34rem",
+                  fontFamily: 500,
+                }}
               >
                 <option value="" disabled>
                   Select Product Price
@@ -232,14 +294,23 @@ export const AddOrder = ({ onClose }) => {
                   </option>
                 ))}
               </select>
-            </div>
-            <div>
-              <label>Product Commission</label>
+            </Box>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
+            >
+              <InputLabel>Product Commission</InputLabel>
               <select
                 {...register("product_commission_id")}
                 defaultValue={product_commission_id}
                 onChange={(e) => setProduct_commission_id(e.target.value)}
-                className="placeholder:text-slate-700 p-3 mr-1 rounded-lg w-[34rem]"
+                style={{
+                  placeholder: "#707070",
+                  padding: 3,
+                  marginRight: 1,
+                  borderRadius: 6,
+                  width: "34rem",
+                  fontFamily: 500,
+                }}
               >
                 <option value="" disabled>
                   Select Product Commission
@@ -254,14 +325,23 @@ export const AddOrder = ({ onClose }) => {
                   </option>
                 ))}
               </select>
-            </div>
-            <div>
-              <label>status</label>
+            </Box>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 0.5 }}
+            >
+              <InputLabel>status</InputLabel>
               <select
                 {...register("status")}
                 defaultValue={status}
                 onChange={(e) => setStatus(e.target.value)}
-                className="placeholder:text-slate-700 p-3 mr-1 rounded-lg w-[34rem]"
+                style={{
+                  placeholder: "#707070",
+                  padding: 3,
+                  marginRight: 1,
+                  borderRadius: 6,
+                  width: "34rem",
+                  fontFamily: 500,
+                }}
               >
                 <option value="" disabled>
                   Select Order Status
@@ -276,19 +356,19 @@ export const AddOrder = ({ onClose }) => {
                   </option>
                 ))}
               </select>
-            </div>
-          </div>
+            </Box>
+          </Box>
 
           {/* <div className="flex mt-6 gap-4 justify-center ">
             <input type="checkbox" />
             <p>I agree With The Terms Of Use</p>
           </div> */}
-          <div className="flex gap-72 ml-5 ">
+          <Box sx={{ display: "flex", gap: 33, ml: 5 }}>
             <SubmitButton label="Submit" />
             <ClearButton label="Clear" onClick={handleClear} />
-          </div>
-        </div>
-      </form>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
