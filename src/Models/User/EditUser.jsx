@@ -6,6 +6,14 @@ import axios from "../../api/axiosConfig";
 import { IoCloseOutline } from "react-icons/io5";
 import ClearButton from "../../components/ClearButton";
 import SubmitButton from "../../components/SubmitButton";
+import {
+  Box,
+  Button,
+  Icon,
+  Input,
+  InputLabel,
+  Typography,
+} from "@mui/material";
 
 export const EditUser = ({ onClose }) => {
   const [name, setName] = useState("");
@@ -27,6 +35,13 @@ export const EditUser = ({ onClose }) => {
     resolver: yupResolver(schema),
   });
 
+  const handleClear = () => {
+    setName("");
+    setEmail("");
+    setPassword("");
+    setRoles("");
+  };
+
   useEffect(() => {
     const fetchRoles = async () => {
       const res = await axios.get(`/api/v1/roles`);
@@ -40,12 +55,12 @@ export const EditUser = ({ onClose }) => {
     fetchRoles();
   }, []);
 
-  const addUser = async (data) => {
+  const editUser = async (data) => {
     setLoading(true);
-    const res = await axios.post("/api/v1/users", data);
+    const res = await axios.put("/api/v1/users", data);
 
     if (res.status === 200) {
-      alert("User Registered successfully");
+      alert("User Updated successfully");
       setUsers(res.data);
       onClose();
       setLoading(false);
@@ -53,88 +68,145 @@ export const EditUser = ({ onClose }) => {
   };
 
   return (
-    <div className="flex bg-slate-100">
-      <form
-        onSubmit={handleSubmit(addUser)}
-        className="flex flex-col gap-1 bg-white shadow-slate-300 shadow-sm w-[38rem] h-[36rem] rounded-xl p-3"
+    <Box sx={{ display: "flex" }}>
+      <Box
+        component="form"
+        onSubmit={handleSubmit(editUser)}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 1,
+          bgcolor: "white",
+          boxShadow: 2,
+          width: "35rem",
+          height: "32rem",
+          p: 3,
+        }}
       >
-        <div className="pb-16 ml-5 mt-8">
-          <div className="flex">
-            <h2 className="text-3xl ml-40">Edit User</h2>
-            <button
+        <Box sx={{ pb: 16, ml: 5, mt: 4 }}>
+          <Box sx={{ display: "flex" }}>
+            <Typography variant="h4" sx={{ ml: 10 }}>
+              Edit User
+            </Typography>
+            <Button
               onClick={onClose}
-              className=" h-8 w-8 p-1 bg-blue-500 text-white text-2xl font-medium rounded-md hover:bg-blue-600 ml-36"
+              sx={{
+                bgcolor: "#3A57E8",
+                height: 40,
+                width: 30,
+                ml: 24,
+                "&:hover": {
+                  bgcolor: "#647ae6",
+                },
+              }}
             >
-              <IoCloseOutline />
-            </button>
-          </div>
+              <Icon sx={{ color: "white", pb: 1 }}>
+                <IoCloseOutline />
+              </Icon>
+            </Button>
+          </Box>
 
-          <div className="space-y-6">
-            <div className="flex flex-col gap-1">
-              <label>Name</label>
-              <input
+          <Box sx={{ py: 6 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 1 }}
+            >
+              <InputLabel>Name</InputLabel>
+              <Input
                 type="text"
                 {...register("name")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+                  ":placeholder": {
+                    color: "#707070",
+                  },
+                  mr: 1,
+                  width: "32rem",
+                }}
                 placeholder="john"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-            </div>
+            </Box>
 
-            <div className="flex flex-col gap-1">
-              <label>Email</label>
-              <input
+            <Box className="flex flex-col gap-1">
+              <InputLabel>Email</InputLabel>
+              <Input
                 type="text"
                 {...register("email")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+                  ":placeholder": {
+                    color: "#707070",
+                  },
+                  mr: 1,
+                  width: "32rem",
+                }}
                 placeholder="$xyz@gmail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-            </div>
+            </Box>
 
-            <div className="flex flex-col gap-1">
-              <label>Password</label>
-              <input
+            <Box
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 1 }}
+            >
+              <InputLabel>Password</InputLabel>
+              <Input
                 type="password"
                 {...register("password")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-[34rem]"
+                sx={{
+                  bgcolor: "#F9F9F9",
+                  ":placeholder": {
+                    color: "#707070",
+                  },
+                  mr: 1,
+                  width: "32rem",
+                }}
                 placeholder="********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-            </div>
+            </Box>
 
-            <div className="flex flex-col gap-1">
+            <Box
+              clsx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 1,
+                py: 0.5,
+              }}
+            >
               <select
                 {...register("roles")}
                 defaultValue={roles}
                 onChange={(e) => setRoles(e.target.value)}
-                className="placeholder:text-slate-700 p-3 mr-1 rounded-lg w-[34rem]"
+                style={{
+                  placeholder: "#707070",
+                  mr: 1,
+                  width: "32rem",
+                  height: 32,
+                  marginTop: 16,
+                  boxShadow: "0, 4px, 6px, rgba(0, 0, 0, 1.5)",
+                }}
               >
                 <option value="" disabled>
                   Select Role
                 </option>
                 {role.map((rol) => (
-                  <option
-                    key={rol.id}
-                    value={rol.id}
-                    className="text-slate-700"
-                  >
+                  <option key={rol.id} value={rol.id}>
                     {rol.title}
                   </option>
                 ))}
               </select>
-            </div>
-          </div>
+            </Box>
+          </Box>
 
-          <div className="flex gap-72 ml-5 ">
+          <Box sx={{ display: "flex", gap: 32 }}>
             <SubmitButton label="Submit" />
             <ClearButton label="Clear" onClick={handleClear} />
-          </div>
-        </div>
-      </form>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
