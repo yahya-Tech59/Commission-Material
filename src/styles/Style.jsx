@@ -26,7 +26,7 @@ export const lightTheme = createTheme({
       main: "#007bff",
     },
     secondary: {
-      main: "#6c757d",
+      main: "#423939",
     },
   },
 });
@@ -50,6 +50,15 @@ const theme = createTheme({
     },
     secondary: {
       main: Colors.secondary,
+    },
+  },
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          margin: 0,
+        },
+      },
     },
   },
 });

@@ -17,8 +17,14 @@ import { Box, Paper } from "@mui/material";
 
 const App = () => {
   return (
-    <Box>
-      <Paper sx={{ display: "flex", bgcolor: "#F9F9F9", m: 0, p: 0 }}>
+    <Box sx={{ margin: 0 }}>
+      <Paper
+        sx={{
+          display: "flex",
+          bgcolor: "#F9F9F9",
+          margin: 0,
+        }}
+      >
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<SignIn />} />

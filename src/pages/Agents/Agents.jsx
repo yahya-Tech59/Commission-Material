@@ -8,13 +8,13 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Context } from "../../Context/Context";
 import useAgentsStore from "../../Services/AgentApi";
 import { Search } from "../../components/Search";
-import { Box, Button, Icon, Typography } from "@mui/material";
+import { Box, Button, Icon, Typography, TextField } from "@mui/material";
 
 export const Agents = () => {
   const [showAddAgent, setShowAddAgent] = useState(false);
+  const [searchText, setSearchText] = useState("");
 
   const { agents, loading, fetchAgent } = useAgentsStore();
-
   const { currentPage, handlePageChange } = useContext(Context);
 
   useEffect(() => {
@@ -46,7 +46,6 @@ export const Agents = () => {
         <Typography variant="h5" sx={{ fontWeight: 600, pt: 3, ml: 4 }}>
           Agents
         </Typography>
-
         <Box sx={{ ml: "72rem", mb: 4.3 }}>
           <Button
             onClick={() => setShowAddAgent(true)}
@@ -89,18 +88,31 @@ export const Agents = () => {
             </Box>
           )}
         </Box>
-
         <Box sx={{ mb: 2 }} className="mb-2">
-          <Search />
+          <Search
+            label="Search"
+            variant="outlined"
+            size="small"
+            // value={searchText}
+            // onChange={handleSearch}
+            sx={{ ml: 5, mb: 2 }}
+          />
         </Box>
-
         <Box sx={{ height: 630, width: "95%", ml: 5, mb: 4 }}>
           <DataGrid
             rows={agents}
             columns={columns}
             getRowId={(row) => row.id}
+            disableSelectionOnClick
+            checkboxSelection
           />
         </Box>
+        {/* <Box>
+          Page{" "}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>{" "}
+        </Box> */}
 
         <Box sx={{ ml: "67rem", mt: 3, pb: 1 }}>
           <Button

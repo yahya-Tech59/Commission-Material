@@ -154,8 +154,8 @@ export const SignIn = () => {
         onSubmit={handleSubmit(fetchLogin)}
         sx={{
           p: 5,
-          height: "34.938rem",
-          width: "31.25rem",
+          height: "41rem",
+          width: "33.25rem",
           borderRadius: "0.5rem",
           boxShadow: 2,
           bgcolor: "white",
