@@ -275,7 +275,14 @@ import { DashboardCard } from "../components/DashboardCard";
 
 export const Dashboard = () => {
   return (
-    <Box sx={{ color: "gray.400", display: "flex", flexDirection: "column" }}>
+    <Box
+      sx={{
+        color: "gray.400",
+        display: "flex",
+        flexDirection: "column",
+        overflowX: "hidden",
+      }}
+    >
       <Box sx={{ ml: 2 }}>
         <Header />
         <Box
