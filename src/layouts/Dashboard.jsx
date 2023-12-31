@@ -2,7 +2,7 @@ import React from "react";
 import { Footer } from "./Footer";
 import { Chart } from "./Chart/Chart";
 import { Header } from "./Header";
-import { Box, Grid, Select, Typography } from "@mui/material";
+import { Box, Grid, Select, Stack, Typography } from "@mui/material";
 import { DashboardCard } from "../components/DashboardCard";
 
 // export const Dashboard = () => {
@@ -284,7 +284,9 @@ export const Dashboard = () => {
       }}
     >
       <Box sx={{ ml: 2 }}>
-        <Header />
+        <Stack>
+          <Header />
+        </Stack>
         <Box
           sx={{
             display: "flex",

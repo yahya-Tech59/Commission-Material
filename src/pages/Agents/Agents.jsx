@@ -8,14 +8,15 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Context } from "../../Context/Context";
 import useAgentsStore from "../../Services/AgentApi";
 import { Search } from "../../components/Search";
-import { Box, Button, Icon, Typography, TextField } from "@mui/material";
+import { Box, Button, Icon, Typography } from "@mui/material";
+import { Pagination } from "../../components/Pagination";
 
 export const Agents = () => {
   const [showAddAgent, setShowAddAgent] = useState(false);
   const [searchText, setSearchText] = useState("");
 
   const { agents, loading, fetchAgent } = useAgentsStore();
-  const { currentPage, handlePageChange } = useContext(Context);
+  const { currentPage } = useContext(Context);
 
   useEffect(() => {
     fetchAgent(currentPage);
@@ -107,68 +108,9 @@ export const Agents = () => {
             // checkboxSelection
           />
         </Box>
-        {/* <Box>
-          Page{" "}
-          <strong>
-            {pageIndex + 1} of {pageOptions.length}
-          </strong>{" "}
-        </Box> */}
 
-        <Box sx={{ ml: "67rem", mt: 3, pb: 1 }}>
-          <Button
-            onClick={() => handlePageChange(currentPage === 20)}
-            sx={{
-              bgcolor: "#d6d6d6",
-              p: 1,
-              m: 1,
-              pl: 2,
-              pr: 2,
-              borderRadius: 3,
-            }}
-          >
-            {"<<"}
-          </Button>
-          <Button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-            sx={{
-              bgcolor: "#d6d6d6",
-              p: 1,
-              m: 1,
-              pl: 2,
-              pr: 2,
-              borderRadius: 3,
-            }}
-          >
-            Previous Page
-          </Button>
-          <Button
-            onClick={() => handlePageChange(currentPage + 1)}
-            disabled={currentPage === 20}
-            sx={{
-              bgcolor: "#d6d6d6",
-              p: 1,
-              m: 1,
-              pl: 2,
-              pr: 2,
-              borderRadius: 3,
-            }}
-          >
-            Next Page
-          </Button>
-          <Button
-            onClick={() => handlePageChange()}
-            sx={{
-              bgcolor: "#d6d6d6",
-              p: 1,
-              m: 1,
-              pl: 2,
-              pr: 2,
-              borderRadius: 3,
-            }}
-          >
-            {">>"}
-          </Button>
+        <Box sx={{ mt: 3, pb: 1 }}>
+          <Pagination />
         </Box>
       </Box>
     </Box>
