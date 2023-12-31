@@ -26,8 +26,8 @@ import CloseButton from "../../components/CloseButton";
 
 export const AddOrder = ({ onClose }) => {
   const [product_id, setProduct_id] = useState("");
-  const [customer, setCustomer] = useState("");
-  const [agent, setAgent] = useState("");
+  const [customer, setCustomer] = useState([]);
+  const [agent, setAgent] = useState([]);
   const [product_price_id, setProduct_price_id] = useState("");
   const [product_commission_id, setProduct_commission_id] = useState("");
   const [status, setStatus] = useState("");
@@ -213,19 +213,15 @@ export const AddOrder = ({ onClose }) => {
                 width: "34rem",
                 height: 2,
                 color: "black",
+                p: 3,
               }}
               label="Select Customer"
-              input={<Input />}
-              // renderValue={(selected) =>
-              //   customers.find((cus) => cus.id === selected).value
-              // }
-              renderValue={(selected) =>
-                customers.map((item) => item.fullname)?.join(", ")
-              }
+              input={<OutlinedInput />}
+              multiple
             >
               {customers.map((cust) => (
                 <MenuItem key={cust.id} value={cust.id}>
-                  <Checkbox checked={customers.indexOf(cust.id) > -1} />
+                  {/* <Checkbox checked={customers.indexOf(cust.id) > -1} /> */}
                   <ListItem>{cust.fullname}</ListItem>
                 </MenuItem>
               ))}
