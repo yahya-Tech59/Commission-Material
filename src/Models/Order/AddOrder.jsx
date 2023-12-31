@@ -18,6 +18,9 @@ import {
   FormControl,
   TextField,
   Stack,
+  Checkbox,
+  Input,
+  OutlinedInput,
 } from "@mui/material";
 import CloseButton from "../../components/CloseButton";
 
@@ -144,200 +147,203 @@ export const AddOrder = ({ onClose }) => {
   };
 
   return (
-    <Box sx={{ display: "flex", bgcolor: "white" }}>
-      <Box
-        Box
-        component="form"
-        onSubmit={handleSubmit(AddOrder)}
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: 1,
-          bgcolor: "white",
-          boxShadow: 2,
-          width: "39rem",
-          height: "47rem",
-          p: 3,
-        }}
-      >
-        <Box sx={{ pb: 16, ml: 5, mt: 4 }}>
-          <Box sx={{ display: "flex" }}>
-            <Typography variant="h4" sx={{ ml: 8 }}>
-              Add New Order
-            </Typography>
-            <Stack sx={{ ml: 18 }}>
-              <CloseButton onClick={onClose} />
-            </Stack>
-          </Box>
+    <Box
+      Box
+      component="form"
+      onSubmit={handleSubmit(AddOrder)}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        gap: 1,
+        bgcolor: "white",
+        boxShadow: 2,
+        width: "39rem",
+        height: "47rem",
+        p: 3,
+      }}
+    >
+      <Box sx={{ pb: 16, ml: 5, mt: 4 }}>
+        <Box sx={{ display: "flex" }}>
+          <Typography variant="h4" sx={{ ml: 8 }}>
+            Add New Order
+          </Typography>
+          <Stack sx={{ ml: 18 }}>
+            <CloseButton onClick={onClose} />
+          </Stack>
+        </Box>
 
-          <Box sx={{ display: "flex", flexDirection: "column" }}>
-            <FormControl sx={{ py: 6 }}>
-              <InputLabel>ProductID</InputLabel>
-              <TextField
-                {...register("product_id")}
-                defaultValue={product_id}
-                onChange={(e) => setProduct_id(e.target.value)}
-                placeholder="select product ID"
-                sx={{
-                  placeholder: "#707070",
-                  marginRight: 1,
-                  borderRadius: 3,
-                  width: "34rem",
-                  height: 2,
-                  color: "black",
-                }}
-                label="Select ProductID"
-                select
-                size="small"
-              >
-                {products.map((product) => (
-                  <MenuItem key={product.id} value={product.id}>
-                    <ListItem>{product.name}</ListItem>
-                  </MenuItem>
-                ))}
-              </TextField>
-            </FormControl>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <FormControl sx={{ py: 6 }}>
+            <InputLabel>ProductID</InputLabel>
+            <TextField
+              {...register("product_id")}
+              defaultValue={product_id}
+              onChange={(e) => setProduct_id(e.target.value)}
+              placeholder="select product ID"
+              sx={{
+                placeholder: "#707070",
+                marginRight: 1,
+                borderRadius: 3,
+                width: "34rem",
+                height: 2,
+                color: "black",
+              }}
+              label="Select ProductID"
+              select
+              size="small"
+            >
+              {products.map((product) => (
+                <MenuItem key={product.id} value={product.id}>
+                  <ListItem>{product.name}</ListItem>
+                </MenuItem>
+              ))}
+            </TextField>
+          </FormControl>
 
-            <FormControl sx={{ py: 6 }}>
-              <InputLabel>Customer</InputLabel>
-              <TextField
-                {...register("customer")}
-                defaultValue={customer}
-                onChange={(e) => setCustomer(e.target.value)}
-                sx={{
-                  placeholder: "#707070",
+          <FormControl sx={{ py: 6 }}>
+            <InputLabel>Customer</InputLabel>
+            <Select
+              {...register("customer")}
+              defaultValue={customer}
+              onChange={(e) => setCustomer(e.target.value)}
+              sx={{
+                placeholder: "#707070",
+                marginRight: 1,
+                borderRadius: 3,
+                width: "34rem",
+                height: 2,
+                color: "black",
+              }}
+              label="Select Customer"
+              input={<Input />}
+              renderValue={(selected) =>
+                customers
+                  .filter((cust) => selected.includes(cust.id))
+                  .map((record) => record.name)
+                  .join(", ")
+              }
+            >
+              {customers.map((cust) => (
+                <MenuItem key={cust.id} value={cust.id}>
+                  <Checkbox checked={customers.indexOf(cust.id) > -1} />
+                  <ListItem>{cust.fullname}</ListItem>
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
 
-                  marginRight: 1,
-                  borderRadius: 3,
-                  width: "34rem",
-                  height: 2,
-                  color: "black",
-                }}
-                label="Select Customer"
-                select
-                size="small"
-                multiple
-              >
-                {customers.map((cust) => (
-                  <MenuItem key={cust.id} value={cust.id}>
-                    <ListItem>{cust.fullname}</ListItem>
-                  </MenuItem>
-                ))}
-              </TextField>
-            </FormControl>
+          <FormControl sx={{ py: 6 }}>
+            <InputLabel>Agent</InputLabel>
+            <TextField
+              {...register("agent")}
+              defaultValue={agent}
+              onChange={(e) => setAgent(e.target.value)}
+              sx={{
+                placeholder: "#707070",
 
-            <FormControl sx={{ py: 6 }}>
-              <InputLabel>Agent</InputLabel>
-              <TextField
-                {...register("agent")}
-                defaultValue={agent}
-                onChange={(e) => setAgent(e.target.value)}
-                sx={{
-                  placeholder: "#707070",
+                marginRight: 1,
+                borderRadius: 3,
+                width: "34rem",
+                height: 2,
+                color: "black",
+              }}
+              label="Select an agent"
+              select
+              size="small"
+              multiple
+              renderValue={(selected) => selected.join(", ")}
+            >
+              {agents.map((agent) => (
+                <MenuItem key={agent.id} value={agent.id}>
+                  <ListItem>{agent.fullname}</ListItem>
+                </MenuItem>
+              ))}
+            </TextField>
+          </FormControl>
 
-                  marginRight: 1,
-                  borderRadius: 3,
-                  width: "34rem",
-                  height: 2,
-                  color: "black",
-                }}
-                label="Select an agent"
-                select
-                size="small"
-                multiple
-              >
-                {agents.map((agent) => (
-                  <MenuItem key={agent.id} value={agent.id}>
-                    <ListItem>{agent.fullname}</ListItem>
-                  </MenuItem>
-                ))}
-              </TextField>
-            </FormControl>
+          <FormControl sx={{ py: 6 }}>
+            <InputLabel>Product Price</InputLabel>
+            <TextField
+              {...register("product_price_id")}
+              defaultValue={product_price_id}
+              onChange={(e) => setProduct_price_id(e.target.value)}
+              sx={{
+                placeholder: "#707070",
+                marginRight: 1,
+                borderRadius: 3,
+                width: "34rem",
+                height: 2,
+                color: "black",
+              }}
+              label="Select Product Price"
+              select
+              size="small"
+            >
+              {products.map((product) => (
+                <MenuItem key={product.id} value={product.id}>
+                  <ListItem>{product.price}</ListItem>
+                </MenuItem>
+              ))}
+            </TextField>
+          </FormControl>
 
-            <FormControl sx={{ py: 6 }}>
-              <InputLabel>Product Price</InputLabel>
-              <TextField
-                {...register("product_price_id")}
-                defaultValue={product_price_id}
-                onChange={(e) => setProduct_price_id(e.target.value)}
-                sx={{
-                  placeholder: "#707070",
-                  marginRight: 1,
-                  borderRadius: 3,
-                  width: "34rem",
-                  height: 2,
-                  color: "black",
-                }}
-                label="Select Product Price"
-                select
-                size="small"
-              >
-                {products.map((product) => (
-                  <MenuItem key={product.id} value={product.id}>
-                    <ListItem>{product.price}</ListItem>
-                  </MenuItem>
-                ))}
-              </TextField>
-            </FormControl>
+          <FormControl sx={{ py: 6 }}>
+            <InputLabel>Product Commission</InputLabel>
+            <TextField
+              {...register("product_commission_id")}
+              defaultValue={product_commission_id}
+              onChange={(e) => setProduct_commission_id(e.target.value)}
+              sx={{
+                placeholder: "#707070",
+                marginRight: 1,
+                borderRadius: 3,
+                width: "34rem",
+                height: 2,
+                color: "black",
+              }}
+              label="Select Product Commission"
+              select
+              size="small"
+            >
+              {products.map((product) => (
+                <MenuItem key={product.id} value={product.id}>
+                  <ListItem>{product.commission}</ListItem>
+                </MenuItem>
+              ))}
+            </TextField>
+          </FormControl>
 
-            <FormControl sx={{ py: 6 }}>
-              <InputLabel>Product Commission</InputLabel>
-              <TextField
-                {...register("product_commission_id")}
-                defaultValue={product_commission_id}
-                onChange={(e) => setProduct_commission_id(e.target.value)}
-                sx={{
-                  placeholder: "#707070",
-                  marginRight: 1,
-                  borderRadius: 3,
-                  width: "34rem",
-                  height: 2,
-                  color: "black",
-                }}
-                label="Select Product Commission"
-                select
-                size="small"
-              >
-                {products.map((product) => (
-                  <MenuItem key={product.id} value={product.id}>
-                    <ListItem>{product.commission}</ListItem>
-                  </MenuItem>
-                ))}
-              </TextField>
-            </FormControl>
+          <FormControl sx={{ py: 6 }}>
+            <InputLabel>Status</InputLabel>
+            <TextField
+              {...register("status")}
+              defaultValue={status}
+              onChange={(e) => setStatus(e.target.value)}
+              sx={{
+                placeholder: "#707070",
 
-            <FormControl sx={{ py: 6 }}>
-              <InputLabel>Status</InputLabel>
-              <TextField
-                {...register("status")}
-                defaultValue={status}
-                onChange={(e) => setStatus(e.target.value)}
-                sx={{
-                  placeholder: "#707070",
+                marginRight: 1,
+                borderRadius: 3,
+                width: "34rem",
+                height: 2,
+                color: "black",
+              }}
+              label="Select Order Status"
+              select
+              size="small"
+            >
+              {orders.map((order) => (
+                <MenuItem key={order.id} value={order.status}>
+                  <ListItem>{order.status_label}</ListItem>
+                </MenuItem>
+              ))}
+            </TextField>
+          </FormControl>
+        </Box>
 
-                  marginRight: 1,
-                  borderRadius: 3,
-                  width: "34rem",
-                  height: 2,
-                  color: "black",
-                }}
-                label="Select Order Status"
-                select
-                size="small"
-              >
-                {orders.map((order) => (
-                  <MenuItem key={order.id} value={order.status}>
-                    <ListItem>{order.status_label}</ListItem>
-                  </MenuItem>
-                ))}
-              </TextField>
-            </FormControl>
-          </Box>
-
-          <Box sx={{ display: "flex", gap: 33, ml: 5, mt: 2 }}>
-            <SubmitButton label="Submit" />
-            <ClearButton label="Clear" onClick={handleClear} />
-          </Box>
+        <Box sx={{ display: "flex", gap: 33, ml: 5, mt: 2 }}>
+          <SubmitButton label="Submit" />
+          <ClearButton label="Clear" onClick={handleClear} />
         </Box>
       </Box>
     </Box>
