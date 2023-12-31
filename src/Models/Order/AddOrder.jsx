@@ -218,10 +218,30 @@ export const AddOrder = ({ onClose }) => {
               label="Select Customer"
               input={<OutlinedInput />}
               multiple
+              renderValue={(selected) => (
+                <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+                  {selected.map((value) => (
+                    <Box
+                      key={value}
+                      sx={{
+                        marginRight: 1,
+                        marginBottom: 1,
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      {/* <Checkbox checked={customer.indexOf(value) > -1} /> */}
+                      <ListItem>
+                        {customers.find((cust) => cust.id === value)?.fullname}
+                      </ListItem>
+                    </Box>
+                  ))}
+                </Box>
+              )}
             >
               {customers.map((cust) => (
                 <MenuItem key={cust.id} value={cust.id}>
-                  {/* <Checkbox checked={customers.indexOf(cust.id) > -1} /> */}
+                  <Checkbox checked={customer.indexOf(cust.id) > -1} />
                   <ListItem>{cust.fullname}</ListItem>
                 </MenuItem>
               ))}
