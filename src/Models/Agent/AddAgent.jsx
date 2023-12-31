@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "../../api/axiosConfig";
-import { IoCloseOutline } from "react-icons/io5";
 import SubmitButton from "../../components/SubmitButton";
 import ClearButton from "../../components/ClearButton";
 import useAddAgent from "../../hooks/useAddAgent";

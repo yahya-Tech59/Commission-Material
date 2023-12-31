@@ -16,6 +16,7 @@ import {
   Select,
   MenuItem,
   ListItem,
+  TextField,
 } from "@mui/material";
 import CloseButton from "../../components/CloseButton";
 
@@ -97,10 +98,8 @@ export const AddCustomer = ({ onClose }) => {
             </Box>
           </Box>
 
-          <Box sx={{ my: 6, ml: 3 }}>
-            <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
-            >
+          <Box sx={{ ml: 3, my: 7 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
               <InputLabel>Name</InputLabel>
               <Input
                 type="text"
@@ -122,7 +121,7 @@ export const AddCustomer = ({ onClose }) => {
               />
             </Box>
             <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 2 }}
             >
               <InputLabel>Contact</InputLabel>
               <Input
@@ -145,7 +144,7 @@ export const AddCustomer = ({ onClose }) => {
               />
             </Box>
             <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+              sx={{ display: "flex", flexDirection: "column", gap: 1, py: 2 }}
             >
               <InputLabel>Address </InputLabel>
               <Input
@@ -169,38 +168,38 @@ export const AddCustomer = ({ onClose }) => {
             </Box>
 
             <Box
-              sx={{ display: "flex", flexDirection: "column", gap: 1, my: 3 }}
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 1,
+                py: 2,
+              }}
             >
               <InputLabel>Agency</InputLabel>
-              <Select
+              <TextField
                 {...register("agency_id")}
                 defaultValue={agency_id}
                 onChange={(e) => setAgency_id(e.target.value)}
                 sx={{
-                  "&::placeholder": {
-                    color: "text.secondary",
-                  },
-                  p: 2.7,
-                  marginRight: 1,
                   borderRadius: 3,
                   width: "32rem",
                   height: 2,
+                  color: "black",
                 }}
+                label="Select an agent"
+                select
+                size="small"
               >
-                <MenuItem value="" disabled>
-                  <ListItem>Select an agent</ListItem>
-                </MenuItem>
                 {agents.map((agent) => (
                   <MenuItem
                     key={agent.id}
                     value={agent.id}
-                    style={{ paddingBottom: 2 }}
-                    className="text-slate-700"
+                    sx={{ paddingBottom: 2 }}
                   >
                     <ListItem>{agent.fullname}</ListItem>
                   </MenuItem>
                 ))}
-              </Select>
+              </TextField>
             </Box>
           </Box>
 

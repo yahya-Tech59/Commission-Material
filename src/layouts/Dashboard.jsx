@@ -5,6 +5,80 @@ import { Header } from "./Header";
 import { Box, Grid, Select, Stack, Typography } from "@mui/material";
 import { DashboardCard } from "../components/DashboardCard";
 
+export const Dashboard = () => {
+  return (
+    <Box
+      sx={{
+        color: "gray.400",
+        display: "flex",
+        flexDirection: "column",
+        overflowX: "hidden",
+      }}
+    >
+      <Box sx={{ ml: 2 }}>
+        <Stack>
+          <Header />
+        </Stack>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            mt: 4,
+            px: 4,
+          }}
+        >
+          <Typography
+            variant="h5"
+            sx={{ fontSize: 30, fontWeight: 500, mb: 4 }}
+          >
+            Dashboard
+          </Typography>
+          <select
+            defaultValue=""
+            style={{
+              height: 20,
+              border: "none",
+              color: "#3A57E8",
+            }}
+          >
+            <option value="">Last 30 Days</option>
+          </select>
+        </Box>
+        <Grid container spacing={3} sx={{ mt: 1, ml: 5, gap: 4 }}>
+          <DashboardCard
+            title="Hide"
+            subtitle="Yearly"
+            value="2,590"
+            tableName="Agency"
+          />
+          <DashboardCard
+            title="Hide"
+            subtitle="Yearly"
+            value="10,000"
+            tableName="Customers"
+          />
+          <DashboardCard
+            title="Hide"
+            subtitle="Yearly"
+            value="100"
+            tableName="Products"
+          />
+          <DashboardCard
+            title="Hide"
+            subtitle="Yearly"
+            value="150"
+            tableName="Orders"
+          />
+        </Grid>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <Chart />
+          <Footer className="" />
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
 // export const Dashboard = () => {
 //   return (
 //     <Box sx={{ color: "gray.400", display: "flex" }}>
@@ -272,77 +346,3 @@ import { DashboardCard } from "../components/DashboardCard";
 //     </Box>
 //   );
 // };
-
-export const Dashboard = () => {
-  return (
-    <Box
-      sx={{
-        color: "gray.400",
-        display: "flex",
-        flexDirection: "column",
-        overflowX: "hidden",
-      }}
-    >
-      <Box sx={{ ml: 2 }}>
-        <Stack>
-          <Header />
-        </Stack>
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            mt: 4,
-            px: 4,
-          }}
-        >
-          <Typography
-            variant="h5"
-            sx={{ fontSize: 30, fontWeight: 500, mb: 4 }}
-          >
-            Dashboard
-          </Typography>
-          <select
-            defaultValue=""
-            style={{
-              height: 20,
-              border: "none",
-              color: "#3A57E8",
-            }}
-          >
-            <option value="">Last 30 Days</option>
-          </select>
-        </Box>
-        <Grid container spacing={3} sx={{ mt: 1, ml: 5, gap: 4 }}>
-          <DashboardCard
-            title="Hide"
-            subtitle="Yearly"
-            value="2,590"
-            tableName="Agency"
-          />
-          <DashboardCard
-            title="Hide"
-            subtitle="Yearly"
-            value="10,000"
-            tableName="Customers"
-          />
-          <DashboardCard
-            title="Hide"
-            subtitle="Yearly"
-            value="100"
-            tableName="Products"
-          />
-          <DashboardCard
-            title="Hide"
-            subtitle="Yearly"
-            value="150"
-            tableName="Orders"
-          />
-        </Grid>
-        <Box sx={{ display: "flex", flexDirection: "column" }}>
-          <Chart />
-          <Footer className="" />
-        </Box>
-      </Box>
-    </Box>
-  );
-};
