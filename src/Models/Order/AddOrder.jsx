@@ -216,11 +216,11 @@ export const AddOrder = ({ onClose }) => {
               }}
               label="Select Customer"
               input={<Input />}
+              // renderValue={(selected) =>
+              //   customers.find((cus) => cus.id === selected).value
+              // }
               renderValue={(selected) =>
-                customers
-                  .filter((cust) => selected.includes(cust.id))
-                  .map((record) => record.name)
-                  .join(", ")
+                customers.map((item) => item.fullname)?.join(", ")
               }
             >
               {customers.map((cust) => (
