@@ -2,7 +2,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import axios from "../../api/axiosConfig";
-import { IoCloseOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import ClearButton from "../../components/ClearButton";
 import SubmitButton from "../../components/SubmitButton";
@@ -19,7 +18,6 @@ import {
   TextField,
   Stack,
   Checkbox,
-  Input,
   OutlinedInput,
 } from "@mui/material";
 import CloseButton from "../../components/CloseButton";
@@ -194,13 +192,13 @@ export const AddOrder = ({ onClose }) => {
             >
               {products.map((product) => (
                 <MenuItem key={product.id} value={product.id}>
-                  <ListItem>{product.name}</ListItem>
+                  <ListItem>{product.name}</ListItem>2
                 </MenuItem>
               ))}
             </TextField>
           </FormControl>
 
-          <FormControl sx={{ py: 6 }}>
+          <FormControl sx={{ py: 3 }}>
             <InputLabel>Customer</InputLabel>
             <Select
               {...register("customer")}
@@ -209,23 +207,20 @@ export const AddOrder = ({ onClose }) => {
               sx={{
                 placeholder: "#707070",
                 marginRight: 1,
-                borderRadius: 3,
                 width: "34rem",
                 height: 2,
                 color: "black",
-                p: 3,
+                p: 2.5,
+                mt: 3,
               }}
               label="Select Customer"
               input={<OutlinedInput />}
               multiple
               renderValue={(selected) => (
                 <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-                  {selected.map((value) => (
+                  {selected.map((value, index) => (
                     <Box
-                      key={value}
                       sx={{
-                        marginRight: 1,
-                        marginBottom: 1,
                         display: "flex",
                         alignItems: "center",
                       }}
@@ -250,31 +245,49 @@ export const AddOrder = ({ onClose }) => {
 
           <FormControl sx={{ py: 6 }}>
             <InputLabel>Agent</InputLabel>
-            <TextField
+            <Select
               {...register("agent")}
               defaultValue={agent}
               onChange={(e) => setAgent(e.target.value)}
               sx={{
                 placeholder: "#707070",
-
                 marginRight: 1,
-                borderRadius: 3,
                 width: "34rem",
                 height: 2,
                 color: "black",
+                p: 2.5,
+                mt: 3,
               }}
               label="Select an agent"
+              input={<OutlinedInput />}
               select
-              size="small"
               multiple
-              renderValue={(selected) => selected.join(", ")}
+              // renderValue={(selected) => selected.join(", ")}
+              renderValue={(selected) => (
+                <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+                  {selected.map((value, index) => (
+                    <Box
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                      }}
+                    >
+                      {/* <Checkbox checked={customer.indexOf(value) > -1} /> */}
+                      <ListItem>
+                        {agents.find((agent) => agent.id === value)?.fullname}
+                      </ListItem>
+                    </Box>
+                  ))}
+                </Box>
+              )}
             >
               {agents.map((agent) => (
                 <MenuItem key={agent.id} value={agent.id}>
+                  <Checkbox checked={agents.indexOf(agent.id) > -1} />
                   <ListItem>{agent.fullname}</ListItem>
                 </MenuItem>
               ))}
-            </TextField>
+            </Select>
           </FormControl>
 
           <FormControl sx={{ py: 6 }}>
