@@ -236,7 +236,7 @@ export const AddOrder = ({ onClose }) => {
             >
               {customers.map((cust) => (
                 <MenuItem key={cust.id} value={cust.id}>
-                  <Checkbox checked={customer.indexOf(cust.id) > -1} />
+                  <Checkbox checked={customers.indexOf(cust.id) > -1} />
                   <ListItem>{cust.fullname}</ListItem>
                 </MenuItem>
               ))}
