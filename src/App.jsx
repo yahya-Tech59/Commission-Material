@@ -122,9 +122,7 @@ const App = () => {
           margin: 0,
         }}
       >
-        <RouterProvider router={router}>
-          <Outlet /> {/* Render nested routes based on URL */}
-        </RouterProvider>
+        <RouterProvider router={router} />
       </Paper>
     </Box>
   );
