@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import {
   Dashboard,
   Agents,
@@ -16,6 +16,103 @@ import { ProtectedRoutes } from "./utils/ProtectedRoutes";
 import { Box, Paper } from "@mui/material";
 
 const App = () => {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <SignIn />,
+    },
+    {
+      path: "signUp",
+      element: <SignUp />,
+    },
+    {
+      element: <ProtectedRoutes />,
+      children: [
+        {
+          index: true,
+          element: (
+            <>
+              <Sidebar />
+              <Dashboard />
+            </>
+          ),
+        },
+        {
+          path: "dashboard",
+          element: (
+            <>
+              <Sidebar />
+              <Dashboard />
+            </>
+          ),
+        },
+        {
+          path: "agents",
+          element: (
+            <>
+              <Sidebar />
+              <Agents />
+            </>
+          ),
+        },
+        {
+          path: "customers",
+          element: (
+            <>
+              <Sidebar />
+              <Customers />
+            </>
+          ),
+        },
+        {
+          path: "products",
+          element: (
+            <>
+              <Sidebar />
+              <Products />
+            </>
+          ),
+        },
+        {
+          path: "orders",
+          element: (
+            <>
+              <Sidebar />
+              <Orders />
+            </>
+          ),
+        },
+        {
+          path: "users",
+          element: (
+            <>
+              <Sidebar />
+              <Users />
+            </>
+          ),
+        },
+        {
+          path: "signout",
+          element: (
+            <>
+              <Sidebar />
+              <SignOut />
+            </>
+          ),
+        },
+        {
+          path: "*",
+          element: (
+            <>
+              <Sidebar />
+              <NoMatch />
+            </>
+          ),
+        },
+      ],
+    },
+  ]);
+
   return (
     <Box sx={{ margin: 0 }}>
       <Paper
@@ -25,22 +122,9 @@ const App = () => {
           margin: 0,
         }}
       >
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<SignIn />} />
-            <Route path="signUp" element={<SignUp />} />
-            <Route element={<ProtectedRoutes />}>
-              <Route path="/dashboard" element={[<Sidebar />, <Dashboard />]} />
-              <Route path="agents" element={[<Sidebar />, <Agents />]} />
-              <Route path="customers" element={[<Sidebar />, <Customers />]} />
-              <Route path="products" element={[<Sidebar />, <Products />]} />
-              <Route path="orders" element={[<Sidebar />, <Orders />]} />
-              <Route path="users" element={[<Sidebar />, <Users />]} />
-              <Route path="signout" element={[<Sidebar />, <SignOut />]} />
-              <Route path="*" element={<NoMatch />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+        <RouterProvider router={router}>
+          <Outlet /> {/* Render nested routes based on URL */}
+        </RouterProvider>
       </Paper>
     </Box>
   );

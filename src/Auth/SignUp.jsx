@@ -15,7 +15,7 @@ import {
   linkedin,
 } from "../assets/img";
 import { Link } from "react-router-dom";
-import axios from "../api/axiosConfig";
+import axios from "../Services/axiosConfig";
 
 export const SignUp = () => {
   const [name, setName] = useState("");

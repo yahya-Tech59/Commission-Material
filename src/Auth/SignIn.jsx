@@ -11,7 +11,7 @@ import {
   linkedin,
 } from "../assets/img";
 import { MdError } from "react-icons/md";
-import axios from "../api/axiosConfig";
+import axios from "../Services/axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
 import {
   Box,

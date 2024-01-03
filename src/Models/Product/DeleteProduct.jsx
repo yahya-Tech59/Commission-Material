@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "../../api/axiosConfig";
+import axios from "../../Services/axiosConfig";
 
 export const DeleteProduct = ({ id, onClose }) => {
   const [loading, setLoading] = useState(false);

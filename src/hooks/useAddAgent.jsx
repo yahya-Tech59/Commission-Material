@@ -1,5 +1,5 @@
 import { useState } from "react";
-import axios from "../api/axiosConfig";
+import axios from "../Services/axiosConfig";
 
 const useAddAgent = (onClose) => {
   const [loading, setLoading] = useState(false);

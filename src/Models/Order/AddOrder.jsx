@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "../../api/axiosConfig";
+import axios from "../../Services/axiosConfig";
 import { useEffect, useState } from "react";
 import ClearButton from "../../components/ClearButton";
 import SubmitButton from "../../components/SubmitButton";
@@ -260,7 +260,6 @@ export const AddOrder = ({ onClose }) => {
               }}
               label="Select an agent"
               input={<OutlinedInput />}
-              select
               multiple
               // renderValue={(selected) => selected.join(", ")}
               renderValue={(selected) => (

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import axios from "../../api/axiosConfig";
+import axios from "../../Services/axiosConfig";
 import { IoCloseOutline } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import ClearButton from "../../components/ClearButton";
