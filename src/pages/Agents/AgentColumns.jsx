@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RiEditLine } from "react-icons/ri";
 import { RiDeleteBin2Line } from "react-icons/ri";
-import { del, edit } from "../../assets/img";
+// import { del, edit } from "../../assets/img";
 import { EditAgent } from "../../Models/Agent/EditAgent";
 import { DeleteAgent } from "../../Models/Agent/DeleteAgent";
 import { Box, IconButton, Icon } from "@mui/material";

@@ -30,6 +30,21 @@ export const Agents = () => {
     );
   }
 
+  // const handleEdit = (id, updatedData) => {
+  //   // Find the index of the edited agent in the agents array
+  //   const index = agents.findIndex((agent) => agent.id === id);
+
+  //   if (index !== -1) {
+  //     // Create a new array with the updated data
+  //     const updatedAgents = [...agents];
+  //     updatedAgents[index] = { ...updatedAgents[index], ...updatedData };
+
+  //     // Update the state with the new array
+  //     // This will automatically re-render the DataGrid with the updated data
+  //     setAgents(updatedAgents);
+  //   }
+  // };
+
   return (
     <Box sx={{ ml: 3 }}>
       <Header />
