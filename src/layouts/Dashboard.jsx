@@ -44,7 +44,9 @@ export const Dashboard = () => {
             <option value="">Last 30 Days</option>
           </select>
         </Box>
-        <Grid container spacing={3} sx={{ mt: 1, ml: 5, gap: 4 }}>
+        <Box
+          sx={{ display: "flex", flexDirection: "row", mt: 1, ml: 5, gap: 4 }}
+        >
           <DashboardCard
             title="Hide"
             subtitle="Yearly"
@@ -69,7 +71,7 @@ export const Dashboard = () => {
             value="150"
             tableName="Orders"
           />
-        </Grid>
+        </Box>
         <Box sx={{ display: "flex", flexDirection: "column" }}>
           <Chart />
           <Footer className="" />
