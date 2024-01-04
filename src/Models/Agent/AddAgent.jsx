@@ -1,25 +1,20 @@
+import { yupResolver } from "@hookform/resolvers/yup";
+import { Box, Input, InputLabel, Typography } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import SubmitButton from "../../components/SubmitButton";
 import ClearButton from "../../components/ClearButton";
-import useAddAgent from "../../hooks/useAddAgent";
-import {
-  Box,
-  Input,
-  InputLabel,
-  Typography,
-  Button,
-  Icon,
-} from "@mui/material";
 import CloseButton from "../../components/CloseButton";
+import SubmitButton from "../../components/SubmitButton";
+import AlertComp from "../../components/Alert";
 
 export const AddAgent = ({ onClose }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [business, setBusiness] = useState("");
   const [contact, setContact] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [registrationStatus, setRegistrationStatus] = useState(null);
 
   const handleClear = () => {
     setName("");
@@ -39,11 +34,44 @@ export const AddAgent = ({ onClose }) => {
     resolver: yupResolver(schema),
   });
 
-  const { loading, addAgent } = useAddAgent(onClose);
+  const addAgent = async (data) => {
+    try {
+      setLoading(true);
+      const res = await axios.post("/api/v1/agents", data);
+
+      if (res.status === 201) {
+        // alert("Agent Registered successfully");
+        setRegistrationStatus("success");
+        setLoading(false);
+      }
+    } catch (error) {
+      setRegistrationStatus("error");
+      setLoading(false);
+    }
+  };
 
   if (loading === true) {
     return <Typography variant="h1">Loading...</Typography>;
   }
+
+  //{
+  //  registrationStatus && (
+  //   <AlertComp
+  //    severity={registrationStatus === "success" ? "success" : "error"}
+  //    title={
+  //      registrationStatus === "success"
+  //        ? "Registration Successful"
+  //        : "Registration Failed"
+  //    }
+  //    message={
+  //      registrationStatus === "success"
+  //        ? "Agent registered successfully."
+  //        : "Failed to register agent."
+  //    }
+  //    onClose={() => setRegistrationStatus(null)} // Clear registration status on close
+  //  />
+  //  );
+  // }
 
   return (
     <Box sx={{ display: "flex" }}>
