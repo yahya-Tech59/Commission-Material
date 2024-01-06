@@ -24,7 +24,7 @@ export const Agents = () => {
 
   if (loading === true) {
     return (
-      <Typography variant="h2" sx={{ ml: "53rem" }}>
+      <Typography variant="h2" ml="53rem">
         Loading...
       </Typography>
     );
