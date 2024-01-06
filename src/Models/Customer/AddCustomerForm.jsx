@@ -17,7 +17,7 @@ import SubmitButton from "../../components/SubmitButton";
 import ClearButton from "../../components/ClearButton";
 
 const AddCustomerForm = ({
-  onSubmit,
+  AddCustomer,
   onClear,
   name,
   setName,
@@ -44,31 +44,29 @@ const AddCustomerForm = ({
   return (
     <Box
       component="form"
-      onSubmit={handleSubmit(onSubmit)}
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 1,
-        bgcolor: "white",
-        boxShadow: 2,
-        width: "35rem",
-        height: "37rem",
-        borderRadius: 2,
-        p: 3,
-      }}
+      onSubmit={handleSubmit(AddCustomer)}
+      display="flex"
+      flexDirection="column"
+      gap={1}
+      bgcolor="white"
+      boxShadow={2}
+      width="35rem"
+      height="37rem"
+      borderRadius={2}
+      p={3}
     >
-      <Box sx={{ mt: 4 }}>
-        <Box sx={{ display: "flex", gap: 5 }}>
-          <Typography variant="h4" sx={{ ml: 7 }}>
+      <Box mt={4}>
+        <Box display="flex" gap={5}>
+          <Typography variant="h4" ml={7}>
             Add New Customer
           </Typography>
-          <Box sx={{ ml: 7 }}>
+          <Box ml={7}>
             <CloseButton onClick={onClose} />
           </Box>
         </Box>
 
-        <Box sx={{ mt: 4, ml: 3 }}>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+        <Box mt={4} ml={3}>
+          <Box display="flex" flexDirection="column" gap={1} py={2}>
             <InputLabel>Name</InputLabel>
 
             <Input
@@ -90,7 +88,8 @@ const AddCustomerForm = ({
               onChange={(e) => setName(e.target.value)}
             />
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 1, py: 2 }}>
+
+          <Box display="flex" flexDirection="column" gap={1} py={2}>
             <InputLabel>Contact</InputLabel>
             <Input
               type="string"
@@ -111,7 +110,7 @@ const AddCustomerForm = ({
               onChange={(e) => setContact(e.target.value)}
             />
           </Box>
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 1, py: 2 }}>
+          <Box display="flex" flexDirection="column" gap={1} py={2}>
             <InputLabel>Address </InputLabel>
             <Input
               type="text"
@@ -133,14 +132,7 @@ const AddCustomerForm = ({
             />
           </Box>
 
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 1,
-              py: 2,
-            }}
-          >
+          <Box display="flex" flexDirection="column" gap={1} py={2}>
             <InputLabel>Agency</InputLabel>
             <TextField
               {...register("agency_id")}
