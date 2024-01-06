@@ -19,6 +19,7 @@ import ClearButton from "../../components/ClearButton";
 const AddCustomerForm = ({
   AddCustomer,
   onClear,
+  loading,
   name,
   setName,
   contact,
@@ -40,6 +41,10 @@ const AddCustomerForm = ({
   const { register, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
+
+  if (loading === true) {
+    return <Typography variant="h1">Loading...</Typography>;
+  }
 
   return (
     <Box

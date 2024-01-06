@@ -53,13 +53,13 @@ export const AddCustomer = ({ onClose }) => {
           onClose={onClose}
           loading={loading}
           name={name}
-          setName={setName}
           address={address}
-          setAddress={setAddress}
           contact={contact}
-          setContact={setContact}
           agents={agents}
           agency_id={agency_id}
+          setName={setName}
+          setAddress={setAddress}
+          setContact={setContact}
           setAgency_id={setAgency_id}
         />
       </Box>
