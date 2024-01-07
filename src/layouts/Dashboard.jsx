@@ -15,6 +15,7 @@ export const Dashboard = () => {
     >
       <Box ml={2}>
         <Header />
+
         <Box display="flex" justifyContent="space-between" mt={4} px={2}>
           <Typography
             variant="h5"
@@ -33,7 +34,7 @@ export const Dashboard = () => {
             <option value="">Last 30 Days</option>
           </select>
         </Box>
-        <Grid container columnSpacing={-9} ml={5}>
+        <Grid container columnSpacing={-4.8} rowSpacing={2} ml={5}>
           <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
               title="Hide"

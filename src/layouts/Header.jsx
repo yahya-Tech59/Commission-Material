@@ -2,100 +2,108 @@ import React from "react";
 import { HiMiniUserCircle } from "react-icons/hi2";
 import { GoHomeFill } from "react-icons/go";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import { Box, Button, Icon, ListItemText, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  Icon,
+  ListItemText,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 export const Header = () => {
   return (
-    <Box
+    <Toolbar
       sx={{
+        width: "98%",
         display: "flex",
+        justifyContent: "space-between",
         bgcolor: "white",
-        mt: 1,
-        mr: 2,
-        width: "100rem",
-        height: "4.75rem",
         boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
+        "@media (max-width: 600px)": {
+          flexDirection: "column",
+          alignItems: "center",
+        },
       }}
     >
-      <Button
-        sx={{
-          display: "flex",
-          ml: 3,
-          ":hover": {
-            borderBottom: "1px solid #3A57E8",
-          },
-        }}
-      >
-        <Icon sx={{ fontSize: 26, mb: 1, width: "2.2rem", height: "2rem" }}>
-          <GoHomeFill />
-        </Icon>
-        <ListItemText primary="Home" />
-      </Button>
-      <Box
-        sx={{
-          border: 0.5,
-          borderColor: "#D9D9D9",
-          height: 36,
-          mt: 2,
-          ml: 6,
-        }}
-      />
-      <Button
-        sx={{
-          display: "flex",
-          ml: 3,
-          ":hover": {
-            borderBottom: "1px solid #3A57E8",
-          },
-        }}
-      >
-        <Icon sx={{ fontSize: 26, mb: 2 }}>
-          <GoHomeFill />
-        </Icon>
+      <Grid container spacing={2} alignItems="center">
+        <Grid item>
+          <Button
+            sx={{
+              display: "flex",
+              ":hover": {
+                borderBottom: { xs: "1px solid #3A57E8", md: "none" },
+              },
+            }}
+          >
+            <Icon sx={{ fontSize: 26, mb: 1, width: "2.2rem", height: "2rem" }}>
+              <GoHomeFill />
+            </Icon>
+            <ListItemText primary="Home" />
+          </Button>
+        </Grid>
+        <Grid item>
+          <Box
+            sx={{
+              border: 0.5,
+              borderColor: "#D9D9D9",
+              height: 36,
+              ml: 2,
+              display: { xs: "none", md: "block" },
+            }}
+          />
+        </Grid>
+        <Grid item>
+          <Button
+            sx={{
+              display: "flex",
+              ":hover": {
+                borderBottom: { xs: "1px solid #3A57E8", md: "none" },
+              },
+            }}
+          >
+            <Icon sx={{ fontSize: 26, mb: 2 }}>
+              <GoHomeFill />
+            </Icon>
+            <ListItemText primary="Paid" />
+          </Button>
+        </Grid>
+      </Grid>
 
-        <ListItemText primary="Paid" />
-      </Button>
-      <Box
-        sx={{
-          border: 0.5,
-          borderColor: "#D9D9D9",
-          height: 36,
-          mt: 2,
-          ml: 6,
-        }}
-      />
-      <Box
-        sx={{
-          display: "flex",
-          gap: 2,
-          marginLeft: "42rem",
-          paddingLeft: "20rem",
-        }}
-      >
-        <Typography variant="h2" sx={{ mt: 3.4, mr: 1, fontSize: 18 }}>
-          EN
-        </Typography>
-        <Icon sx={{ mt: 3, fontSize: 25 }}>
-          <IoMdNotificationsOutline />
-        </Icon>
-        <Box
-          sx={{
-            border: 0.5,
-            borderColor: "#D9D9D9",
-            height: 36,
-            mt: 2,
-            ml: 1,
-          }}
-        />
-        <Typography variant="h2" sx={{ mt: 3.8, fontSize: "1rem" }}>
-          Jama Abdi
-        </Typography>
-        <Icon
-          sx={{ ml: "auto", mt: 3, color: "primary.main", fontSize: "2rem" }}
-        >
-          <HiMiniUserCircle />
-        </Icon>
-      </Box>
-    </Box>
+      <Grid container spacing={2} alignItems="center" pl={101}>
+        <Grid item>
+          <Typography variant="h2" sx={{ mr: 1, fontSize: 18 }}>
+            EN
+          </Typography>
+        </Grid>
+        <Grid item>
+          <Icon sx={{ fontSize: 25 }}>
+            <IoMdNotificationsOutline />
+          </Icon>
+        </Grid>
+        <Grid item>
+          <Box
+            sx={{
+              border: 0.5,
+              borderColor: "#D9D9D9",
+              height: 36,
+              ml: 1,
+              display: { xs: "none", md: "block" },
+            }}
+          />
+        </Grid>
+        <Grid item>
+          <Typography variant="h2" sx={{ fontSize: "1rem" }}>
+            Jama Abdi
+          </Typography>
+        </Grid>
+        <Grid item xs={12} sm="auto">
+          <Icon sx={{ ml: "auto", color: "primary.main", fontSize: "2rem" }}>
+            <HiMiniUserCircle />
+          </Icon>
+        </Grid>
+      </Grid>
+    </Toolbar>
   );
 };

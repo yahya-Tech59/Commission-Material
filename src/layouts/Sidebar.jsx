@@ -24,6 +24,7 @@ import {
   ListItemIcon,
   ListItemText,
   Divider,
+  IconButton,
 } from "@mui/material";
 
 export const Sidebar = () => {
@@ -32,24 +33,35 @@ export const Sidebar = () => {
   return (
     <Box>
       {!sidebarOpen ? (
-        <Box onClick={handleOpen}>
-          <Icon fontSize={18} ml={2} mt={2} sx={{ cursor: "pointer" }}>
-            <FaBars />
-          </Icon>
-        </Box>
+        <IconButton
+          onClick={handleOpen}
+          sx={{
+            display: {
+              xs: "block",
+              md: "none",
+            },
+            fontSize: 18,
+            ml: 2,
+            mt: 2,
+            cursor: "pointer",
+          }}
+        >
+          <FaBars />
+        </IconButton>
       ) : (
         <Box width="16.368rem" height="100%" boxShadow={2} bgcolor="white">
           <Box onClick={handleClose}>
-            <Icon
+            <IconButton
+              onClick={handleClose}
               sx={{
                 color: "#0048B2",
-                ml: "15.6rem",
+                ml: "15rem",
                 position: "relative",
                 top: 35,
               }}
             >
               <BsFillArrowLeftCircleFill />
-            </Icon>
+            </IconButton>
             <Typography
               variant="h5"
               text="3xl"
