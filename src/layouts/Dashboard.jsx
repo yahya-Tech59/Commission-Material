@@ -34,7 +34,13 @@ export const Dashboard = () => {
             <option value="">Last 30 Days</option>
           </select>
         </Box>
-        <Grid container columnSpacing={-4.8} rowSpacing={2} ml={5}>
+        <Grid
+          container
+          columnSpacing={-4.8}
+          rowSpacing={2}
+          ml={5}
+          sx={{ display: { xs: { position: "relative", right: 200 } } }}
+        >
           <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
               title="Hide"

@@ -16,7 +16,7 @@ export const Header = () => {
   return (
     <Toolbar
       sx={{
-        width: "98%",
+        width: "97%",
         display: "flex",
         justifyContent: "space-between",
         bgcolor: "white",
@@ -71,7 +71,7 @@ export const Header = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2} alignItems="center" pl={101}>
+      <Grid container spacing={2} alignItems="center" pl={100}>
         <Grid item>
           <Typography variant="h2" sx={{ mr: 1, fontSize: 18 }}>
             EN

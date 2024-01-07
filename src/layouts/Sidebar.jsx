@@ -1,97 +1,82 @@
+import React, { useContext } from "react";
+import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { FaBars } from "react-icons/fa";
+import { cart, heart, notif, user } from "../assets/img";
+import { AiOutlineHome } from "react-icons/ai";
+import {
+  MdRealEstateAgent,
+  MdOutlineDashboardCustomize,
+  MdProductionQuantityLimits,
+} from "react-icons/md";
+import { AiOutlineOrderedList } from "react-icons/ai";
+import { HiUserGroup } from "react-icons/hi";
+import { GoSignOut } from "react-icons/go";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
+import { NavLink } from "react-router-dom";
+import { Context } from "../Context/Context";
 import {
   Box,
   Button,
-  Divider,
   IconButton,
+  Typography,
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
-  Typography,
+  Divider,
+  Grid,
 } from "@mui/material";
-import React, { useState } from "react";
-import { AiOutlineHome, AiOutlineOrderedList } from "react-icons/ai";
-import {
-  BsFillArrowLeftCircleFill,
-  BsFillExclamationCircleFill,
-} from "react-icons/bs";
-import { FaBars } from "react-icons/fa";
-import { GoSignOut } from "react-icons/go";
-import { HiUserGroup } from "react-icons/hi";
-import {
-  MdOutlineDashboardCustomize,
-  MdProductionQuantityLimits,
-  MdRealEstateAgent,
-} from "react-icons/md";
-import { NavLink } from "react-router-dom";
-import { cart, heart, notif, user } from "../assets/img";
 
 export const Sidebar = () => {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
-  };
-
-  const handleClose = () => {
-    setSidebarOpen(false);
-  };
+  const { sidebarOpen, handleOpen, handleClose } = useContext(Context);
 
   return (
-    <Box position="relative" top={-15}>
-      <Box
-        width={sidebarOpen ? "16.368rem" : "5rem"}
-        height="100%"
-        boxShadow={2}
-        bgcolor="white"
-        transition="width 0.3s"
+    <Grid container>
+      <Grid
+        item
+        xs={sidebarOpen ? 1 : 12}
+        sm={sidebarOpen ? 1 : 6}
+        md={sidebarOpen ? 3 : 1}
       >
-        <IconButton
-          onClick={toggleSidebar}
-          sx={{
-            display: {
-              xs: "block",
-              md: "block",
-            },
-            fontSize: 20,
-            ml: 2,
-            mt: 2,
-            cursor: "pointer",
-          }}
-        >
-          {sidebarOpen ? "" : <FaBars />}
-        </IconButton>
-
-        <Box onClick={handleClose}>
-          {sidebarOpen && (
-            <IconButton
-              onClick={handleClose}
-              sx={{
-                color: "#0048B2",
-                ml: "15rem",
-                position: "relative",
-                top: 16,
-              }}
-            >
-              {sidebarOpen ? <BsFillArrowLeftCircleFill /> : <FaBars />}
-            </IconButton>
-          )}
-          <Typography
-            variant="h5"
-            text="3xl"
-            position="relative"
-            top={-22}
-            ml={3}
-            fontFamily="Inter"
-            fontWeight={600}
-            sx={{ display: sidebarOpen ? "block" : "none" }}
+        {!sidebarOpen ? (
+          <IconButton
+            onClick={handleOpen}
+            sx={{
+              fontSize: 18,
+              ml: 2,
+              mt: 2,
+              cursor: "pointer",
+            }}
           >
-            Commission System
-          </Typography>
-        </Box>
+            <FaBars />
+          </IconButton>
+        ) : (
+          <Box width="16.368rem" height="100%" boxShadow={2} bgcolor="white">
+            <Box onClick={handleClose}>
+              <IconButton
+                onClick={handleClose}
+                sx={{
+                  color: "#0048B2",
+                  ml: "15rem",
+                  position: "relative",
+                  top: 35,
+                }}
+              >
+                <BsFillArrowLeftCircleFill />
+              </IconButton>
+              <Typography
+                variant="h5"
+                text="3xl"
+                position="relative"
+                top={4}
+                ml={3}
+                fontFamily="Inter"
+                fontWeight={600}
+              >
+                Commission System
+              </Typography>
+            </Box>
 
-        {sidebarOpen && (
-          <>
             <Box mt={10} display="flex" flexDirection="column">
               <img
                 src={user}
@@ -123,25 +108,24 @@ export const Sidebar = () => {
             {/* NavBar */}
             <List sx={{ fontSize: 24, pl: 2 }}>
               <Divider sx={{ my: 2, mr: 2 }} />
-              <>
-                <ListItemButton
-                  button
-                  component={NavLink}
-                  to="/dashboard"
-                  sx={{ borderLeft: "4px solid transparent" }}
-                >
-                  <ListItemIcon>
-                    <AiOutlineHome />
-                  </ListItemIcon>
-                  <ListItemText primary="Admin Dashboard" />
-                </ListItemButton>
-              </>
+              <ListItemButton
+                button
+                component={NavLink}
+                to="/dashboard"
+                sx={{ borderLeft: "4px solid transparent" }}
+              >
+                <ListItemIcon>
+                  <AiOutlineHome />
+                </ListItemIcon>
+                <ListItemText primary="Admin Dashboard" />
+              </ListItemButton>
+
               <>
                 <ListItemButton
                   button
                   component={NavLink}
                   to="/agents"
-                  sx={{ borderLeft: "4px solid transparent" }}
+                  sx={{ borderLeft: "0.25rem solid transparent" }}
                 >
                   <ListItemIcon>
                     <MdRealEstateAgent />
@@ -154,7 +138,7 @@ export const Sidebar = () => {
                   button
                   component={NavLink}
                   to="/customers"
-                  sx={{ borderLeft: "4px solid transparent" }}
+                  sx={{ borderLeft: "0.25rem solid transparent" }}
                 >
                   <ListItemIcon>
                     <MdOutlineDashboardCustomize />
@@ -167,7 +151,7 @@ export const Sidebar = () => {
                   button
                   component={NavLink}
                   to="/products"
-                  sx={{ borderLeft: "4px solid transparent" }}
+                  sx={{ borderLeft: "0.25rem solid transparent" }}
                 >
                   <ListItemIcon>
                     <MdProductionQuantityLimits />
@@ -180,7 +164,7 @@ export const Sidebar = () => {
                   button
                   component={NavLink}
                   to="/orders"
-                  sx={{ borderLeft: "4px solid transparent" }}
+                  sx={{ borderLeft: "0.25rem solid transparent" }}
                 >
                   <ListItemIcon>
                     <AiOutlineOrderedList />
@@ -193,7 +177,7 @@ export const Sidebar = () => {
                   button
                   component={NavLink}
                   to="/users"
-                  sx={{ borderLeft: "4px solid transparent" }}
+                  sx={{ borderLeft: "0.25rem solid transparent" }}
                 >
                   <ListItemIcon>
                     <HiUserGroup />
@@ -210,7 +194,7 @@ export const Sidebar = () => {
                   button
                   component={NavLink}
                   to="/signout"
-                  sx={{ borderLeft: "4px solid transparent" }}
+                  sx={{ borderLeft: "0.25rem solid transparent" }}
                 >
                   <ListItemIcon>
                     <GoSignOut />
@@ -223,7 +207,7 @@ export const Sidebar = () => {
                   button
                   component={NavLink}
                   to="/help"
-                  sx={{ borderLeft: "4px solid transparent" }}
+                  sx={{ borderLeft: "0.25rem solid transparent" }}
                 >
                   <ListItemIcon>
                     <BsFillExclamationCircleFill />
@@ -232,9 +216,9 @@ export const Sidebar = () => {
                 </ListItemButton>
               </>
             </List>
-          </>
+          </Box>
         )}
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 };
