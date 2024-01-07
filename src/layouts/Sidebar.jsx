@@ -12,10 +12,7 @@ import SidebarHeader from "../components/SidebarHeader";
 import SidebarUserInfo from "../components/SidebarUserInfo";
 import SidebarNavItem from "../components/SidebarNavItem";
 import { AiOutlineHome, AiOutlineOrderedList } from "react-icons/ai";
-import {
-  BsFillArrowLeftCircleFill,
-  BsFillExclamationCircleFill,
-} from "react-icons/bs";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
 import { GoSignOut } from "react-icons/go";
 import { HiUserGroup } from "react-icons/hi";

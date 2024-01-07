@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
-import { user } from "../assets/img";
+import { cart, heart, notif, user } from "../assets/img";
 
 const SidebarUserInfo = () => {
   return (
@@ -25,6 +25,12 @@ const SidebarUserInfo = () => {
       >
         @Abdi
       </Typography>
+
+      <Box display="flex" ml={8} mt={2} gap={2}>
+        <img src={cart} alt="cart" />
+        <img src={heart} alt="cart" />
+        <img src={notif} alt="cart" />
+      </Box>
     </Box>
   );
 };
