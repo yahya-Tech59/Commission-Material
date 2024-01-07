@@ -3,16 +3,14 @@ import { Box, Grid, Typography } from "@mui/material";
 
 export const DashboardCard = ({ title, subtitle, value, tableName }) => (
   <Box
-    sx={{
-      height: 150,
-      width: "22.2rem",
-      backgroundColor: "white",
-      boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
-      borderRadius: "1rem",
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "flex-start",
-    }}
+    height={150}
+    width="22.2rem"
+    bgcolor="white"
+    boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
+    borderRadius="1rem"
+    display="flex"
+    flexDirection="column"
+    alignItems="flex-start"
   >
     <Typography variant="h6" sx={{ mt: 2, ml: 3 }}>
       {title}
