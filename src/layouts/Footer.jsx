@@ -28,14 +28,15 @@ export const Footer = () => {
           <Typography variant="h6">Privacy Policy</Typography>
         </Grid>
         <Grid item xs={12} sm={6} md={2}>
-          <Typography variant="h6">Terms of use</Typography>
+          <Typography variant="h6" sx={{ ml: -62 }}>
+            Terms of use
+          </Typography>
         </Grid>
 
         <Grid item xs={12} sm={6} md={2}>
           <Typography
             variant="h6"
             sx={{
-              textAlign: "center",
               display: { xs: { position: "relative", right: 800 } },
             }}
           >
