@@ -16,7 +16,7 @@ export const Header = () => {
   return (
     <Toolbar
       sx={{
-        width: "97%",
+        width: "100%",
         display: "flex",
         justifyContent: "space-between",
         bgcolor: "white",
@@ -63,7 +63,7 @@ export const Header = () => {
               },
             }}
           >
-            <Icon sx={{ fontSize: 26, mb: 2 }}>
+            <Icon sx={{ fontSize: 26, mb: 1, width: "2.2rem", height: "2rem" }}>
               <GoHomeFill />
             </Icon>
             <ListItemText primary="Paid" />
@@ -71,9 +71,9 @@ export const Header = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2} alignItems="center" pl={100}>
+      <Grid container spacing={2} alignItems="center" pl={90}>
         <Grid item>
-          <Typography variant="h2" sx={{ mr: 1, fontSize: 18 }}>
+          <Typography variant="h2" mr={1} fontSize={18}>
             EN
           </Typography>
         </Grid>
@@ -84,17 +84,17 @@ export const Header = () => {
         </Grid>
         <Grid item>
           <Box
+            border={0.5}
+            borderColor="#D9D9D9"
+            height={36}
+            ml={1}
             sx={{
-              border: 0.5,
-              borderColor: "#D9D9D9",
-              height: 36,
-              ml: 1,
               display: { xs: "none", md: "block" },
             }}
           />
         </Grid>
         <Grid item>
-          <Typography variant="h2" sx={{ fontSize: "1rem" }}>
+          <Typography variant="h2" fontSize="1rem">
             Jama Abdi
           </Typography>
         </Grid>

@@ -127,11 +127,9 @@ const App = () => {
           display: "flex",
           bgcolor: "#F9F9F9",
           margin: 0,
+          overflowX: "hidden",
         }}
       >
-        {/* <RouterProvider router={router}>
-          <Outlet />
-        </RouterProvider> */}
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<SignIn />} />

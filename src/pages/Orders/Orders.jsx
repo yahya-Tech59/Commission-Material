@@ -38,7 +38,7 @@ export const Orders = () => {
           width: "96rem",
           mt: 3,
           mb: 6,
-
+          mr: 7,
           boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
           pb: 3,
         }}

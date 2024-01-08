@@ -8,12 +8,11 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Context } from "../../Context/Context";
 import useAgentsStore from "../../Services/AgentApi";
 import { Search } from "../../components/Search";
-import { Box, Button, Icon, Typography } from "@mui/material";
+import { Box, Button, Icon, Stack, Typography } from "@mui/material";
 import { Pagination } from "../../components/Pagination";
 
 export const Agents = () => {
   const [showAddAgent, setShowAddAgent] = useState(false);
-  const [searchText, setSearchText] = useState("");
 
   const { agents, loading, fetchAgent } = useAgentsStore();
   const { currentPage } = useContext(Context);
@@ -24,39 +23,25 @@ export const Agents = () => {
 
   if (loading === true) {
     return (
-      <Typography variant="h2" ml="53rem">
+      <Typography variant="h2" display="flex" align="center">
         Loading...
       </Typography>
     );
   }
 
-  // const handleEdit = (id, updatedData) => {
-  //   // Find the index of the edited agent in the agents array
-  //   const index = agents.findIndex((agent) => agent.id === id);
-
-  //   if (index !== -1) {
-  //     // Create a new array with the updated data
-  //     const updatedAgents = [...agents];
-  //     updatedAgents[index] = { ...updatedAgents[index], ...updatedData };
-
-  //     // Update the state with the new array
-  //     // This will automatically re-render the DataGrid with the updated data
-  //     setAgents(updatedAgents);
-  //   }
-  // };
-
   return (
-    <Box sx={{ ml: 3 }}>
+    <Box>
       <Header />
+
       <Box
         sx={{
           bgcolor: "white",
           width: "96rem",
           mt: 3,
           mb: 6,
-
           boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
           pb: 3,
+          mr: 7,
         }}
       >
         <Typography variant="h5" sx={{ fontWeight: 600, pt: 3, ml: 4 }}>

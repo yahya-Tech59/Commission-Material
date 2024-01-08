@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import { DashboardCard } from "../components/DashboardCard";
 import { Chart } from "./Chart/Chart";
 import { Header } from "./Header";
@@ -14,7 +14,9 @@ export const Dashboard = () => {
       overflowX="hidden"
     >
       <Box ml={2}>
-        <Header />
+        <Stack overflow="hidden">
+          <Header />
+        </Stack>
 
         <Box display="flex" justifyContent="space-between" mt={4} px={2}>
           <Typography
