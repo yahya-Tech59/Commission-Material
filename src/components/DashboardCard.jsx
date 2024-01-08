@@ -11,32 +11,31 @@ export const DashboardCard = ({ title, subtitle, value, tableName }) => (
     display="flex"
     flexDirection="column"
     alignItems="flex-start"
+    sx={{ width: { sm: "20rem" } }}
   >
     <Typography variant="h6" sx={{ mt: 2, ml: 3 }}>
       {title}
     </Typography>
     <Typography
       variant="h5"
-      color="primary"
-      sx={{
-        position: "relative",
-        bottom: 14,
-        left: 290,
-        bgcolor: "#EBEEFD",
-        color: "#3A57E8",
-        borderRadius: "1rem",
-        fontFamily: "inter",
-        fontSize: "1rem",
-        p: 0,
-      }}
+      position="relative"
+      bottom={14}
+      left={290}
+      bgcolor="#EBEEFD"
+      color="#3A57E8"
+      borderRadius="1rem"
+      fontFamily="inter"
+      fontSize="1rem"
+      p={0}
+      sx={{ ml: { sm: -4 } }}
     >
       {subtitle}
     </Typography>
-    <Box sx={{ position: "relative", bottom: 42, right: 16 }}>
-      <Typography variant="h4" sx={{ fontWeight: 500, ml: 5, mt: 5 }}>
+    <Box position="relative" bottom={42} right={16} sx={{}}>
+      <Typography variant="h4" fontWeight={500} ml={5} mt={5}>
         {value}
       </Typography>
-      <Typography variant="body2" sx={{ mt: 1, ml: 5, color: "#8A92A6" }}>
+      <Typography variant="body2" mt={1} ml={5} color="#8A92A6" sx={{}}>
         {tableName}
       </Typography>
     </Box>

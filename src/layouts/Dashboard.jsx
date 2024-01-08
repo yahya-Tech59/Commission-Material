@@ -43,10 +43,10 @@ export const Dashboard = () => {
           ml={5}
           sx={{
             position: { sm: "relative" },
-            right: { sm: 48, xs: 240 },
+            right: { sm: 40, xs: 240 },
           }}
         >
-          <Grid item xs={12} sm={3} md={3}>
+          <Grid item xs={12} sm={2.8} md={3}>
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
@@ -54,7 +54,16 @@ export const Dashboard = () => {
               tableName="Agency"
             />
           </Grid>
-          <Grid item xs={12} sm={3} md={3}>
+          <Grid
+            item
+            xs={12}
+            sm={3}
+            md={3}
+            sx={{
+              position: { sm: "relative" },
+              right: { sm: 10 },
+            }}
+          >
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
@@ -69,7 +78,7 @@ export const Dashboard = () => {
             md={3}
             sx={{
               position: { sm: "relative" },
-              right: { sm: 380 },
+              right: { sm: 390 },
               top: { sm: 170 },
             }}
           >
@@ -80,7 +89,7 @@ export const Dashboard = () => {
               tableName="Products"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={2.5} md={3}>
             <DashboardCard
               title="Hide"
               subtitle="Yearly"

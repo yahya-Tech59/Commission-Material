@@ -21,9 +21,12 @@ export const Header = () => {
         justifyContent: "space-between",
         bgcolor: "white",
         boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
+        "@media (min-width: 768px)": {
+          width: "39rem",
+        },
       }}
     >
-      <Grid container spacing={2} alignItems="center">
+      <Grid container spacing={2} alignItems="center" sx={{}}>
         <Grid item>
           <Button
             sx={{
@@ -67,7 +70,13 @@ export const Header = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2} alignItems="center" pl={90}>
+      <Grid
+        container
+        spacing={2}
+        alignItems="center"
+        pl={90}
+        sx={{ pl: { sm: -90 } }}
+      >
         <Grid item>
           <Typography variant="h2" mr={1} fontSize={18}>
             EN
