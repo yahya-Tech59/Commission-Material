@@ -11,7 +11,7 @@ export const DashboardCard = ({ title, subtitle, value, tableName }) => (
     display="flex"
     flexDirection="column"
     alignItems="flex-start"
-    sx={{ width: { sm: "20rem" } }}
+    // sx={{ width: { sm: "20rem" } }}
   >
     <Typography variant="h6" sx={{ mt: 2, ml: 3 }}>
       {title}
@@ -27,7 +27,7 @@ export const DashboardCard = ({ title, subtitle, value, tableName }) => (
       fontFamily="inter"
       fontSize="1rem"
       p={0}
-      sx={{ ml: { sm: -4 } }}
+      // sx={{ ml: { sm: -4 } }}
     >
       {subtitle}
     </Typography>

@@ -11,7 +11,7 @@ export const Sidebar = () => {
 
   return (
     <Grid container>
-      <Grid item xs={12} sm={12} md={sidebarOpen ? 3 : 1}>
+      <Grid item xs={12} sm={12} md={6}>
         {!sidebarOpen ? (
           <IconButton
             onClick={handleOpen}
@@ -31,7 +31,7 @@ export const Sidebar = () => {
         ) : (
           <Box
             width="16.368rem"
-            height="100%"
+            height="117%"
             boxShadow={2}
             bgcolor="white"
             display={{ xs: "none", sm: "none", md: "block" }}

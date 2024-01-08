@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Typography, Select, Stack } from "@mui/material";
 import { DashboardCard } from "../components/DashboardCard";
 import { Chart } from "./Chart/Chart";
 import { Header } from "./Header";
@@ -13,8 +13,8 @@ export const Dashboard = () => {
       flexDirection="column"
       overflowX="hidden"
     >
-      <Box ml={2}>
-        <Stack overflow="hidden">
+      <Box mr={4}>
+        <Stack position="relative" left={12}>
           <Header />
         </Stack>
 
@@ -27,26 +27,14 @@ export const Dashboard = () => {
           </Typography>
           <select
             defaultValue=""
-            style={{
-              height: 20,
-              border: "none",
-              color: "#3A57E8",
-            }}
+            style={{ height: 20, border: "none", color: "#3A57E8" }}
           >
             <option value="">Last 30 Days</option>
           </select>
         </Box>
-        <Grid
-          container
-          columnSpacing={-4.8}
-          rowSpacing={3}
-          ml={5}
-          sx={{
-            position: { sm: "relative" },
-            right: { sm: 40, xs: 240 },
-          }}
-        >
-          <Grid item xs={12} sm={2.8} md={3}>
+
+        <Grid container columnSpacing={-4} rowSpacing={2} ml={5}>
+          <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
@@ -54,16 +42,7 @@ export const Dashboard = () => {
               tableName="Agency"
             />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={3}
-            md={3}
-            sx={{
-              position: { sm: "relative" },
-              right: { sm: 10 },
-            }}
-          >
+          <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
@@ -71,17 +50,7 @@ export const Dashboard = () => {
               tableName="Customers"
             />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={6}
-            md={3}
-            sx={{
-              position: { sm: "relative" },
-              right: { sm: 390 },
-              top: { sm: 170 },
-            }}
-          >
+          <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
@@ -89,7 +58,7 @@ export const Dashboard = () => {
               tableName="Products"
             />
           </Grid>
-          <Grid item xs={12} sm={2.5} md={3}>
+          <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
@@ -98,6 +67,7 @@ export const Dashboard = () => {
             />
           </Grid>
         </Grid>
+
         <Box display="flex" flexDirection="column">
           <Chart />
           <Footer />

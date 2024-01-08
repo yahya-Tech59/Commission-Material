@@ -6,28 +6,23 @@ import {
   Box,
   Button,
   Grid,
+  Hidden,
   Icon,
-  ListItemText,
   Toolbar,
   Typography,
 } from "@mui/material";
 
 export const Header = () => {
   return (
-    <Box
-      width="96.8%"
-      display="flex"
-      justifyContent="space-between"
-      bgcolor="white"
-      boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
-      sx={{ width: { sm: "60%" } }}
+    <Toolbar
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        backgroundColor: "white",
+        boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
+      }}
     >
-      <Grid
-        container
-        spacing={2}
-        alignItems="center"
-        sx={{ columns: { sm: 2 } }}
-      >
+      <Grid container spacing={2} alignItems="center">
         <Grid item>
           <Button
             sx={{
@@ -40,9 +35,10 @@ export const Header = () => {
             <Icon sx={{ fontSize: 26, mb: 1, width: "2.2rem", height: "2rem" }}>
               <GoHomeFill />
             </Icon>
-            <ListItemText primary="Home" />
+            <Typography variant="body1">Home</Typography>
           </Button>
         </Grid>
+
         <Grid item>
           <Box
             sx={{
@@ -50,10 +46,10 @@ export const Header = () => {
               borderColor: "#D9D9D9",
               height: 36,
               ml: 2,
-              display: { xs: "none", md: "block" },
             }}
           />
         </Grid>
+
         <Grid item>
           <Button
             sx={{
@@ -66,50 +62,46 @@ export const Header = () => {
             <Icon sx={{ fontSize: 26, mb: 1, width: "2.2rem", height: "2rem" }}>
               <GoHomeFill />
             </Icon>
-            <ListItemText primary="Paid" />
+            <Typography variant="body1">Paid</Typography>
           </Button>
         </Grid>
       </Grid>
 
-      <Grid
-        container
-        spacing={2}
-        alignItems="center"
-        ml={170}
-        sx={{ position: { sm: "relative" }, left: { sm: -760 } }}
-      >
+      <Grid container alignItems="center" spacing={2} ml={125}>
         <Grid item>
-          <Typography variant="h2" mr={1} fontSize={18}>
+          <Typography variant="h2" fontSize={18}>
             EN
           </Typography>
         </Grid>
+
         <Grid item>
           <Icon sx={{ fontSize: 25 }}>
             <IoMdNotificationsOutline />
           </Icon>
         </Grid>
+
         <Grid item>
-          <Box
-            border={0.5}
-            borderColor="#D9D9D9"
-            height={36}
-            ml={1}
-            sx={{
-              display: { xs: "none", md: "block" },
-            }}
-          />
+          <Box border={0.5} borderColor="#D9D9D9" height={36} ml={1} />
         </Grid>
+
         <Grid item>
           <Typography variant="h2" fontSize="1rem">
             Jama Abdi
           </Typography>
         </Grid>
+
         <Grid item xs={12} sm="auto">
-          <Icon sx={{ ml: "auto", color: "primary.main", fontSize: "2rem" }}>
+          <Icon
+            sx={{
+              ml: "auto",
+              color: "primary.main",
+              fontSize: "2rem",
+            }}
+          >
             <HiMiniUserCircle />
           </Icon>
         </Grid>
       </Grid>
-    </Box>
+    </Toolbar>
   );
 };
