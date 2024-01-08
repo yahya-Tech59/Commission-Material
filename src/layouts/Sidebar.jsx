@@ -1,27 +1,10 @@
 import React, { useContext } from "react";
-import {
-  IconButton,
-  List,
-  Divider,
-  Grid,
-  Box,
-  Typography,
-} from "@mui/material";
+import { IconButton, Grid, Box, Drawer } from "@mui/material";
 import { Context } from "../Context/Context";
 import SidebarHeader from "../components/SidebarHeader";
 import SidebarUserInfo from "../components/SidebarUserInfo";
-import SidebarNavItem from "../components/SidebarNavItem";
-import { AiOutlineHome, AiOutlineOrderedList } from "react-icons/ai";
-import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { FaBars } from "react-icons/fa";
-import { GoSignOut } from "react-icons/go";
-import { HiUserGroup } from "react-icons/hi";
-import {
-  MdOutlineDashboardCustomize,
-  MdProductionQuantityLimits,
-  MdRealEstateAgent,
-} from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import SidebarContent from "../components/SidebarContent";
 
 export const Sidebar = () => {
   const { sidebarOpen, handleOpen, handleClose } = useContext(Context);
@@ -55,62 +38,22 @@ export const Sidebar = () => {
           >
             <SidebarHeader onClose={handleClose} />
             <SidebarUserInfo />
-
-            {/* NavBar */}
-            <List sx={{ fontSize: 24, pl: 2 }}>
-              <Divider sx={{ my: 2, mr: 2 }} />
-
-              <SidebarNavItem
-                component={NavLink}
-                icon={<AiOutlineHome />}
-                text="Admin Dashboard"
-                to="/dashboard"
-              />
-              <SidebarNavItem
-                component={NavLink}
-                icon={<MdRealEstateAgent />}
-                text="Agents"
-                to="/agents"
-              />
-              <SidebarNavItem
-                component={NavLink}
-                icon={<MdOutlineDashboardCustomize />}
-                text="Customers"
-                to="/customers"
-              />
-              <SidebarNavItem
-                component={NavLink}
-                icon={<MdProductionQuantityLimits />}
-                text="Products"
-                to="/products"
-              />
-              <SidebarNavItem
-                component={NavLink}
-                icon={<AiOutlineOrderedList />}
-                text="Orders"
-                to="/orders"
-              />
-              <SidebarNavItem icon={<HiUserGroup />} text="Users" to="/users" />
-
-              <Divider my={2} mr={2} />
-              <Typography variant="h6" ml={3} mt={2} mb={2} color="slate.600">
-                OTHER
-              </Typography>
-
-              <SidebarNavItem
-                component={NavLink}
-                icon={<GoSignOut />}
-                text="SignOut"
-                to="/signout"
-              />
-              <SidebarNavItem
-                icon={<BsFillExclamationCircleFill />}
-                text="Help"
-                to="/help"
-              />
-            </List>
+            <SidebarContent onClose={handleClose} />
           </Box>
         )}
+
+        <Drawer
+          variant="temporary"
+          open={sidebarOpen}
+          onClose={handleClose}
+          sx={{
+            display: { xs: "block", sm: "block", md: "none" },
+          }}
+        >
+          <SidebarHeader onClose={handleClose} />
+          <SidebarUserInfo />
+          <SidebarContent onClose={handleClose} />
+        </Drawer>
       </Grid>
     </Grid>
   );

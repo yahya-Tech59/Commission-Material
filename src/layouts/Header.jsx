@@ -14,19 +14,20 @@ import {
 
 export const Header = () => {
   return (
-    <Toolbar
-      sx={{
-        width: "96.8%",
-        display: "flex",
-        justifyContent: "space-between",
-        bgcolor: "white",
-        boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
-        "@media (min-width: 768px)": {
-          width: "39rem",
-        },
-      }}
+    <Box
+      width="96.8%"
+      display="flex"
+      justifyContent="space-between"
+      bgcolor="white"
+      boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
+      sx={{ width: { sm: "60%" } }}
     >
-      <Grid container spacing={2} alignItems="center" sx={{}}>
+      <Grid
+        container
+        spacing={2}
+        alignItems="center"
+        sx={{ columns: { sm: 2 } }}
+      >
         <Grid item>
           <Button
             sx={{
@@ -74,8 +75,8 @@ export const Header = () => {
         container
         spacing={2}
         alignItems="center"
-        pl={90}
-        sx={{ pl: { sm: -90 } }}
+        ml={170}
+        sx={{ position: { sm: "relative" }, left: { sm: -760 } }}
       >
         <Grid item>
           <Typography variant="h2" mr={1} fontSize={18}>
@@ -109,6 +110,6 @@ export const Header = () => {
           </Icon>
         </Grid>
       </Grid>
-    </Toolbar>
+    </Box>
   );
 };
