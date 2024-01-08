@@ -39,11 +39,14 @@ export const Dashboard = () => {
         <Grid
           container
           columnSpacing={-4.8}
-          rowSpacing={2}
+          rowSpacing={3}
           ml={5}
-          sx={{ display: { xs: { position: "relative", right: 200 } } }}
+          sx={{
+            position: { sm: "relative" },
+            right: { sm: 48, xs: 240 },
+          }}
         >
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={3} md={3}>
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
@@ -51,7 +54,7 @@ export const Dashboard = () => {
               tableName="Agency"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={3} md={3}>
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
@@ -59,7 +62,17 @@ export const Dashboard = () => {
               tableName="Customers"
             />
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid
+            item
+            xs={12}
+            sm={6}
+            md={3}
+            sx={{
+              position: { sm: "relative" },
+              right: { sm: 380 },
+              top: { sm: 170 },
+            }}
+          >
             <DashboardCard
               title="Hide"
               subtitle="Yearly"
