@@ -16,15 +16,11 @@ export const Header = () => {
   return (
     <Toolbar
       sx={{
-        width: "100%",
+        width: "96.8%",
         display: "flex",
         justifyContent: "space-between",
         bgcolor: "white",
         boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
-        "@media (max-width: 600px)": {
-          flexDirection: "column",
-          alignItems: "center",
-        },
       }}
     >
       <Grid container spacing={2} alignItems="center">
