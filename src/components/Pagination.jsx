@@ -11,12 +11,16 @@ export const Pagination = () => {
         <Button
           onClick={() => handlePageChange(currentPage === 20)}
           sx={{
-            bgcolor: "#d6d6d6",
+            bgcolor: "primary.light",
+            color: "white",
             p: 1,
             m: 1,
             pl: 2,
             pr: 2,
             borderRadius: 3,
+            ":hover": {
+              bgcolor: "primary.main",
+            },
           }}
         >
           {"<<"}
@@ -25,12 +29,16 @@ export const Pagination = () => {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
           sx={{
-            bgcolor: "#d6d6d6",
+            bgcolor: "primary.light",
+            color: "white",
             p: 1,
             m: 1,
             pl: 2,
             pr: 2,
             borderRadius: 3,
+            ":hover": {
+              bgcolor: "primary.main",
+            },
           }}
         >
           Previous Page
@@ -39,12 +47,16 @@ export const Pagination = () => {
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === 20}
           sx={{
-            bgcolor: "#d6d6d6",
+            bgcolor: "primary.light",
+            color: "white",
             p: 1,
             m: 1,
             pl: 2,
             pr: 2,
             borderRadius: 3,
+            ":hover": {
+              bgcolor: "primary.main",
+            },
           }}
         >
           Next Page
@@ -52,12 +64,16 @@ export const Pagination = () => {
         <Button
           onClick={() => handlePageChange()}
           sx={{
-            bgcolor: "#d6d6d6",
+            bgcolor: "primary.light",
+            color: "white",
             p: 1,
             m: 1,
             pl: 2,
             pr: 2,
             borderRadius: 3,
+            ":hover": {
+              bgcolor: "primary.main",
+            },
           }}
         >
           {">>"}

@@ -31,7 +31,7 @@ export const Users = () => {
   }
 
   return (
-    <Box sx={{ ml: 3 }}>
+    <Box>
       <Header />
       <Box
         sx={{
