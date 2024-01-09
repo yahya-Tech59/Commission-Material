@@ -13,12 +13,17 @@ export const Dashboard = () => {
       flexDirection="column"
       overflowX="hidden"
     >
-      <Box mr={4}>
-        <Stack position="relative" left={12}>
+      <Box px={{ xs: 2, sm: 2, md: 4 }} pb={{ xs: 4, sm: 4, md: 0 }}>
+        <Stack mt={{ xs: 2, sm: 2, md: 0 }} mb={2}>
           <Header />
         </Stack>
 
-        <Box display="flex" justifyContent="space-between" mt={4} px={2}>
+        <Box
+          display="flex"
+          flexDirection={{ xs: "column", sm: "column", md: "row" }}
+          justifyContent="space-between"
+          mt={2}
+        >
           <Typography
             variant="h5"
             sx={{ fontSize: { xs: 24, sm: 30 }, fontWeight: 500, mb: 2 }}
@@ -33,7 +38,7 @@ export const Dashboard = () => {
           </select>
         </Box>
 
-        <Grid container columnSpacing={-4} rowSpacing={2} ml={5}>
+        <Grid container columnSpacing={-2} rowSpacing={2} mt={2} ml={4}>
           <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
               hide="Hide"
@@ -68,7 +73,7 @@ export const Dashboard = () => {
           </Grid>
         </Grid>
 
-        <Box display="flex" flexDirection="column">
+        <Box display="flex" flexDirection="column" mt={2} mr={4}>
           <Chart />
           <Footer />
         </Box>

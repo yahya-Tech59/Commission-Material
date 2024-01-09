@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { LineChart } from "./LineChart";
+// import { LineChart } from "./LineChart";
+import { Line } from "react-chartjs-2";
+import { Chart as ChartJS } from "chart.js/auto";
 import { UserData } from "./Data";
 import { Box, Typography } from "@mui/material";
 
@@ -60,7 +62,8 @@ export const Chart = () => {
       </Box>
 
       <Box sx={{ ml: 6, pb: 6 }}>
-        <LineChart chartData={userData} />
+        {/* <LineChart chartData={userData} /> */}
+        <Line data={userData} width={250} height={90} />;
       </Box>
     </Box>
   );
