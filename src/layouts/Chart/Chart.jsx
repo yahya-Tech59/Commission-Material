@@ -23,7 +23,7 @@ export const Chart = () => {
         borderRadius: "0.5rem",
         mb: 6,
         mt: "1.5rem",
-        ml: 5,
+        ml: 3,
         bgcolor: "white",
         boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
       }}
@@ -61,7 +61,7 @@ export const Chart = () => {
         </select>
       </Box>
 
-      <Box sx={{ ml: 6, pb: 6 }}>
+      <Box sx={{ ml: 4, mr: 4, pb: 6 }}>
         {/* <LineChart chartData={userData} /> */}
         <Line data={userData} width={250} height={90} />;
       </Box>

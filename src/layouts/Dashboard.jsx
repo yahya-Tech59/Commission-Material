@@ -38,7 +38,7 @@ export const Dashboard = () => {
           </select>
         </Box>
 
-        <Grid container columnSpacing={-2} rowSpacing={2} mt={2} ml={4}>
+        <Grid container columnSpacing={-4} rowSpacing={2} mt={2} ml={3}>
           <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
               hide="Hide"
