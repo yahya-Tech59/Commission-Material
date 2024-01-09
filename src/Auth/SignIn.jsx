@@ -82,17 +82,16 @@ export const SignIn = () => {
     }
   };
 
-  // if (loading === true) {
-  //   return (
-  //     <Typography
-  //       variant="h1"
-  //       sx={{ fontSize: "3xl", fontWeight: 600, marginLeft: "53rem" }}
-  //       className="text-3xl font-semibold ml-[53rem]"
-  //     >
-  //       Loading...
-  //     </Typography>
-  //   );
-  // }
+  if (loading === true) {
+    return (
+      <Typography
+        variant="h1"
+        sx={{ fontSize: "20", fontWeight: 600, marginLeft: "53rem" }}
+      >
+        Loading...
+      </Typography>
+    );
+  }
 
   // const FullScreen = styled.div({
   //   display: "flex",

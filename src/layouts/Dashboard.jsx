@@ -36,32 +36,32 @@ export const Dashboard = () => {
         <Grid container columnSpacing={-4} rowSpacing={2} ml={5}>
           <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
-              title="Hide"
-              subtitle="Yearly"
+              hide="Hide"
+              year="Yearly"
               value="2,590"
               tableName="Agency"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
-              title="Hide"
-              subtitle="Yearly"
+              hide="Hide"
+              year="Yearly"
               value="10,000"
               tableName="Customers"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
-              title="Hide"
-              subtitle="Yearly"
+              hide="Hide"
+              year="Yearly"
               value="100"
               tableName="Products"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <DashboardCard
-              title="Hide"
-              subtitle="Yearly"
+              hide="Hide"
+              year="Yearly"
               value="150"
               tableName="Orders"
             />

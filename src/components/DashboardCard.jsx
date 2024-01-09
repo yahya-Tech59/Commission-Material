@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Grid, Typography } from "@mui/material";
 
-export const DashboardCard = ({ title, subtitle, value, tableName }) => (
+export const DashboardCard = ({ hide, year, value, tableName }) => (
   <Box
     height={150}
     width="22.2rem"
@@ -14,7 +14,7 @@ export const DashboardCard = ({ title, subtitle, value, tableName }) => (
     // sx={{ width: { sm: "20rem" } }}
   >
     <Typography variant="h6" sx={{ mt: 2, ml: 3 }}>
-      {title}
+      {hide}
     </Typography>
     <Typography
       variant="h5"
@@ -29,7 +29,7 @@ export const DashboardCard = ({ title, subtitle, value, tableName }) => (
       p={0}
       // sx={{ ml: { sm: -4 } }}
     >
-      {subtitle}
+      {year}
     </Typography>
     <Box position="relative" bottom={42} right={16} sx={{}}>
       <Typography variant="h4" fontWeight={500} ml={5} mt={5}>
