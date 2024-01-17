@@ -85,7 +85,7 @@ export const Dashboard = () => {
           </Box>
         </Box>
 
-        <Box display="flex" flexDirection="column" mt={2} mr={4}>
+        <Box display="flex" flexDirection="column" mt={2} mr={{ md: 4, sm: 2 }}>
           <Chart />
           <Footer />
         </Box>
