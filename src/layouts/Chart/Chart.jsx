@@ -17,7 +17,7 @@ export const Chart = () => {
   });
   return (
     <Box
-      width={{ md: "92rem", sm: "43rem" }}
+      width={{ md: "92rem", sm: "41rem" }}
       height={{ md: "39rem", sm: "20rem" }}
       borderRadius="0.5rem"
       mb={6}

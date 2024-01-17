@@ -20,14 +20,19 @@ export const Dashboard = () => {
 
         <Box
           display="flex"
-          flexDirection={{ xs: "column", sm: "column", md: "row" }}
-          justifyContent={{ md: "space-between", sm: "center" }}
+          flexDirection={{ xs: "column", sm: "row", md: "row" }}
+          justifyContent="space-between"
           mt={{ md: 7, sm: 4 }}
-          px={{ md: 4, sm: 0 }}
+          px={4}
         >
           <Typography
             variant="h5"
-            sx={{ fontSize: { xs: 24, sm: 30 }, fontWeight: 500, mb: 2 }}
+            sx={{
+              fontSize: { xs: 24, sm: 30 },
+              fontWeight: 500,
+              mb: 2,
+              ml: { sm: -5 },
+            }}
           >
             Dashboard
           </Typography>
@@ -38,7 +43,7 @@ export const Dashboard = () => {
               border: "none",
               color: "#3A57E8",
               bgcolor: "#fdfdfd",
-              // width: 100,
+              width: 100,
             }}
           >
             <option value="">Last 30 Days</option>
@@ -50,7 +55,7 @@ export const Dashboard = () => {
           flexDirection={{ md: "row", sm: "column" }}
           gap={{ md: 2, sm: 2 }}
           mt={2}
-          ml={{ md: 5, sm: 2 }}
+          ml={{ md: 5, sm: -2 }}
         >
           <Box display={{ sm: "flex" }} gap={{ sm: 2 }}>
             <DashboardCard

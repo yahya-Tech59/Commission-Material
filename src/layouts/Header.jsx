@@ -11,7 +11,7 @@ export const Header = () => {
       justifyContent="space-between"
       backgroundColor="white"
       boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
-      width={{ md: "99rem", sm: "43rem" }}
+      width={{ md: "99rem", sm: "42rem" }}
       mt={1}
       py={1}
     >
@@ -63,6 +63,7 @@ export const Header = () => {
         position={{ sm: "absolute" }}
         right={{ sm: "2rem" }}
         px={{ sm: 2 }}
+        mt={{ sm: 1 }}
       >
         <Typography variant="h2" fontSize={18}>
           EN
