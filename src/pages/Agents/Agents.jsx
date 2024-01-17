@@ -98,7 +98,7 @@ export const Agents = () => {
             sx={{ ml: 5, mb: 2 }}
           />
         </Box>
-        <Box sx={{ height: 630, width: "95%", ml: 5, mb: 4 }}>
+        <Box sx={{ height: 630, width: "95%", ml: { md: 5, sm: 3 }, mb: 4 }}>
           <DataGrid
             rows={agents}
             columns={columns}
