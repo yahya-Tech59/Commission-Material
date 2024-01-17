@@ -34,20 +34,19 @@ export const Agents = () => {
       <Header />
 
       <Box
-        sx={{
-          bgcolor: "white",
-          width: "96rem",
-          mt: 3,
-          mb: 6,
-          boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
-          pb: 3,
-          mr: 7,
-        }}
+        bgcolor="white"
+        width={{ md: "96rem", sm: "46rem" }}
+        mt={3}
+        mb={6}
+        boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
+        pb={3}
+        mr={7}
+        ml={{ sm: -5 }}
       >
         <Typography variant="h5" sx={{ fontWeight: 600, pt: 3, ml: 4 }}>
           Agents
         </Typography>
-        <Stack ml="72rem" mb={4.3}>
+        <Box ml={{ md: "72rem", sm: "26rem" }} mb={4.3}>
           <Button
             onClick={() => setShowAddAgent(true)}
             sx={{
@@ -88,7 +87,7 @@ export const Agents = () => {
               <AddAgent onClose={() => setShowAddAgent(false)} />
             </Box>
           )}
-        </Stack>
+        </Box>
         <Box sx={{ mb: 2 }} className="mb-2">
           <Search
             label="Search"

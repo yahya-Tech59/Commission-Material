@@ -7,7 +7,9 @@ export const Pagination = () => {
 
   return (
     <Box>
-      <Box sx={{ ml: "67rem", mt: 3, pb: 1 }}>
+      <Box
+        sx={{ display: "flex", ml: { md: "67rem", sm: "19rem" }, mt: 3, pb: 1 }}
+      >
         <Button
           onClick={() => handlePageChange(currentPage === 20)}
           sx={{
