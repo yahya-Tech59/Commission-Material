@@ -23,7 +23,7 @@ export const Dashboard = () => {
           flexDirection={{ xs: "column", sm: "column", md: "row" }}
           justifyContent="space-between"
           mt={7}
-          px={4}
+          px={{ md: 4, sm: 0 }}
         >
           <Typography
             variant="h5"
@@ -44,34 +44,46 @@ export const Dashboard = () => {
           </select>
         </Box>
 
-        <Box display="flex" gap={2} mt={2} ml={5}>
-          <DashboardCard
-            hide="Hide"
-            year="Yearly"
-            value="2,590"
-            tableName="Agency"
-          />
+        <Box
+          display="flex"
+          flexDirection={{ md: "row", sm: "column" }}
+          gap={2}
+          mt={2}
+          ml={5}
+        >
+          <Box display={{ sm: "flex" }} gap={{ sm: 2 }}>
+            <Stack gap={2}>
+              <DashboardCard
+                hide="Hide"
+                year="Yearly"
+                value="2,590"
+                tableName="Agency"
+              />
 
-          <DashboardCard
-            hide="Hide"
-            year="Yearly"
-            value="10,000"
-            tableName="Customers"
-          />
+              <DashboardCard
+                hide="Hide"
+                year="Yearly"
+                value="10,000"
+                tableName="Customers"
+              />
+            </Stack>
 
-          <DashboardCard
-            hide="Hide"
-            year="Yearly"
-            value="100"
-            tableName="Products"
-          />
+            <Stack gap={2}>
+              <DashboardCard
+                hide="Hide"
+                year="Yearly"
+                value="100"
+                tableName="Products"
+              />
 
-          <DashboardCard
-            hide="Hide"
-            year="Yearly"
-            value="150"
-            tableName="Orders"
-          />
+              <DashboardCard
+                hide="Hide"
+                year="Yearly"
+                value="150"
+                tableName="Orders"
+              />
+            </Stack>
+          </Box>
         </Box>
 
         <Box display="flex" flexDirection="column" mt={2} mr={4}>
