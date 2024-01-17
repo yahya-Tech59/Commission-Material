@@ -21,8 +21,8 @@ export const Dashboard = () => {
         <Box
           display="flex"
           flexDirection={{ xs: "column", sm: "column", md: "row" }}
-          justifyContent="space-between"
-          mt={7}
+          justifyContent={{ md: "space-between", sm: "center" }}
+          mt={{ md: 7, sm: 4 }}
           px={{ md: 4, sm: 0 }}
         >
           <Typography
@@ -38,6 +38,7 @@ export const Dashboard = () => {
               border: "none",
               color: "#3A57E8",
               bgcolor: "#fdfdfd",
+              // width: 100,
             }}
           >
             <option value="">Last 30 Days</option>
@@ -47,42 +48,40 @@ export const Dashboard = () => {
         <Box
           display="flex"
           flexDirection={{ md: "row", sm: "column" }}
-          gap={2}
+          gap={{ md: 2, sm: 2 }}
           mt={2}
-          ml={5}
+          ml={{ md: 5, sm: 2 }}
         >
           <Box display={{ sm: "flex" }} gap={{ sm: 2 }}>
-            <Stack gap={2}>
-              <DashboardCard
-                hide="Hide"
-                year="Yearly"
-                value="2,590"
-                tableName="Agency"
-              />
+            <DashboardCard
+              hide="Hide"
+              year="Yearly"
+              value="2,590"
+              tableName="Agency"
+            />
 
-              <DashboardCard
-                hide="Hide"
-                year="Yearly"
-                value="10,000"
-                tableName="Customers"
-              />
-            </Stack>
+            <DashboardCard
+              hide="Hide"
+              year="Yearly"
+              value="10,000"
+              tableName="Customers"
+            />
+          </Box>
 
-            <Stack gap={2}>
-              <DashboardCard
-                hide="Hide"
-                year="Yearly"
-                value="100"
-                tableName="Products"
-              />
+          <Box display={{ sm: "flex" }} gap={{ sm: 2 }}>
+            <DashboardCard
+              hide="Hide"
+              year="Yearly"
+              value="100"
+              tableName="Products"
+            />
 
-              <DashboardCard
-                hide="Hide"
-                year="Yearly"
-                value="150"
-                tableName="Orders"
-              />
-            </Stack>
+            <DashboardCard
+              hide="Hide"
+              year="Yearly"
+              value="150"
+              tableName="Orders"
+            />
           </Box>
         </Box>
 

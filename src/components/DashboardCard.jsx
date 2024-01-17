@@ -4,7 +4,7 @@ import { Box, Grid, Typography } from "@mui/material";
 export const DashboardCard = ({ hide, year, value, tableName }) => (
   <Box
     height={150}
-    width={{ md: "22.2rem", sm: "18rem" }}
+    width={{ md: "22.2rem", sm: "20rem" }}
     bgcolor="white"
     boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
     borderRadius="1rem"
@@ -20,7 +20,7 @@ export const DashboardCard = ({ hide, year, value, tableName }) => (
       variant="h5"
       position="relative"
       bottom={14}
-      left={{ md: 290, sm: 230 }}
+      left={{ md: 290, sm: 250 }}
       bgcolor="#EBEEFD"
       color="#3A57E8"
       borderRadius="1rem"

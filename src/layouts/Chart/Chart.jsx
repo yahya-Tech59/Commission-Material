@@ -17,16 +17,14 @@ export const Chart = () => {
   });
   return (
     <Box
-      sx={{
-        width: "92rem",
-        height: "39rem",
-        borderRadius: "0.5rem",
-        mb: 6,
-        mt: "1.5rem",
-        ml: 5,
-        bgcolor: "white",
-        boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
-      }}
+      width={{ md: "92rem", sm: "70rem" }}
+      height="39rem"
+      borderRadius="0.5rem"
+      mb={6}
+      mt="1.5rem"
+      ml={{ md: 5, sm: -2 }}
+      bgcolor="white"
+      boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
     >
       <Typography variant="h5" sx={{ pt: 3, pl: 5 }}>
         Users
@@ -61,7 +59,7 @@ export const Chart = () => {
         </select>
       </Box>
 
-      <Box sx={{ ml: 4, mr: 2, pb: 6 }}>
+      <Box ml={4} mr={2} pb={6}>
         {/* <LineChart chartData={userData} /> */}
         <Line data={userData} width={240} height={90} />
       </Box>
