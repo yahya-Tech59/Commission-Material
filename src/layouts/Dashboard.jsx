@@ -22,7 +22,8 @@ export const Dashboard = () => {
           display="flex"
           flexDirection={{ xs: "column", sm: "column", md: "row" }}
           justifyContent="space-between"
-          mt={2}
+          mt={7}
+          px={4}
         >
           <Typography
             variant="h5"
@@ -32,46 +33,46 @@ export const Dashboard = () => {
           </Typography>
           <select
             defaultValue=""
-            style={{ height: 20, border: "none", color: "#3A57E8" }}
+            style={{
+              height: 20,
+              border: "none",
+              color: "#3A57E8",
+              bgcolor: "#fdfdfd",
+            }}
           >
             <option value="">Last 30 Days</option>
           </select>
         </Box>
 
-        <Grid container columnSpacing={-4} rowSpacing={2} mt={2} ml={3}>
-          <Grid item xs={12} sm={6} md={3}>
-            <DashboardCard
-              hide="Hide"
-              year="Yearly"
-              value="2,590"
-              tableName="Agency"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <DashboardCard
-              hide="Hide"
-              year="Yearly"
-              value="10,000"
-              tableName="Customers"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <DashboardCard
-              hide="Hide"
-              year="Yearly"
-              value="100"
-              tableName="Products"
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <DashboardCard
-              hide="Hide"
-              year="Yearly"
-              value="150"
-              tableName="Orders"
-            />
-          </Grid>
-        </Grid>
+        <Box display="flex" gap={2} mt={2} ml={5}>
+          <DashboardCard
+            hide="Hide"
+            year="Yearly"
+            value="2,590"
+            tableName="Agency"
+          />
+
+          <DashboardCard
+            hide="Hide"
+            year="Yearly"
+            value="10,000"
+            tableName="Customers"
+          />
+
+          <DashboardCard
+            hide="Hide"
+            year="Yearly"
+            value="100"
+            tableName="Products"
+          />
+
+          <DashboardCard
+            hide="Hide"
+            year="Yearly"
+            value="150"
+            tableName="Orders"
+          />
+        </Box>
 
         <Box display="flex" flexDirection="column" mt={2} mr={4}>
           <Chart />

@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useMemo } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import { columns } from "./AgentColumns";
 import { Header } from "../../layouts/Header";
@@ -47,7 +47,7 @@ export const Agents = () => {
         <Typography variant="h5" sx={{ fontWeight: 600, pt: 3, ml: 4 }}>
           Agents
         </Typography>
-        <Box sx={{ ml: "72rem", mb: 4.3 }}>
+        <Stack ml="72rem" mb={4.3}>
           <Button
             onClick={() => setShowAddAgent(true)}
             sx={{
@@ -88,7 +88,7 @@ export const Agents = () => {
               <AddAgent onClose={() => setShowAddAgent(false)} />
             </Box>
           )}
-        </Box>
+        </Stack>
         <Box sx={{ mb: 2 }} className="mb-2">
           <Search
             label="Search"
