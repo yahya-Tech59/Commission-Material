@@ -99,31 +99,19 @@ export const SignIn = () => {
   // });
 
   return (
-    <Grid sx={{ display: "flex", bgcolor: "#f8fafc", overflow: "hidden" }}>
+    <Box display="flex" height="100%" bgcolor="#f8fafc" overflow="hidden">
       <Box>
-        <Box>
-          <img
-            src={hope_ui}
-            alt=""
-            style={{
-              display: "flex",
-              width: "10rem",
-              height: "",
-              marginTop: 10,
-              marginLeft: 10,
-              position: "absolute",
-            }}
-          />
+        <Box
+          display="flex"
+          width={{ md: "10rem", sm: "2rem" }}
+          mt={10}
+          ml={10}
+          position="absolute"
+        >
+          <img src={hope_ui} alt="" />
         </Box>
-        <img
-          src={hope}
-          alt=""
-          style={{
-            height: 918,
-            marginRight: 690,
-            marginLeft: -8,
-          }}
-        />
+        <Box position="absolute" height={600} mr={690} ml={-8}></Box>
+        <img src={hope} alt="" />
       </Box>
 
       <Box sx={{ position: "absolute", right: 325 }}>
@@ -154,12 +142,12 @@ export const SignIn = () => {
         sx={{
           p: 5,
           height: "41rem",
-          width: "33.25rem",
+          width: "35.25rem",
           borderRadius: "0.5rem",
           boxShadow: 2,
           bgcolor: "white",
           position: "relative",
-          right: 400,
+          left: 100,
           top: 100,
         }}
       >
@@ -234,7 +222,7 @@ export const SignIn = () => {
           sx={{
             display: "flex",
             justifyContent: "space-between",
-            gap: "10.375rem",
+            gap: "2.375rem",
           }}
         >
           <FormControlLabel control={<Checkbox />} label="Remember Me" />
@@ -242,7 +230,11 @@ export const SignIn = () => {
             to="/forgotPassword"
             variant="body2"
             label="Forget Password?"
-            sx={{ bgcolor: "#3A57E8", fontFamily: "inter", fontWeight: 400 }}
+            sx={{
+              bgcolor: "#3A57E8",
+              fontFamily: "inter",
+              fontWeight: 400,
+            }}
           >
             Forget Password
           </Link>
@@ -290,6 +282,6 @@ export const SignIn = () => {
           </Link>
         </Typography>
       </Box>
-    </Grid>
+    </Box>
   );
 };

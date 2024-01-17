@@ -23,7 +23,7 @@ export const Agents = () => {
 
   if (loading === true) {
     return (
-      <Typography variant="h2" display="flex" align="center">
+      <Typography variant="h2" sx={{ mr: "43rem" }}>
         Loading...
       </Typography>
     );
@@ -39,9 +39,9 @@ export const Agents = () => {
         mt={3}
         mb={6}
         boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
-        pb={3}
+        pb={{ md: 3, sm: 2 }}
         mr={7}
-        ml={{ sm: -5 }}
+        // ml={{ sm: -5 }}
       >
         <Typography variant="h5" sx={{ fontWeight: 600, pt: 3, ml: 4 }}>
           Agents

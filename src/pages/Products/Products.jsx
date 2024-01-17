@@ -24,7 +24,7 @@ export const Products = () => {
 
   if (loading === true) {
     return (
-      <Typography variant="h2" sx={{ ml: "53rem" }}>
+      <Typography variant="h2" sx={{ mr: "43rem" }}>
         Loading...
       </Typography>
     );
@@ -34,21 +34,20 @@ export const Products = () => {
     <Box>
       <Header />
       <Box
-        sx={{
-          bgcolor: "white",
-          width: "96rem",
-          mt: 3,
-          mb: 6,
-          mr: 7,
-          boxShadow: "0px 4px 6px rgba(156, 163, 175, 0.15)",
-          pb: 3,
-        }}
+        bgcolor="white"
+        width={{ md: "96rem", sm: "46rem" }}
+        mt={3}
+        mb={6}
+        mr={7}
+        boxShadow="0px 4px 6px rgba(156, 163, 175, 0.15)"
+        pb={3}
+        // ml={{ sm: -5 }}
       >
         <Typography variant="h5" sx={{ fontWeight: 600, pt: 3, ml: 4 }}>
           Products
         </Typography>
 
-        <Box sx={{ ml: "71rem", mb: 4.3 }}>
+        <Box sx={{ ml: { md: "71rem", sm: "25rem" }, mb: 4.3 }}>
           <Button
             onClick={() => setShowAddProduct(true)}
             sx={{
@@ -95,7 +94,7 @@ export const Products = () => {
           <Search label="Search" size="small" />
         </Box>
 
-        <Box sx={{ height: 630, width: "95%", ml: 5, mb: 4 }}>
+        <Box sx={{ height: 630, width: "95%", ml: { md: 5, sm: 3 }, mb: 4 }}>
           <DataGrid
             rows={products}
             columns={columns}
