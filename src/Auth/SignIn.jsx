@@ -101,19 +101,26 @@ export const SignIn = () => {
   // });
 
   return (
-    <Box display="flex" height="100%" bgcolor="#f8fafc" overflow="hidden">
+    <Box
+      display="flex"
+      height={{ md: "100vh" }}
+      bgcolor="#f8fafc"
+      overflow="hidden"
+      m={0}
+    >
       <Box>
-        <Box
-          display="flex"
-          width={{ md: "10rem", sm: "2rem" }}
-          mt={10}
-          ml={10}
-          position="absolute"
-        >
+        <Box mt={6} ml={5} position="absolute">
           <img src={hope_ui} alt="" />
         </Box>
-        <Box position="absolute" height={600} mr={690} ml={-8}></Box>
-        <img src={hope} alt="" />
+        <Box
+          position="absolute"
+          height={920}
+          width={{ md: 290, sm: 60 }}
+          mr={690}
+          ml={-8}
+        >
+          <img src={hope} alt="" />
+        </Box>
       </Box>
 
       <Box sx={{ position: "absolute", right: 325 }}>
@@ -144,12 +151,12 @@ export const SignIn = () => {
         sx={{
           p: 5,
           height: "38rem",
-          width: "33rem",
+          width: "30rem",
           borderRadius: "0.5rem",
           boxShadow: 2,
           bgcolor: "white",
-          position: "relative",
-          left: 40,
+          position: "absolute",
+          left: 1000,
           top: 80,
         }}
       >
