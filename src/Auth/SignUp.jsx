@@ -261,7 +261,7 @@ export const SignUp = () => {
           <Avatar variant="contained" src={linkedin} />
         </Grid>
 
-        <Box display="flex" ml={12}>
+        <Box display="flex" width="24rem" ml={12}>
           <Typography variant="body1" sx={{ mt: 1.7, textAlign: "center" }}>
             Already have an Account
           </Typography>

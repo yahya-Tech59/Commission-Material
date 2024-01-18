@@ -144,11 +144,12 @@ export const SignIn = () => {
         sx={{
           p: 5,
           height: "38rem",
-          width: "30rem",
+          width: "33rem",
           borderRadius: "0.5rem",
           boxShadow: 2,
           bgcolor: "white",
           position: "relative",
+          left: 40,
           top: 80,
         }}
       >
@@ -274,7 +275,7 @@ export const SignIn = () => {
           <Avatar variant="contained" src={linkedin} />
         </Grid>
 
-        <Box display="flex" ml={12}>
+        <Box display="flex" width="24rem" ml={12}>
           <Typography variant="body1" sx={{ mt: 1.7, textAlign: "center" }}>
             Don't have an account?
           </Typography>
