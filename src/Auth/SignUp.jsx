@@ -21,8 +21,12 @@ import {
   Box,
   Button,
   Checkbox,
+  FormControl,
   FormControlLabel,
+  FormHelperText,
+  FormLabel,
   Grid,
+  Input,
   ListItemButton,
   ListItemText,
   Typography,
@@ -89,13 +93,14 @@ export const SignUp = () => {
         onSubmit={handleSubmit(fetchRegister)}
         sx={{
           p: 5,
-          height: "38rem",
-          width: "30rem",
+          height: "45rem",
+          width: "34rem",
           borderRadius: "0.5rem",
           boxShadow: 2,
           bgcolor: "white",
           position: "relative",
-          top: 80,
+          left: 52,
+          top: 60,
         }}
       >
         <Box
@@ -113,72 +118,112 @@ export const SignUp = () => {
           </Typography>
         </Box>
 
-        <div className="flex mt-4 gap-5">
-          <div>
-            <span className="flex flex-col gap-1">
-              <label>Full Name </label>
-              <input
-                type="text"
-                {...register("name")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mb-1  mr-1 rounded-lg w-60"
-                placeholder="john"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </span>
-            <p className="text-red-400 ml-2">{errors.name?.message}</p>
-          </div>
+        <FormControl>
+          <FormLabel>Full Name</FormLabel>
+          <Input
+            type="text"
+            {...register("name")}
+            margin="normal"
+            variant="outlined"
+            sx={{
+              backgroundColor: "#F9F9F9",
+              "&::placeholder": {
+                color: "text-slate-400",
+              },
+              padding: "0.75rem",
+              marginRight: "0.25rem",
+              borderRadius: "0.5rem",
+              width: "30rem",
+              height: "2.75rem",
+              border: "none",
+            }}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <FormHelperText error>{errors.name?.message}</FormHelperText>
+        </FormControl>
 
-          <div>
-            <span className="flex flex-col gap-1">
-              <label>Email </label>
-              <input
-                type="text"
-                {...register("email")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
-                placeholder="xyz@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </span>
-            <p className="text-red-400 ml-2">{errors.email?.message}</p>
-          </div>
-        </div>
+        <FormControl>
+          <FormLabel>Email</FormLabel>
+          <Input
+            {...register("email")}
+            sx={{
+              backgroundColor: "#F9F9F9",
+              "&::placeholder": {
+                color: "#F9F9F9",
+              },
+              padding: "0.75rem",
+              marginRight: "0.25rem",
+              borderRadius: "0.5rem",
+              width: "30rem",
+              height: "2.75rem",
+              border: "none",
+            }}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          {errors.email?.message && (
+            <FormHelperText error>{errors.email.message}</FormHelperText>
+          )}
+        </FormControl>
 
-        <div className="flex mt-4 gap-5">
-          <div>
-            <span className="flex flex-col gap-1">
-              <label>Password</label>
-              <input
-                type="password"
-                {...register("password")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
-                placeholder="xxxxxx"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </span>
-            <p className="text-red-400 ml-2">{errors.password?.message}</p>
-          </div>
+        <FormControl>
+          <FormLabel>Password</FormLabel>
+          <Input
+            type="password"
+            {...register("password")}
+            margin="normal"
+            variant="outlined"
+            sx={{
+              backgroundColor: "#F9F9F9",
+              "&::placeholder": {
+                color: "text-slate-400",
+              },
+              padding: "0.75rem",
+              marginRight: "0.25rem",
+              borderRadius: "0.5rem",
+              width: "30rem",
+              height: "2.75rem",
+              border: "none",
+            }}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          {errors.password?.message && (
+            <FormHelperText error>{errors.password.message}</FormHelperText>
+          )}
+        </FormControl>
 
-          <div>
-            <span className="flex flex-col gap-1">
-              <label>Confirm password</label>
-              <input
-                type="password"
-                {...register("ConfirmPassword")}
-                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
-                placeholder="xxxxxx"
-              />
-            </span>
-            <p className="text-red-400 ml-2">
-              {errors.ConfirmPassword?.message}
-            </p>
-          </div>
-        </div>
+        <FormControl>
+          <FormLabel>Confirm password</FormLabel>
+          <Input
+            type="password"
+            {...register("ConfirmPassword")}
+            margin="normal"
+            variant="outlined"
+            sx={{
+              backgroundColor: "#F9F9F9",
+              "&::placeholder": {
+                color: "text-slate-400",
+              },
+              padding: "0.75rem",
+              marginRight: "0.25rem",
+              borderRadius: "0.5rem",
+              width: "30rem",
+              height: "2.75rem",
+              border: "none",
+            }}
+          />
+          <FormHelperText error>
+            {errors.ConfirmPassword?.message}
+          </FormHelperText>
+        </FormControl>
 
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <FormControlLabel control={<Checkbox />} label="I agree with you" />
+        <Box ml={16}>
+          <FormControlLabel
+            control={<Checkbox />}
+            label="I agree with the terms of use "
+          />
         </Box>
 
         <Box>
@@ -186,7 +231,7 @@ export const SignUp = () => {
             type="submit"
             variant="contained"
             sx={{
-              mt: "2.75rem",
+              mt: "1.75rem",
               mb: 1,
               ml: 25,
               width: "6.375rem",
@@ -198,7 +243,7 @@ export const SignUp = () => {
           </Button>
 
           <Typography variant="body1" sx={{ textAlign: "center" }}>
-            or Sign In with other Account?
+            or Sign Up with other Account?
           </Typography>
         </Box>
 
