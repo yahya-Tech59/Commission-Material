@@ -32,6 +32,8 @@ import {
   Alert,
   Icon,
   AlertTitle,
+  ListItemButton,
+  ListItemText,
 } from "@mui/material";
 import styled from "@emotion/styled";
 
@@ -124,7 +126,7 @@ export const SignIn = () => {
                 alignItems: "center",
                 padding: "1rem",
                 borderRadius: "0.5rem",
-                backgroundColor: "#f8d7da", // Softer error background
+                backgroundColor: "#f8d7da",
                 color: "#721c24",
                 fontWeight: 600,
                 width: 420,
@@ -141,14 +143,13 @@ export const SignIn = () => {
         onSubmit={handleSubmit(fetchLogin)}
         sx={{
           p: 5,
-          height: "41rem",
-          width: "35.25rem",
+          height: "38rem",
+          width: "30rem",
           borderRadius: "0.5rem",
           boxShadow: 2,
           bgcolor: "white",
           position: "relative",
-          left: 100,
-          top: 100,
+          top: 80,
         }}
       >
         <Box
@@ -178,7 +179,7 @@ export const SignIn = () => {
               padding: "0.75rem",
               marginRight: "0.25rem",
               borderRadius: "0.5rem",
-              width: "28.25rem",
+              width: "30rem",
               height: "2.75rem",
               border: "none",
             }}
@@ -205,7 +206,7 @@ export const SignIn = () => {
               padding: "0.75rem",
               marginRight: "0.25rem",
               borderRadius: "0.5rem",
-              width: "28.25rem",
+              width: "30rem",
               height: "2.75rem",
               border: "none",
             }}
@@ -218,26 +219,24 @@ export const SignIn = () => {
         </FormControl>
 
         {/* Remember me and forget password */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: "2.375rem",
-          }}
-        >
+        <Box display="flex" justifyContent="space-between" gap="2.375rem">
           <FormControlLabel control={<Checkbox />} label="Remember Me" />
-          <Link
+          <ListItemButton
+            button
+            component={Link}
             to="/forgotPassword"
-            variant="body2"
+            variant="body1"
             label="Forget Password?"
             sx={{
-              bgcolor: "#3A57E8",
+              color: "#3A57E8",
               fontFamily: "inter",
               fontWeight: 400,
+              textDecoration: "none",
+              ml: 16,
             }}
           >
-            Forget Password
-          </Link>
+            <ListItemText primary="Forget Password" />
+          </ListItemButton>
         </Box>
 
         <Box>
@@ -246,7 +245,7 @@ export const SignIn = () => {
             variant="contained"
             sx={{
               mt: "2.75rem",
-              mb: 2,
+              mb: 1,
               ml: 25,
               width: "6.375rem",
               bgcolor: "#3A57E8",
@@ -275,12 +274,20 @@ export const SignIn = () => {
           <Avatar variant="contained" src={linkedin} />
         </Grid>
 
-        <Typography variant="body1" sx={{ mt: 3, textAlign: "center" }}>
-          Don't have an account?
-          <Link to="/signUp" variant="body2" sx={{ ml: 2, bgcolor: "#3A57E8" }}>
-            Click here to sign up.
-          </Link>
-        </Typography>
+        <Box display="flex" ml={12}>
+          <Typography variant="body1" sx={{ mt: 1.7, textAlign: "center" }}>
+            Don't have an account?
+          </Typography>
+          <ListItemButton
+            button
+            component={Link}
+            to="/signUp"
+            variant="body2"
+            sx={{ color: "#3A57E8" }}
+          >
+            <ListItemText primary="Click here to sign up" />
+          </ListItemButton>
+        </Box>
       </Box>
     </Box>
   );

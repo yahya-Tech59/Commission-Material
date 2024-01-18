@@ -16,6 +16,17 @@ import {
 } from "../assets/img";
 import { Link } from "react-router-dom";
 import axios from "../Services/axiosConfig";
+import {
+  Avatar,
+  Box,
+  Button,
+  Checkbox,
+  FormControlLabel,
+  Grid,
+  ListItemButton,
+  ListItemText,
+  Typography,
+} from "@mui/material";
 
 export const SignUp = () => {
   const [name, setName] = useState("");
@@ -59,117 +70,167 @@ export const SignUp = () => {
   }
 
   return (
-    <div className="flex bg-slate-100">
-      <div>
-        <div className="absolute">
-          <img src={hope_ui} alt="" className="w-[10rem] h-10 mt-10 ml-10" />
-        </div>
-        <img src={hope} alt="" className="h-screen w-[80rem]" />
-      </div>
-      <form
+    <Box display="flex" height="100%" bgcolor="#f8fafc" overflow="hidden">
+      <Box>
+        <Box
+          display="flex"
+          width={{ md: "10rem", sm: "2rem" }}
+          mt={10}
+          ml={10}
+          position="absolute"
+        >
+          <img src={hope_ui} alt="" />
+        </Box>
+        <Box position="absolute" height={600} mr={690} ml={-8}></Box>
+        <img src={hope} alt="" />
+      </Box>
+      <Box
+        component="form"
         onSubmit={handleSubmit(fetchRegister)}
-        className="flex flex-col ml-56 mr-80 mb-12 mt-32 gap-1 bg-white shadow-slate-300 shadow-sm w-[55rem] h-[42rem] rounded-xl p-3"
+        sx={{
+          p: 5,
+          height: "38rem",
+          width: "30rem",
+          borderRadius: "0.5rem",
+          boxShadow: 2,
+          bgcolor: "white",
+          position: "relative",
+          top: 80,
+        }}
       >
-        <div className="pb-16 ml-5 mt-8">
-          <h2 className="text-3xl ml-40">Sign Up</h2>
-          <h2 className="text-lg ml-28 mt-2">Create Your Hope UI Account</h2>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <Typography variant="h3" sx={{ mb: 3 }}>
+            Sign Up
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 5 }}>
+            Create your Hope UI account
+          </Typography>
+        </Box>
 
-          <div className="flex mt-4 gap-5">
-            <div>
-              <span className="flex flex-col gap-1">
-                <label>Full Name </label>
-                <input
-                  type="text"
-                  {...register("name")}
-                  className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mb-1  mr-1 rounded-lg w-60"
-                  placeholder="john"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                />
-              </span>
-              <p className="text-red-400 ml-2">{errors.name?.message}</p>
-            </div>
-
-            <div>
-              <span className="flex flex-col gap-1">
-                <label>Email </label>
-                <input
-                  type="text"
-                  {...register("email")}
-                  className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
-                  placeholder="xyz@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </span>
-              <p className="text-red-400 ml-2">{errors.email?.message}</p>
-            </div>
+        <div className="flex mt-4 gap-5">
+          <div>
+            <span className="flex flex-col gap-1">
+              <label>Full Name </label>
+              <input
+                type="text"
+                {...register("name")}
+                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mb-1  mr-1 rounded-lg w-60"
+                placeholder="john"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </span>
+            <p className="text-red-400 ml-2">{errors.name?.message}</p>
           </div>
 
-          <div className="flex mt-4 gap-5">
-            <div>
-              <span className="flex flex-col gap-1">
-                <label>Password</label>
-                <input
-                  type="password"
-                  {...register("password")}
-                  className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
-                  placeholder="xxxxxx"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </span>
-              <p className="text-red-400 ml-2">{errors.password?.message}</p>
-            </div>
+          <div>
+            <span className="flex flex-col gap-1">
+              <label>Email </label>
+              <input
+                type="text"
+                {...register("email")}
+                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
+                placeholder="xyz@example.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </span>
+            <p className="text-red-400 ml-2">{errors.email?.message}</p>
+          </div>
+        </div>
 
-            <div>
-              <span className="flex flex-col gap-1">
-                <label>Confirm password</label>
-                <input
-                  type="password"
-                  {...register("ConfirmPassword")}
-                  className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
-                  placeholder="xxxxxx"
-                />
-              </span>
-              <p className="text-red-400 ml-2">
-                {errors.ConfirmPassword?.message}
-              </p>
-            </div>
+        <div className="flex mt-4 gap-5">
+          <div>
+            <span className="flex flex-col gap-1">
+              <label>Password</label>
+              <input
+                type="password"
+                {...register("password")}
+                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
+                placeholder="xxxxxx"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </span>
+            <p className="text-red-400 ml-2">{errors.password?.message}</p>
           </div>
 
-          <div className="flex mt-6 gap-4 justify-center ">
-            <input type="checkbox" />
-            <p>I agree With The Terms Of Use</p>
+          <div>
+            <span className="flex flex-col gap-1">
+              <label>Confirm password</label>
+              <input
+                type="password"
+                {...register("ConfirmPassword")}
+                className=" bg-[#F9F9F9] placeholder:text-slate-400 p-3 mr-1 rounded-lg w-60"
+                placeholder="xxxxxx"
+              />
+            </span>
+            <p className="text-red-400 ml-2">
+              {errors.ConfirmPassword?.message}
+            </p>
           </div>
-          <button
+        </div>
+
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <FormControlLabel control={<Checkbox />} label="I agree with you" />
+        </Box>
+
+        <Box>
+          <Button
             type="submit"
-            className="p-1 mr-1 rounded-lg w-28 h-12 ml-48 mt-10 bg-blue-700 text-white text-xl "
+            variant="contained"
+            sx={{
+              mt: "2.75rem",
+              mb: 1,
+              ml: 25,
+              width: "6.375rem",
+              bgcolor: "#3A57E8",
+              fontFamily: "inter",
+            }}
           >
             Sign Up
-          </button>
-        </div>
+          </Button>
 
-        <div className="flex flex-col">
-          <h2 className="relative bottom-10 text-center">
-            or Sign Up with other Accounts?
-          </h2>
+          <Typography variant="body1" sx={{ textAlign: "center" }}>
+            or Sign In with other Account?
+          </Typography>
+        </Box>
 
-          <div className="flex justify-center gap-3 ">
-            <img src={Google} alt="" />
-            <img src={facebook} alt="" className="h-6 mt-1" />
-            <img src={instagram} alt="" />
-            <img src={linkedin} alt="" />
-          </div>
+        <Grid
+          sx={{ display: "flex", mt: 2, gap: "1.5rem" }}
+          justifyContent="center"
+        >
+          <Avatar variant="contained" src={Google} />
+          <Avatar
+            variant="contained"
+            src={facebook}
+            sx={{ height: 24, width: 24, mt: 0.5 }}
+          />
+          <Avatar variant="contained" src={instagram} />
+          <Avatar variant="contained" src={linkedin} />
+        </Grid>
 
-          <h2 className="text-center mt-3">
-            Already have an account
-            <Link className="text-blue-600 ml-1" to="/">
-              Sign In
-            </Link>
-          </h2>
-        </div>
-      </form>
-    </div>
+        <Box display="flex" ml={12}>
+          <Typography variant="body1" sx={{ mt: 1.7, textAlign: "center" }}>
+            Already have an Account
+          </Typography>
+          <ListItemButton
+            button
+            component={Link}
+            to="/signIn"
+            variant="body2"
+            sx={{ color: "#3A57E8" }}
+          >
+            <ListItemText primary="Click here to sign In" />
+          </ListItemButton>
+        </Box>
+      </Box>
+    </Box>
   );
 };
